@@ -5,9 +5,7 @@ import jwt from "jsonwebtoken";
 import { sendMail } from "../utils/sendEmail";
 import { randomBytes } from "crypto";
 
-/* =========================
-   REGISTER
-========================= */
+
 export const register = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
@@ -57,10 +55,6 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-
-/* =========================
-   LOGIN
-========================= */
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
@@ -97,12 +91,17 @@ export const login = async (req: Request, res: Response) => {
 
     // ✅ Generate JWT
     const token = jwt.sign(
-      { id: user.id },
+      { id: user.id, role: user.role},
       process.env.JWT_SECRET as string,
       { expiresIn: "1d" }
     );
 
-    return res.json({ token });
+    return res.json({ token, user: {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,   // 👈 VERY IMPORTANT
+  }, });
 
   } catch (error) {
     console.error("Login Error:", error);
@@ -112,9 +111,6 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
-/* =========================
-   FORGOT PASSWORD
-========================= */
 export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
 
@@ -160,9 +156,6 @@ export const forgotPassword = async (req: Request, res: Response) => {
   return res.json({ message: "Reset email sent successfully" });
 };
 
-/* =========================
-   RESET PASSWORD
-========================= */
 export const resetPassword = async (req: Request, res: Response) => {
   const { token, newPassword } = req.body;
 
@@ -185,4 +178,28 @@ export const resetPassword = async (req: Request, res: Response) => {
   );
 
   res.json({ message: "Password reset successful" });
+};
+
+export const getMyProfile = async (req: any, res: Response) => {
+  try {
+    const userId = req.user.id;
+
+    const [rows]: any = await pool.query(
+      `
+      SELECT id, name, email, role, created_at
+      FROM users
+      WHERE id = ?
+      `,
+      [userId]
+    );
+
+    if (!rows.length) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(rows[0]);
+
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
 };
