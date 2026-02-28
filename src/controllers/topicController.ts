@@ -80,32 +80,110 @@ export const deleteTopic = async (req: Request, res: Response) => {
   }
 };
 
-export const getTopicByTopicName = async (req: Request, res: Response) => {
+export const getTopicWithProblems = async (req: Request, res: Response) => {
   const { slug } = req.params;
+  const userId = (req as any).user?.id;
 
   try {
-    const [topicRows]: any = await pool.query(
+    const [topics]: any = await pool.query(
       "SELECT * FROM topics WHERE slug = ?",
       [slug]
     );
 
-    if (topicRows.length === 0) {
+    if (topics.length === 0) {
       return res.status(404).json({ message: "Topic not found" });
     }
 
-    const topic = topicRows[0];
+    const topic = topics[0];
 
-    const [problemRows]: any = await pool.query(
-      "SELECT * FROM problems WHERE topic_id = ? ORDER BY created_at DESC",
-      [topic.id]
-    );
+    const [problems]: any = await pool.query(`
+      SELECT p.*,
+      CASE WHEN sp.id IS NOT NULL THEN 1 ELSE 0 END AS isSolved
+      FROM problems p
+      LEFT JOIN solved_problems sp
+        ON p.id = sp.problem_id
+        AND sp.user_id = ?
+      WHERE p.topic_id = ?
+    `, [userId, topic.id]);
 
     res.json({
-      topic,
-      problems: problemRows,
+      ...topic,
+      problems
     });
 
-  } catch (error: any) {
-    res.status(500).json({ message: error.message });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const addProblem = async (req: Request, res: Response) => {
+  try {
+    const { title, difficulty, leetcode_link, topic_id } = req.body;
+
+    if (!title || !difficulty || !topic_id) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    await pool.query(
+      "INSERT INTO problems (title, difficulty, leetcode_link, topic_id) VALUES (?, ?, ?, ?)",
+      [title, difficulty, leetcode_link, topic_id]
+    );
+
+    res.json({ message: "Problem added successfully" });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const markProblemSolved = async (req: Request, res: Response) => {
+  const userId = (req as any).user.id;
+  const problemId = req.params.id;
+
+  try {
+    await pool.query(
+      "INSERT IGNORE INTO solved_problems (user_id, problem_id) VALUES (?, ?)",
+      [userId, problemId]
+    );
+
+    res.json({ message: "Marked as solved" });
+
+  } catch (err) {
+    res.status(500).json({ message: "Error marking solved" });
+  }
+};
+
+export const unmarkProblemSolved = async (req: Request, res: Response) => {
+  const userId = (req as any).user.id;
+  const problemId = req.params.id;
+
+  try {
+    await pool.query(
+      "DELETE FROM solved_problems WHERE user_id = ? AND problem_id = ?",
+      [userId, problemId]
+    );
+
+    res.json({ message: "Marked as unsolved" });
+
+  } catch (err) {
+    res.status(500).json({ message: "Error marking unsolved" });
+  }
+};
+
+export const updateTopic = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { title, description, summary } = req.body;
+
+  try {
+    await pool.query(
+      "UPDATE topics SET title = ?, description = ?, summary = ? WHERE id = ?",
+      [title, description, summary, id]
+    );
+
+    res.json({ message: "Topic updated successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Error updating topic" });
   }
 };

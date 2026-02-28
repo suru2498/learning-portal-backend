@@ -5,6 +5,9 @@ import jwt from "jsonwebtoken";
 import { sendMail } from "../utils/sendEmail";
 import { randomBytes } from "crypto";
 
+interface AuthRequest extends Request {
+  user?: any;
+}
 
 export const register = async (req: Request, res: Response) => {
   try {
@@ -180,26 +183,60 @@ export const resetPassword = async (req: Request, res: Response) => {
   res.json({ message: "Password reset successful" });
 };
 
-export const getMyProfile = async (req: any, res: Response) => {
+export const getMyProfile = async (req: AuthRequest, res: Response) => {
   try {
     const userId = req.user.id;
 
     const [rows]: any = await pool.query(
-      `
-      SELECT id, name, email, role, created_at
-      FROM users
-      WHERE id = ?
-      `,
+      "SELECT id, name, email, role, created_at FROM users WHERE id = ?",
       [userId]
     );
 
-    if (!rows.length) {
+    if (rows.length === 0) {
       return res.status(404).json({ message: "User not found" });
     }
 
     res.json(rows[0]);
 
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    console.error("GetMe Error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const updateMyProfile = async (req: AuthRequest, res: Response) => {
+  try {
+    const userId = req.user.id;
+    const { name, email } = req.body;
+
+    if (!name || !email) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
+
+    // Check if email already exists (for other users)
+    const [existing]: any = await pool.query(
+      "SELECT id FROM users WHERE email = ? AND id != ?",
+      [email, userId]
+    );
+
+    if (existing.length > 0) {
+      return res.status(400).json({ message: "Email already in use" });
+    }
+
+    await pool.query(
+      "UPDATE users SET name = ?, email = ? WHERE id = ?",
+      [name, email, userId]
+    );
+
+    const [updatedUser]: any = await pool.query(
+      "SELECT id, name, email, role, created_at FROM users WHERE id = ?",
+      [userId]
+    );
+
+    res.json(updatedUser[0]);
+
+  } catch (err) {
+    console.error("UpdateMe Error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 };
