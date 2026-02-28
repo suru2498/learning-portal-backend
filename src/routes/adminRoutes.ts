@@ -6,8 +6,8 @@ import { createTopic,deleteTopic,createProblem,deleteProblem } from "../controll
 const router = Router();
 
 router.post("/topics", verifyToken, verifyAdmin, createTopic);
-router.delete("/topics/:id", verifyToken, verifyAdmin, deleteTopic);
 router.post("/problems", verifyToken, verifyAdmin, createProblem);
+router.delete("/topics/:id", verifyToken, verifyAdmin, deleteTopic);
 router.delete("/problems/:id", verifyToken, verifyAdmin, deleteProblem);
 
 export default router;

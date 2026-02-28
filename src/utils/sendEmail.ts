@@ -1,7 +1,8 @@
 import nodemailer from "nodemailer";
 import { pool } from "../config/db";
+import { logger } from "../utils/logger";
 
-// Create transporter ONCE (not inside function)
+// Create transporter ONCE
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -22,26 +23,33 @@ export const sendMail = async (
   let finalHtml = "";
 
   try {
-    // 1️⃣ Fetch template
+    /* ======================================================
+       1️⃣ Fetch Template
+    ====================================================== */
     const [rows]: any = await pool.query(
       "SELECT subject, html_content FROM email_templates WHERE name = ?",
       [templateName]
     );
 
     if (!rows || rows.length === 0) {
+      logger.warn("SendMail: Template not found", { templateName });
       throw new Error("Email template not found");
     }
 
     subject = rows[0].subject;
     finalHtml = rows[0].html_content;
 
-    // 2️⃣ Replace variables dynamically
+    /* ======================================================
+       2️⃣ Replace Variables
+    ====================================================== */
     Object.keys(variables).forEach((key) => {
       const regex = new RegExp(`{{${key}}}`, "g");
       finalHtml = finalHtml.replace(regex, variables[key]);
     });
 
-    // 3️⃣ Send email
+    /* ======================================================
+       3️⃣ Send Email
+    ====================================================== */
     await transporter.sendMail({
       from: `"DSA Portal 🚀" <${process.env.EMAIL_USER}>`,
       to,
@@ -49,31 +57,62 @@ export const sendMail = async (
       html: finalHtml,
     });
 
-    // 4️⃣ Log success
-    await pool.query(
-      `INSERT INTO email_logs 
-       (user_id, email, subject, html_content, status) 
-       VALUES (?, ?, ?, ?, ?)`,
-      [userId, to, subject, finalHtml, "SUCCESS"]
-    );
+    logger.info("Email sent successfully", {
+      userId,
+      to,
+      templateName,
+    });
+
+    /* ======================================================
+       4️⃣ Log Success In DB
+    ====================================================== */
+    try {
+      await pool.query(
+        `INSERT INTO email_logs 
+         (user_id, email, subject, html_content, status) 
+         VALUES (?, ?, ?, ?, ?)`,
+        [userId, to, subject, finalHtml, "SUCCESS"]
+      );
+    } catch (logError: any) {
+      logger.error("SendMail: Failed to log SUCCESS email", {
+        message: logError.message,
+      });
+    }
 
   } catch (error: any) {
 
-    await pool.query(
-      `INSERT INTO email_logs 
-       (user_id, email, subject, html_content, status, error_message) 
-       VALUES (?, ?, ?, ?, ?, ?)`,
-      [
-        userId,
-        to,
-        subject || templateName,
-        finalHtml || "",
-        "FAILED",
-        error.message
-      ]
-    );
+    logger.error("SendMail Error", {
+      message: error.message,
+      stack: error.stack,
+      userId,
+      to,
+      templateName,
+    });
 
-    console.error("Email Error:", error.message);
-    throw error;
+    /* ======================================================
+       Log Failure In DB (Safe)
+    ====================================================== */
+    try {
+      await pool.query(
+        `INSERT INTO email_logs 
+         (user_id, email, subject, html_content, status, error_message) 
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [
+          userId,
+          to,
+          subject || templateName,
+          finalHtml || "",
+          "FAILED",
+          error.message,
+        ]
+      );
+    } catch (logError: any) {
+      logger.error("SendMail: Failed to log FAILED email", {
+        message: logError.message,
+      });
+    }
+
+    // Re-throw so calling controller can decide what to do
+    throw new Error("Email sending failed");
   }
 };

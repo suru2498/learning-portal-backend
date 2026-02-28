@@ -1,0 +1,996 @@
+2026-02-28T05:54:43.882Z [info]: Categories fetched successfully
+2026-02-28T05:54:43.885Z [info]: Categories fetched successfully
+2026-02-28T05:54:49.688Z [info]: Categories fetched successfully
+2026-02-28T05:54:49.690Z [info]: Categories fetched successfully
+2026-02-28T05:55:35.533Z [info]: Topics fetched successfully
+2026-02-28T05:55:35.538Z [info]: Topics fetched successfully
+2026-02-28T05:55:39.345Z [info]: verifyToken: Token verified successfully
+2026-02-28T05:55:39.349Z [info]: Topic with problems fetched
+2026-02-28T05:55:39.353Z [info]: verifyToken: Token verified successfully
+2026-02-28T05:55:39.357Z [info]: Topic with problems fetched
+2026-02-28T05:58:23.044Z [info]: Topics fetched successfully
+2026-02-28T05:58:23.049Z [info]: Topics fetched successfully
+2026-02-28T05:58:33.147Z [info]: verifyToken: Token verified successfully
+2026-02-28T05:58:33.150Z [info]: Topic with problems fetched
+2026-02-28T05:58:33.152Z [info]: verifyToken: Token verified successfully
+2026-02-28T05:58:33.154Z [info]: Topic with problems fetched
+2026-02-28T06:01:37.548Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:01:37.556Z [info]: Topic with problems fetched
+2026-02-28T06:01:45.214Z [info]: Topics fetched successfully
+2026-02-28T06:01:45.218Z [info]: Topics fetched successfully
+2026-02-28T06:01:47.711Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:01:47.713Z [info]: Topic with problems fetched
+2026-02-28T06:02:02.110Z [info]: Categories fetched successfully
+2026-02-28T06:02:02.112Z [info]: Categories fetched successfully
+2026-02-28T06:02:04.055Z [info]: Topics fetched successfully
+2026-02-28T06:02:04.058Z [info]: Topics fetched successfully
+2026-02-28T06:02:05.347Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:02:05.350Z [info]: Topic with problems fetched
+2026-02-28T06:02:14.650Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:02:14.651Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:02:14.657Z [info]: Topic updated successfully
+2026-02-28T06:02:14.666Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:02:14.669Z [info]: Topic with problems fetched
+2026-02-28T06:02:33.482Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:02:33.483Z [info]: Topic with problems fetched
+2026-02-28T06:02:59.860Z [info]: Categories fetched successfully
+2026-02-28T06:02:59.864Z [info]: Categories fetched successfully
+2026-02-28T06:04:28.533Z [info]: Categories fetched successfully
+2026-02-28T06:04:36.082Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:04:36.085Z [info]: Profile fetched successfully
+2026-02-28T06:04:36.088Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:04:36.090Z [info]: Profile fetched successfully
+2026-02-28T06:04:37.575Z [info]: Categories fetched successfully
+2026-02-28T06:05:18.312Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:18.314Z [info]: Profile fetched successfully
+2026-02-28T06:05:18.317Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:18.319Z [info]: Profile fetched successfully
+2026-02-28T06:05:25.894Z [info]: Categories fetched successfully
+2026-02-28T06:05:27.191Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:27.193Z [info]: Profile fetched successfully
+2026-02-28T06:05:27.195Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:27.195Z [info]: Profile fetched successfully
+2026-02-28T06:05:49.440Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:49.441Z [info]: Profile fetched successfully
+2026-02-28T06:05:50.873Z [info]: Categories fetched successfully
+2026-02-28T06:05:53.175Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:05:53.176Z [info]: Profile fetched successfully
+2026-02-28T06:05:54.340Z [info]: Categories fetched successfully
+2026-02-28T06:13:09.892Z [info]: verifyToken: Token verified successfully
+2026-02-28T06:13:09.894Z [info]: Profile fetched successfully
+2026-02-28T06:13:44.016Z [info]: Categories fetched successfully
+2026-02-28T06:13:48.308Z [info]: Profile fetched successfully
+2026-02-28T06:13:52.716Z [info]: Categories fetched successfully
+2026-02-28T06:14:19.793Z [info]: User logged in successfully
+2026-02-28T06:14:19.811Z [info]: Categories fetched successfully
+2026-02-28T06:14:30.770Z [info]: Profile fetched successfully
+2026-02-28T06:14:33.461Z [info]: Categories fetched successfully
+2026-02-28T06:14:35.482Z [info]: Topics fetched successfully
+2026-02-28T06:14:42.126Z [info]: Categories fetched successfully
+2026-02-28T06:14:44.446Z [info]: Topics fetched successfully
+2026-02-28T06:14:48.848Z [info]: Topic with problems fetched
+2026-02-28T06:14:53.796Z [info]: Topics fetched successfully
+2026-02-28T06:14:54.593Z [info]: Categories fetched successfully
+2026-02-28T06:14:56.134Z [info]: Topics fetched successfully
+2026-02-28T06:14:57.896Z [info]: Topic with problems fetched
+2026-02-28T06:15:17.141Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:15:17.146Z [info]: Topic updated successfully
+2026-02-28T06:15:17.155Z [info]: Topic with problems fetched
+2026-02-28T06:15:35.923Z [info]: Categories fetched successfully
+2026-02-28T06:15:37.827Z [info]: Topics fetched successfully
+2026-02-28T06:15:42.380Z [info]: Topic with problems fetched
+2026-02-28T06:15:45.396Z [info]: Topics fetched successfully
+2026-02-28T06:15:46.615Z [info]: Topic with problems fetched
+2026-02-28T06:16:17.291Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:16:17.293Z [info]: Problem added successfully
+2026-02-28T06:16:17.298Z [info]: Topic with problems fetched
+2026-02-28T06:16:22.142Z [info]: Problem marked as solved
+2026-02-28T06:16:22.149Z [info]: Topic with problems fetched
+2026-02-28T06:16:53.808Z [info]: Problem unmarked as solved
+2026-02-28T06:16:53.817Z [info]: Topic with problems fetched
+2026-02-28T06:17:08.789Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:17:08.791Z [info]: Topic deleted successfully
+2026-02-28T06:17:08.806Z [info]: Topics fetched successfully
+2026-02-28T06:17:23.330Z [warn]: GetTopicWithProblems: Topic not found
+2026-02-28T06:17:25.526Z [info]: Categories fetched successfully
+2026-02-28T06:17:28.440Z [info]: Topics fetched successfully
+2026-02-28T06:17:30.430Z [info]: Topic with problems fetched
+2026-02-28T06:17:36.090Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:17:36.091Z [info]: Topic updated successfully
+2026-02-28T06:17:36.100Z [info]: Topic with problems fetched
+2026-02-28T06:17:46.243Z [info]: Categories fetched successfully
+2026-02-28T06:18:09.826Z [info]: Topics fetched successfully
+2026-02-28T06:18:11.412Z [info]: Categories fetched successfully
+2026-02-28T06:18:13.260Z [info]: Topics fetched successfully
+2026-02-28T06:18:16.013Z [info]: Categories fetched successfully
+2026-02-28T06:18:22.876Z [info]: Topics fetched successfully
+2026-02-28T06:18:24.298Z [info]: Categories fetched successfully
+2026-02-28T06:18:24.960Z [info]: Topics fetched successfully
+2026-02-28T06:18:26.242Z [info]: Categories fetched successfully
+2026-02-28T06:18:45.046Z [info]: Categories fetched successfully
+2026-02-28T06:22:37.169Z [info]: Topics fetched successfully
+2026-02-28T06:22:38.959Z [info]: Categories fetched successfully
+2026-02-28T06:22:43.523Z [info]: Topics fetched successfully
+2026-02-28T06:22:45.545Z [info]: Categories fetched successfully
+2026-02-28T06:22:47.009Z [info]: Topics fetched successfully
+2026-02-28T06:22:49.489Z [info]: Categories fetched successfully
+2026-02-28T06:22:50.309Z [info]: Topics fetched successfully
+2026-02-28T06:22:51.594Z [info]: Categories fetched successfully
+2026-02-28T06:22:52.690Z [info]: Topics fetched successfully
+2026-02-28T06:22:54.375Z [info]: Categories fetched successfully
+2026-02-28T06:22:57.159Z [info]: Topics fetched successfully
+2026-02-28T06:22:58.460Z [info]: Categories fetched successfully
+2026-02-28T06:22:59.791Z [info]: Topics fetched successfully
+2026-02-28T06:23:01.043Z [info]: Categories fetched successfully
+2026-02-28T06:23:25.689Z [info]: verifyAdmin: Admin access granted
+2026-02-28T06:23:25.693Z [info]: Category added successfully
+2026-02-28T06:23:25.698Z [info]: Categories fetched successfully
+2026-02-28T06:23:52.105Z [info]: Categories fetched successfully
+2026-02-28T06:24:19.946Z [info]: Categories fetched successfully
+2026-02-28T06:26:03.849Z [info]: Categories fetched successfully
+2026-02-28T06:26:47.777Z [info]: Categories fetched successfully
+2026-02-28T06:26:50.510Z [info]: Categories fetched successfully
+2026-02-28T06:26:51.011Z [info]: Categories fetched successfully
+2026-02-28T06:26:51.547Z [info]: Categories fetched successfully
+2026-02-28T06:26:53.404Z [info]: Categories fetched successfully
+2026-02-28T06:26:54.185Z [info]: Categories fetched successfully
+2026-02-28T06:26:54.953Z [info]: Categories fetched successfully
+2026-02-28T06:26:55.601Z [info]: Categories fetched successfully
+2026-02-28T06:30:57.545Z [info]: Categories fetched successfully
+2026-02-28T06:31:03.735Z [info]: Categories fetched successfully
+2026-02-28T06:31:08.821Z [info]: Topics fetched successfully
+2026-02-28T06:31:14.203Z [info]: Categories fetched successfully
+2026-02-28T06:31:14.765Z [info]: Topics fetched successfully
+2026-02-28T06:31:18.599Z [info]: Profile fetched successfully
+2026-02-28T06:31:48.164Z [info]: Profile fetched successfully
+2026-02-28T06:31:49.253Z [info]: Categories fetched successfully
+2026-02-28T06:31:50.578Z [info]: Profile fetched successfully
+2026-02-28T06:31:51.512Z [info]: Categories fetched successfully
+2026-02-28T06:33:04.191Z [info]: User logged in successfully
+2026-02-28T06:33:04.213Z [info]: Categories fetched successfully
+2026-02-28T06:33:08.160Z [info]: Profile fetched successfully
+2026-02-28T06:33:09.991Z [info]: Topics fetched successfully
+2026-02-28T06:33:12.022Z [info]: Categories fetched successfully
+2026-02-28T06:33:12.629Z [info]: Topics fetched successfully
+2026-02-28T06:33:15.773Z [info]: Categories fetched successfully
+2026-02-28T06:33:17.314Z [info]: Topics fetched successfully
+2026-02-28T06:34:13.538Z [info]: Categories fetched successfully
+2026-02-28T06:34:51.147Z [info]: Topics fetched successfully
+2026-02-28T06:34:58.975Z [info]: Profile fetched successfully
+2026-02-28T06:35:00.578Z [info]: Categories fetched successfully
+2026-02-28T06:35:01.079Z [info]: Topics fetched successfully
+2026-02-28T06:35:06.913Z [info]: Profile fetched successfully
+2026-02-28T06:35:08.143Z [info]: Topics fetched successfully
+2026-02-28T06:35:09.144Z [info]: Profile fetched successfully
+2026-02-28T06:35:09.722Z [info]: Topics fetched successfully
+2026-02-28T06:35:10.578Z [info]: Profile fetched successfully
+2026-02-28T06:35:11.103Z [info]: Topics fetched successfully
+2026-02-28T06:35:15.609Z [info]: Categories fetched successfully
+2026-02-28T06:35:16.227Z [info]: Topics fetched successfully
+2026-02-28T06:35:16.885Z [info]: Categories fetched successfully
+2026-02-28T06:35:17.586Z [info]: Topics fetched successfully
+2026-02-28T06:35:19.036Z [info]: Categories fetched successfully
+2026-02-28T06:35:19.727Z [info]: Topics fetched successfully
+2026-02-28T06:35:20.471Z [info]: Categories fetched successfully
+2026-02-28T06:35:21.127Z [info]: Topics fetched successfully
+2026-02-28T06:35:21.706Z [info]: Profile fetched successfully
+2026-02-28T06:35:22.336Z [info]: Topics fetched successfully
+2026-02-28T06:35:23.071Z [info]: Profile fetched successfully
+2026-02-28T06:35:23.869Z [info]: Topics fetched successfully
+2026-02-28T06:35:24.856Z [info]: Profile fetched successfully
+2026-02-28T06:35:25.393Z [info]: Topics fetched successfully
+2026-02-28T06:35:26.039Z [info]: Profile fetched successfully
+2026-02-28T06:35:26.619Z [info]: Topics fetched successfully
+2026-02-28T06:37:24.538Z [info]: Topics fetched successfully
+2026-02-28T06:37:28.443Z [info]: Topics fetched successfully
+2026-02-28T06:37:29.376Z [info]: Topics fetched successfully
+2026-02-28T06:37:30.336Z [info]: Topics fetched successfully
+2026-02-28T06:37:31.301Z [info]: Topics fetched successfully
+2026-02-28T06:37:31.902Z [info]: Topics fetched successfully
+2026-02-28T06:37:32.496Z [info]: Profile fetched successfully
+2026-02-28T06:37:33.935Z [info]: Categories fetched successfully
+2026-02-28T06:37:34.792Z [info]: Topics fetched successfully
+2026-02-28T06:37:34.795Z [info]: Topics fetched successfully
+2026-02-28T06:41:09.602Z [info]: Topics fetched successfully
+2026-02-28T06:41:09.605Z [info]: Topics fetched successfully
+2026-02-28T06:41:12.121Z [info]: Topics fetched successfully
+2026-02-28T06:41:13.036Z [info]: Topics fetched successfully
+2026-02-28T06:46:33.920Z [info]: Topics fetched successfully
+2026-02-28T06:46:33.924Z [info]: Topics fetched successfully
+2026-02-28T06:46:36.587Z [info]: Topic with problems fetched
+2026-02-28T06:46:38.841Z [info]: Topics fetched successfully
+2026-02-28T06:46:38.844Z [info]: Topics fetched successfully
+2026-02-28T06:46:39.651Z [info]: Topic with problems fetched
+2026-02-28T06:46:40.819Z [info]: Topics fetched successfully
+2026-02-28T06:46:40.822Z [info]: Topics fetched successfully
+2026-02-28T06:46:41.570Z [info]: Topic with problems fetched
+2026-02-28T06:46:42.490Z [info]: Topics fetched successfully
+2026-02-28T06:46:42.494Z [info]: Topics fetched successfully
+2026-02-28T06:46:43.355Z [info]: Topic with problems fetched
+2026-02-28T06:46:44.545Z [info]: Topics fetched successfully
+2026-02-28T06:46:44.548Z [info]: Topics fetched successfully
+2026-02-28T06:46:52.852Z [info]: Topic with problems fetched
+2026-02-28T06:46:53.988Z [info]: Topics fetched successfully
+2026-02-28T06:46:53.990Z [info]: Topics fetched successfully
+2026-02-28T06:47:06.380Z [info]: Topics fetched successfully
+2026-02-28T06:47:06.389Z [info]: Topics fetched successfully
+2026-02-28T17:30:35.179Z [info]: Categories fetched successfully
+2026-02-28T17:30:36.211Z [info]: Topics fetched successfully
+2026-02-28T17:30:36.214Z [info]: Topics fetched successfully
+2026-02-28T17:35:10.915Z [info]: Topics fetched successfully
+2026-02-28T17:35:10.920Z [info]: Topics fetched successfully
+2026-02-28T17:35:12.395Z [info]: Topic with problems fetched
+2026-02-28T17:35:13.883Z [info]: Topics fetched successfully
+2026-02-28T17:35:13.886Z [info]: Topics fetched successfully
+2026-02-28T17:35:14.702Z [info]: Topic with problems fetched
+2026-02-28T17:35:15.785Z [info]: Topics fetched successfully
+2026-02-28T17:35:15.789Z [info]: Topics fetched successfully
+2026-02-28T17:35:51.035Z [info]: Topic with problems fetched
+2026-02-28T17:35:52.701Z [info]: Topics fetched successfully
+2026-02-28T17:35:52.706Z [info]: Topics fetched successfully
+2026-02-28T17:35:53.553Z [info]: Topic with problems fetched
+2026-02-28T17:35:54.718Z [info]: Topics fetched successfully
+2026-02-28T17:35:54.722Z [info]: Topics fetched successfully
+2026-02-28T17:35:58.237Z [info]: Topic with problems fetched
+2026-02-28T17:41:36.802Z [info]: Topic with problems fetched
+2026-02-28T17:58:31.566Z [info]: Topic with problems fetched
+2026-02-28T18:06:49.911Z [info]: Topics fetched successfully
+2026-02-28T18:06:49.916Z [info]: Topics fetched successfully
+2026-02-28T18:06:52.870Z [info]: Topics fetched successfully
+2026-02-28T18:06:52.876Z [info]: Topics fetched successfully
+2026-02-28T18:06:54.819Z [info]: Topics fetched successfully
+2026-02-28T18:06:54.822Z [info]: Topics fetched successfully
+2026-02-28T18:06:56.067Z [info]: Profile fetched successfully
+2026-02-28T18:06:56.736Z [info]: Topics fetched successfully
+2026-02-28T18:06:56.740Z [info]: Topics fetched successfully
+2026-02-28T18:06:58.266Z [info]: Topic with problems fetched
+2026-02-28T18:07:06.563Z [info]: Topics fetched successfully
+2026-02-28T18:07:06.567Z [info]: Topics fetched successfully
+2026-02-28T18:07:07.902Z [info]: Topic with problems fetched
+2026-02-28T18:07:12.179Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:07:12.197Z [info]: Topic updated successfully
+2026-02-28T18:07:12.206Z [info]: Topic with problems fetched
+2026-02-28T18:07:16.979Z [info]: Problem marked as solved
+2026-02-28T18:07:17.002Z [info]: Topic with problems fetched
+2026-02-28T18:07:18.090Z [info]: Problem unmarked as solved
+2026-02-28T18:07:18.099Z [info]: Topic with problems fetched
+2026-02-28T18:07:18.859Z [info]: Problem marked as solved
+2026-02-28T18:07:18.867Z [info]: Topic with problems fetched
+2026-02-28T18:07:19.491Z [info]: Problem unmarked as solved
+2026-02-28T18:07:19.502Z [info]: Topic with problems fetched
+2026-02-28T18:07:23.250Z [info]: Topics fetched successfully
+2026-02-28T18:07:23.253Z [info]: Topics fetched successfully
+2026-02-28T18:07:24.082Z [info]: Fetching child topics
+2026-02-28T18:07:24.083Z [info]: Parent topic found
+2026-02-28T18:07:24.084Z [info]: Child topics fetched successfully
+2026-02-28T18:07:24.086Z [info]: Fetching child topics
+2026-02-28T18:07:24.087Z [info]: Parent topic found
+2026-02-28T18:07:24.088Z [info]: Child topics fetched successfully
+2026-02-28T18:07:25.801Z [info]: Topics fetched successfully
+2026-02-28T18:07:25.804Z [info]: Topics fetched successfully
+2026-02-28T18:07:26.795Z [info]: Fetching child topics
+2026-02-28T18:07:26.796Z [info]: Parent topic found
+2026-02-28T18:07:26.797Z [info]: Child topics fetched successfully
+2026-02-28T18:07:26.799Z [info]: Fetching child topics
+2026-02-28T18:07:26.801Z [info]: Parent topic found
+2026-02-28T18:07:26.803Z [info]: Child topics fetched successfully
+2026-02-28T18:07:28.666Z [info]: Fetching child topics
+2026-02-28T18:07:28.667Z [info]: Parent topic found
+2026-02-28T18:07:28.668Z [info]: Child topics fetched successfully
+2026-02-28T18:07:28.670Z [info]: Fetching child topics
+2026-02-28T18:07:28.672Z [info]: Parent topic found
+2026-02-28T18:07:28.674Z [info]: Child topics fetched successfully
+2026-02-28T18:07:30.081Z [info]: Topics fetched successfully
+2026-02-28T18:07:30.084Z [info]: Topics fetched successfully
+2026-02-28T18:07:31.897Z [info]: Topics fetched successfully
+2026-02-28T18:07:31.901Z [info]: Topics fetched successfully
+2026-02-28T18:07:32.418Z [info]: Profile fetched successfully
+2026-02-28T18:07:32.885Z [info]: Categories fetched successfully
+2026-02-28T18:07:34.514Z [info]: Topics fetched successfully
+2026-02-28T18:07:34.520Z [info]: Topics fetched successfully
+2026-02-28T18:07:38.684Z [info]: Topics fetched successfully
+2026-02-28T18:07:38.687Z [info]: Topics fetched successfully
+2026-02-28T18:07:39.615Z [info]: Categories fetched successfully
+2026-02-28T18:07:42.246Z [info]: Topics fetched successfully
+2026-02-28T18:07:42.252Z [info]: Topics fetched successfully
+2026-02-28T18:07:43.717Z [info]: Categories fetched successfully
+2026-02-28T18:07:44.781Z [info]: Topics fetched successfully
+2026-02-28T18:07:44.784Z [info]: Topics fetched successfully
+2026-02-28T18:07:45.950Z [info]: Topic with problems fetched
+2026-02-28T18:07:47.436Z [info]: Topics fetched successfully
+2026-02-28T18:07:47.438Z [info]: Topics fetched successfully
+2026-02-28T18:07:49.046Z [info]: Categories fetched successfully
+2026-02-28T18:07:50.199Z [info]: Topics fetched successfully
+2026-02-28T18:07:50.203Z [info]: Topics fetched successfully
+2026-02-28T18:07:51.731Z [info]: Categories fetched successfully
+2026-02-28T18:07:53.249Z [info]: Topics fetched successfully
+2026-02-28T18:07:53.252Z [info]: Topics fetched successfully
+2026-02-28T18:07:54.714Z [info]: Categories fetched successfully
+2026-02-28T18:07:55.735Z [info]: Profile fetched successfully
+2026-02-28T18:07:56.649Z [info]: Topics fetched successfully
+2026-02-28T18:07:56.651Z [info]: Topics fetched successfully
+2026-02-28T18:09:18.351Z [info]: Topics fetched successfully
+2026-02-28T18:09:18.353Z [info]: Topics fetched successfully
+2026-02-28T18:09:19.516Z [info]: Profile fetched successfully
+2026-02-28T18:09:20.778Z [info]: Categories fetched successfully
+2026-02-28T18:09:23.550Z [info]: Categories fetched successfully
+2026-02-28T18:09:25.832Z [info]: Categories fetched successfully
+2026-02-28T18:09:32.022Z [info]: Categories fetched successfully
+2026-02-28T18:09:33.577Z [info]: Categories fetched successfully
+2026-02-28T18:09:35.583Z [info]: Categories fetched successfully
+2026-02-28T18:09:37.160Z [info]: Topics fetched successfully
+2026-02-28T18:09:37.164Z [info]: Topics fetched successfully
+2026-02-28T18:09:40.433Z [info]: Categories fetched successfully
+2026-02-28T18:09:43.082Z [info]: Categories fetched successfully
+2026-02-28T18:10:12.263Z [info]: Categories fetched successfully
+2026-02-28T18:10:39.211Z [info]: Categories fetched successfully
+2026-02-28T18:10:41.601Z [info]: Categories fetched successfully
+2026-02-28T18:10:48.223Z [info]: Categories fetched successfully
+2026-02-28T18:10:50.389Z [info]: Categories fetched successfully
+2026-02-28T18:10:55.525Z [info]: Categories fetched successfully
+2026-02-28T18:11:07.959Z [info]: Categories fetched successfully
+2026-02-28T18:11:09.070Z [info]: Topics fetched successfully
+2026-02-28T18:11:09.072Z [info]: Topics fetched successfully
+2026-02-28T18:11:21.528Z [info]: Fetching child topics
+2026-02-28T18:11:21.531Z [info]: Parent topic found
+2026-02-28T18:11:21.532Z [info]: Child topics fetched successfully
+2026-02-28T18:11:21.535Z [info]: Fetching child topics
+2026-02-28T18:11:21.536Z [info]: Parent topic found
+2026-02-28T18:11:21.537Z [info]: Child topics fetched successfully
+2026-02-28T18:11:24.623Z [info]: Categories fetched successfully
+2026-02-28T18:11:27.593Z [info]: Categories fetched successfully
+2026-02-28T18:11:49.042Z [info]: Categories fetched successfully
+2026-02-28T18:11:51.642Z [info]: Categories fetched successfully
+2026-02-28T18:12:30.926Z [info]: Topics fetched successfully
+2026-02-28T18:12:30.931Z [info]: Topics fetched successfully
+2026-02-28T18:12:32.566Z [info]: Profile fetched successfully
+2026-02-28T18:12:33.292Z [info]: Categories fetched successfully
+2026-02-28T18:12:35.169Z [info]: Categories fetched successfully
+2026-02-28T18:12:36.218Z [info]: Topics fetched successfully
+2026-02-28T18:12:36.224Z [info]: Topics fetched successfully
+2026-02-28T18:12:37.243Z [info]: Topics fetched successfully
+2026-02-28T18:12:37.244Z [info]: Topics fetched successfully
+2026-02-28T18:12:38.055Z [info]: Fetching child topics
+2026-02-28T18:12:38.057Z [info]: Parent topic found
+2026-02-28T18:12:38.059Z [info]: Child topics fetched successfully
+2026-02-28T18:12:38.061Z [info]: Fetching child topics
+2026-02-28T18:12:38.062Z [info]: Parent topic found
+2026-02-28T18:12:38.065Z [info]: Child topics fetched successfully
+2026-02-28T18:12:39.806Z [info]: Topics fetched successfully
+2026-02-28T18:12:39.808Z [info]: Topics fetched successfully
+2026-02-28T18:12:40.803Z [info]: Fetching child topics
+2026-02-28T18:12:40.805Z [info]: Parent topic found
+2026-02-28T18:12:40.806Z [info]: Child topics fetched successfully
+2026-02-28T18:12:40.810Z [info]: Fetching child topics
+2026-02-28T18:12:40.812Z [info]: Parent topic found
+2026-02-28T18:12:40.813Z [info]: Child topics fetched successfully
+2026-02-28T18:12:42.242Z [info]: Topics fetched successfully
+2026-02-28T18:12:42.246Z [info]: Topics fetched successfully
+2026-02-28T18:12:43.657Z [info]: Topics fetched successfully
+2026-02-28T18:12:43.661Z [info]: Topics fetched successfully
+2026-02-28T18:12:44.329Z [info]: Topic with problems fetched
+2026-02-28T18:12:45.377Z [info]: Topics fetched successfully
+2026-02-28T18:12:45.381Z [info]: Topics fetched successfully
+2026-02-28T18:12:46.147Z [info]: Topic with problems fetched
+2026-02-28T18:12:47.460Z [info]: Topics fetched successfully
+2026-02-28T18:12:47.463Z [info]: Topics fetched successfully
+2026-02-28T18:12:48.307Z [info]: Topic with problems fetched
+2026-02-28T18:12:50.059Z [info]: Topics fetched successfully
+2026-02-28T18:12:50.063Z [info]: Topics fetched successfully
+2026-02-28T18:13:01.844Z [info]: Profile fetched successfully
+2026-02-28T18:13:02.708Z [info]: Categories fetched successfully
+2026-02-28T18:13:05.957Z [info]: Categories fetched successfully
+2026-02-28T18:13:15.630Z [info]: Categories fetched successfully
+2026-02-28T18:14:04.794Z [info]: Categories fetched successfully
+2026-02-28T18:14:09.585Z [info]: Profile fetched successfully
+2026-02-28T18:14:11.547Z [info]: Topics fetched successfully
+2026-02-28T18:14:11.549Z [info]: Topics fetched successfully
+2026-02-28T18:14:12.777Z [info]: Topics fetched successfully
+2026-02-28T18:14:12.781Z [info]: Topics fetched successfully
+2026-02-28T18:14:15.709Z [info]: Topics fetched successfully
+2026-02-28T18:14:15.712Z [info]: Topics fetched successfully
+2026-02-28T18:14:16.929Z [info]: Profile fetched successfully
+2026-02-28T18:14:17.863Z [info]: Categories fetched successfully
+2026-02-28T18:14:21.442Z [info]: Profile fetched successfully
+2026-02-28T18:14:23.194Z [info]: Topics fetched successfully
+2026-02-28T18:14:23.198Z [info]: Topics fetched successfully
+2026-02-28T18:15:57.644Z [info]: Topics fetched successfully
+2026-02-28T18:15:57.648Z [info]: Topics fetched successfully
+2026-02-28T18:15:58.576Z [info]: Topics fetched successfully
+2026-02-28T18:15:58.580Z [info]: Topics fetched successfully
+2026-02-28T18:17:03.743Z [info]: Topics fetched successfully
+2026-02-28T18:17:06.974Z [info]: Topics fetched successfully
+2026-02-28T18:17:06.977Z [info]: Topics fetched successfully
+2026-02-28T18:17:08.819Z [info]: Topics fetched successfully
+2026-02-28T18:17:26.039Z [info]: Topics fetched successfully
+2026-02-28T18:17:27.040Z [info]: Topics fetched successfully
+2026-02-28T18:18:09.718Z [info]: User logged in successfully
+2026-02-28T18:18:09.734Z [info]: Categories fetched successfully
+2026-02-28T18:18:16.072Z [info]: User logged in successfully
+2026-02-28T18:18:16.084Z [info]: Categories fetched successfully
+2026-02-28T18:18:18.922Z [info]: Categories fetched successfully
+2026-02-28T18:18:20.075Z [info]: Topics fetched successfully
+2026-02-28T18:18:20.943Z [info]: Topic with problems fetched
+2026-02-28T18:18:22.121Z [info]: Topics fetched successfully
+2026-02-28T18:18:23.424Z [info]: Topic with problems fetched
+2026-02-28T18:18:24.071Z [info]: Topics fetched successfully
+2026-02-28T18:18:25.199Z [info]: Topic with problems fetched
+2026-02-28T18:18:27.858Z [info]: Topics fetched successfully
+2026-02-28T18:18:29.639Z [info]: Topics fetched successfully
+2026-02-28T18:18:30.889Z [info]: Fetching child topics
+2026-02-28T18:18:30.890Z [info]: Parent topic found
+2026-02-28T18:18:30.891Z [info]: Child topics fetched successfully
+2026-02-28T18:18:30.893Z [info]: Fetching child topics
+2026-02-28T18:18:30.893Z [info]: Parent topic found
+2026-02-28T18:18:30.894Z [info]: Child topics fetched successfully
+2026-02-28T18:18:32.158Z [info]: Topics fetched successfully
+2026-02-28T18:18:33.205Z [info]: Topics fetched successfully
+2026-02-28T18:18:33.911Z [info]: Topic with problems fetched
+2026-02-28T18:18:35.204Z [info]: Topics fetched successfully
+2026-02-28T18:18:36.946Z [info]: Topic with problems fetched
+2026-02-28T18:18:38.256Z [info]: Topics fetched successfully
+2026-02-28T18:18:43.362Z [info]: Topic with problems fetched
+2026-02-28T18:18:44.926Z [info]: Topics fetched successfully
+2026-02-28T18:18:49.142Z [info]: Topics fetched successfully
+2026-02-28T18:18:56.288Z [info]: Topics fetched successfully
+2026-02-28T18:18:58.407Z [info]: Topics fetched successfully
+2026-02-28T18:19:59.753Z [info]: Topics fetched successfully
+2026-02-28T18:21:21.545Z [info]: Topics fetched successfully
+2026-02-28T18:21:26.044Z [info]: Topics fetched successfully
+2026-02-28T18:21:36.511Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:21:36.518Z [info]: Topic added successfully
+2026-02-28T18:21:36.525Z [info]: Topics fetched successfully
+2026-02-28T18:21:37.873Z [info]: Topic with problems fetched
+2026-02-28T18:21:41.505Z [info]: Topics fetched successfully
+2026-02-28T18:21:44.726Z [info]: Topics fetched successfully
+2026-02-28T18:21:46.019Z [info]: Fetching child topics
+2026-02-28T18:21:46.021Z [info]: Parent topic found
+2026-02-28T18:21:46.022Z [info]: Child topics fetched successfully
+2026-02-28T18:21:46.024Z [info]: Fetching child topics
+2026-02-28T18:21:46.025Z [info]: Parent topic found
+2026-02-28T18:21:46.025Z [info]: Child topics fetched successfully
+2026-02-28T18:21:47.652Z [info]: Topics fetched successfully
+2026-02-28T18:21:48.717Z [info]: Fetching child topics
+2026-02-28T18:21:48.719Z [info]: Parent topic found
+2026-02-28T18:21:48.720Z [info]: Child topics fetched successfully
+2026-02-28T18:21:48.723Z [info]: Fetching child topics
+2026-02-28T18:21:48.725Z [info]: Parent topic found
+2026-02-28T18:21:48.726Z [info]: Child topics fetched successfully
+2026-02-28T18:21:54.807Z [info]: Topics fetched successfully
+2026-02-28T18:21:56.419Z [info]: Fetching child topics
+2026-02-28T18:21:56.423Z [info]: Parent topic found
+2026-02-28T18:21:56.425Z [info]: Child topics fetched successfully
+2026-02-28T18:21:56.427Z [info]: Fetching child topics
+2026-02-28T18:21:56.428Z [info]: Parent topic found
+2026-02-28T18:21:56.429Z [info]: Child topics fetched successfully
+2026-02-28T18:22:13.553Z [info]: Topics fetched successfully
+2026-02-28T18:22:14.199Z [info]: Topics fetched successfully
+2026-02-28T18:22:16.497Z [info]: Fetching child topics
+2026-02-28T18:22:16.498Z [info]: Parent topic found
+2026-02-28T18:22:16.499Z [info]: Child topics fetched successfully
+2026-02-28T18:22:16.501Z [info]: Fetching child topics
+2026-02-28T18:22:16.502Z [info]: Parent topic found
+2026-02-28T18:22:16.503Z [info]: Child topics fetched successfully
+2026-02-28T18:22:23.268Z [info]: Fetching child topics
+2026-02-28T18:22:23.269Z [info]: Parent topic found
+2026-02-28T18:22:23.270Z [info]: Child topics fetched successfully
+2026-02-28T18:22:23.272Z [info]: Fetching child topics
+2026-02-28T18:22:23.272Z [info]: Parent topic found
+2026-02-28T18:22:23.273Z [info]: Child topics fetched successfully
+2026-02-28T18:24:06.546Z [info]: Fetching child topics
+2026-02-28T18:24:06.547Z [info]: Parent topic found
+2026-02-28T18:24:06.548Z [info]: Child topics fetched successfully
+2026-02-28T18:29:00.554Z [info]: Fetching child topics
+2026-02-28T18:29:00.557Z [info]: Parent topic found
+2026-02-28T18:29:00.558Z [info]: Child topics fetched successfully
+2026-02-28T18:29:00.561Z [info]: Fetching child topics
+2026-02-28T18:29:00.561Z [info]: Parent topic found
+2026-02-28T18:29:00.562Z [info]: Child topics fetched successfully
+2026-02-28T18:29:01.244Z [info]: Fetching child topics
+2026-02-28T18:29:01.245Z [info]: Parent topic found
+2026-02-28T18:29:01.245Z [info]: Child topics fetched successfully
+2026-02-28T18:29:01.246Z [info]: Fetching child topics
+2026-02-28T18:29:01.246Z [info]: Parent topic found
+2026-02-28T18:29:01.246Z [info]: Child topics fetched successfully
+2026-02-28T18:29:02.044Z [info]: Topics fetched successfully
+2026-02-28T18:29:03.245Z [info]: Profile fetched successfully
+2026-02-28T18:29:04.056Z [info]: Topics fetched successfully
+2026-02-28T18:29:04.763Z [info]: Topic with problems fetched
+2026-02-28T18:29:05.740Z [info]: Topics fetched successfully
+2026-02-28T18:29:06.560Z [info]: Topic with problems fetched
+2026-02-28T18:29:09.511Z [info]: Topic with problems fetched
+2026-02-28T18:29:11.109Z [info]: Topics fetched successfully
+2026-02-28T18:29:12.389Z [info]: Fetching child topics
+2026-02-28T18:29:12.391Z [info]: Parent topic found
+2026-02-28T18:29:12.392Z [info]: Child topics fetched successfully
+2026-02-28T18:29:12.394Z [info]: Fetching child topics
+2026-02-28T18:29:12.395Z [info]: Parent topic found
+2026-02-28T18:29:12.396Z [info]: Child topics fetched successfully
+2026-02-28T18:29:13.855Z [info]: Topics fetched successfully
+2026-02-28T18:29:14.670Z [info]: Fetching child topics
+2026-02-28T18:29:14.671Z [info]: Parent topic found
+2026-02-28T18:29:14.672Z [info]: Child topics fetched successfully
+2026-02-28T18:29:14.674Z [info]: Fetching child topics
+2026-02-28T18:29:14.675Z [info]: Parent topic found
+2026-02-28T18:29:14.677Z [info]: Child topics fetched successfully
+2026-02-28T18:29:17.458Z [info]: Topics fetched successfully
+2026-02-28T18:29:18.638Z [info]: Topics fetched successfully
+2026-02-28T18:29:24.267Z [info]: Topics fetched successfully
+2026-02-28T18:29:25.167Z [info]: Fetching child topics
+2026-02-28T18:29:25.168Z [info]: Parent topic found
+2026-02-28T18:29:25.169Z [info]: Child topics fetched successfully
+2026-02-28T18:29:25.170Z [info]: Fetching child topics
+2026-02-28T18:29:25.171Z [info]: Parent topic found
+2026-02-28T18:29:25.172Z [info]: Child topics fetched successfully
+2026-02-28T18:29:26.907Z [info]: Topics fetched successfully
+2026-02-28T18:29:27.699Z [info]: Fetching child topics
+2026-02-28T18:29:27.701Z [info]: Parent topic found
+2026-02-28T18:29:27.702Z [info]: Child topics fetched successfully
+2026-02-28T18:29:27.704Z [info]: Fetching child topics
+2026-02-28T18:29:27.706Z [info]: Parent topic found
+2026-02-28T18:29:27.707Z [info]: Child topics fetched successfully
+2026-02-28T18:29:40.296Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:29:40.296Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:29:41.326Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:29:41.326Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:29:41.545Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:29:41.545Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:29:51.330Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:29:51.330Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:32:31.389Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:32:31.390Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:32:40.933Z [info]: Topics fetched successfully
+2026-02-28T18:32:48.711Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:32:48.716Z [info]: Topic added successfully
+2026-02-28T18:32:48.726Z [info]: Topics fetched successfully
+2026-02-28T18:32:49.593Z [info]: Topic with problems fetched
+2026-02-28T18:32:54.072Z [info]: Topics fetched successfully
+2026-02-28T18:32:55.705Z [info]: Topics fetched successfully
+2026-02-28T18:32:56.972Z [info]: Fetching child topics
+2026-02-28T18:32:56.973Z [info]: Parent topic found
+2026-02-28T18:32:56.974Z [info]: Child topics fetched successfully
+2026-02-28T18:32:56.977Z [info]: Fetching child topics
+2026-02-28T18:32:56.977Z [info]: Parent topic found
+2026-02-28T18:32:56.978Z [info]: Child topics fetched successfully
+2026-02-28T18:32:58.223Z [info]: Topics fetched successfully
+2026-02-28T18:32:58.899Z [info]: Fetching child topics
+2026-02-28T18:32:58.900Z [info]: Parent topic found
+2026-02-28T18:32:58.901Z [info]: Child topics fetched successfully
+2026-02-28T18:32:58.904Z [info]: Fetching child topics
+2026-02-28T18:32:58.906Z [info]: Parent topic found
+2026-02-28T18:32:58.907Z [info]: Child topics fetched successfully
+2026-02-28T18:33:06.329Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:33:06.329Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:33:07.011Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:33:07.011Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:33:11.362Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:33:11.362Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:35:36.811Z [warn]: verifyToken: No authorization header provided
+2026-02-28T18:35:40.075Z [warn]: verifyToken: No authorization header provided
+2026-02-28T18:35:41.174Z [warn]: verifyToken: No authorization header provided
+2026-02-28T18:35:44.227Z [warn]: verifyToken: No authorization header provided
+2026-02-28T18:39:04.142Z [info]: Fetching child topics
+2026-02-28T18:39:04.145Z [info]: Parent topic found
+2026-02-28T18:39:04.148Z [info]: Child topics fetched successfully
+2026-02-28T18:39:04.158Z [info]: Fetching child topics
+2026-02-28T18:39:04.162Z [info]: Parent topic found
+2026-02-28T18:39:04.165Z [info]: Child topics fetched successfully
+2026-02-28T18:39:16.523Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:39:16.524Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:40:33.760Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:40:33.760Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:40:34.725Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:40:34.726Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:40:35.323Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:40:35.324Z [warn]: AddTopic: Missing required fields
+2026-02-28T18:43:02.152Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:44:53.777Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:44:53.799Z [info]: Fetching child topics
+2026-02-28T18:44:53.800Z [info]: Parent topic found
+2026-02-28T18:44:53.801Z [info]: Child topics fetched successfully
+2026-02-28T18:45:13.361Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:45:13.370Z [info]: Fetching child topics
+2026-02-28T18:45:13.372Z [info]: Parent topic found
+2026-02-28T18:45:13.374Z [info]: Child topics fetched successfully
+2026-02-28T18:45:15.012Z [info]: Topics fetched successfully
+2026-02-28T18:45:16.105Z [info]: Fetching child topics
+2026-02-28T18:45:16.107Z [info]: Parent topic found
+2026-02-28T18:45:16.108Z [info]: Child topics fetched successfully
+2026-02-28T18:45:16.111Z [info]: Fetching child topics
+2026-02-28T18:45:16.112Z [info]: Parent topic found
+2026-02-28T18:45:16.112Z [info]: Child topics fetched successfully
+2026-02-28T18:45:31.407Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:45:31.432Z [info]: Fetching child topics
+2026-02-28T18:45:31.434Z [info]: Parent topic found
+2026-02-28T18:45:31.434Z [info]: Child topics fetched successfully
+2026-02-28T18:46:10.741Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:46:10.747Z [info]: Fetching child topics
+2026-02-28T18:46:10.749Z [info]: Parent topic found
+2026-02-28T18:46:10.749Z [info]: Child topics fetched successfully
+2026-02-28T18:46:58.942Z [info]: Fetching child topics
+2026-02-28T18:46:58.942Z [info]: Parent topic found
+2026-02-28T18:46:58.943Z [info]: Child topics fetched successfully
+2026-02-28T18:47:07.838Z [info]: verifyAdmin: Admin access granted
+2026-02-28T18:47:07.844Z [info]: Fetching child topics
+2026-02-28T18:47:07.845Z [info]: Parent topic found
+2026-02-28T18:47:07.845Z [info]: Child topics fetched successfully
+2026-02-28T18:47:39.421Z [info]: Topics fetched successfully
+2026-02-28T18:47:40.776Z [info]: Profile fetched successfully
+2026-02-28T18:47:42.155Z [info]: Categories fetched successfully
+2026-02-28T18:47:47.123Z [info]: Categories fetched successfully
+2026-02-28T18:47:54.957Z [info]: Categories fetched successfully
+2026-02-28T18:48:14.706Z [info]: Categories fetched successfully
+2026-02-28T18:48:59.831Z [info]: Categories fetched successfully
+2026-02-28T18:49:00.915Z [info]: Topics fetched successfully
+2026-02-28T18:50:36.277Z [info]: Topics fetched successfully
+2026-02-28T18:50:37.383Z [info]: Categories fetched successfully
+2026-02-28T18:50:38.249Z [info]: Topics fetched successfully
+2026-02-28T18:50:40.414Z [info]: Categories fetched successfully
+2026-02-28T18:50:41.396Z [info]: Topics fetched successfully
+2026-02-28T18:50:44.582Z [info]: Fetching child topics
+2026-02-28T18:50:44.584Z [info]: Parent topic found
+2026-02-28T18:50:44.585Z [info]: Child topics fetched successfully
+2026-02-28T18:50:45.634Z [info]: Topics fetched successfully
+2026-02-28T18:50:46.462Z [info]: Fetching child topics
+2026-02-28T18:50:46.464Z [info]: Parent topic found
+2026-02-28T18:50:46.465Z [info]: Child topics fetched successfully
+2026-02-28T18:50:48.468Z [info]: Topics fetched successfully
+2026-02-28T18:50:49.494Z [info]: Fetching child topics
+2026-02-28T18:50:49.495Z [info]: Parent topic found
+2026-02-28T18:50:49.496Z [info]: Child topics fetched successfully
+2026-02-28T18:50:51.086Z [info]: Topics fetched successfully
+2026-02-28T18:50:51.964Z [info]: Fetching child topics
+2026-02-28T18:50:51.965Z [info]: Parent topic found
+2026-02-28T18:50:51.966Z [info]: Child topics fetched successfully
+2026-02-28T18:50:53.520Z [info]: Topics fetched successfully
+2026-02-28T18:51:00.111Z [info]: Fetching child topics
+2026-02-28T18:51:00.112Z [info]: Parent topic found
+2026-02-28T18:51:00.113Z [info]: Child topics fetched successfully
+2026-02-28T18:51:02.117Z [info]: Fetching child topics
+2026-02-28T18:51:02.118Z [info]: Parent topic found
+2026-02-28T18:51:02.119Z [info]: Child topics fetched successfully
+2026-02-28T18:51:04.984Z [info]: Fetching child topics
+2026-02-28T18:51:04.985Z [info]: Parent topic found
+2026-02-28T18:51:04.986Z [info]: Child topics fetched successfully
+2026-02-28T18:51:06.767Z [info]: Fetching child topics
+2026-02-28T18:51:06.768Z [info]: Parent topic found
+2026-02-28T18:51:06.769Z [info]: Child topics fetched successfully
+2026-02-28T18:51:07.566Z [info]: Topics fetched successfully
+2026-02-28T18:51:11.702Z [info]: Topics fetched successfully
+2026-02-28T18:51:12.950Z [info]: Topics fetched successfully
+2026-02-28T18:51:53.434Z [info]: Topics fetched successfully
+2026-02-28T18:51:54.284Z [info]: Topics fetched successfully
+2026-02-28T18:51:55.918Z [info]: Profile fetched successfully
+2026-02-28T18:51:56.617Z [info]: Topics fetched successfully
+2026-02-28T18:51:57.618Z [info]: Topic with problems fetched
+2026-02-28T18:51:58.984Z [info]: Topics fetched successfully
+2026-02-28T18:51:59.766Z [info]: Topic with problems fetched
+2026-02-28T18:52:01.270Z [info]: Topics fetched successfully
+2026-02-28T18:52:02.365Z [info]: Topics fetched successfully
+2026-02-28T18:52:03.078Z [info]: Fetching child topics
+2026-02-28T18:52:03.079Z [info]: Parent topic found
+2026-02-28T18:52:03.081Z [info]: Child topics fetched successfully
+2026-02-28T18:52:04.335Z [info]: Topics fetched successfully
+2026-02-28T18:52:46.731Z [info]: Topics fetched successfully
+2026-02-28T18:52:47.584Z [info]: Topics fetched successfully
+2026-02-28T18:52:48.315Z [info]: Topics fetched successfully
+2026-02-28T18:52:50.061Z [info]: Topics fetched successfully
+2026-02-28T18:52:51.383Z [info]: Topics fetched successfully
+2026-02-28T18:52:52.483Z [info]: Topics fetched successfully
+2026-02-28T18:52:53.310Z [info]: Fetching child topics
+2026-02-28T18:52:53.312Z [info]: Parent topic found
+2026-02-28T18:52:53.312Z [info]: Child topics fetched successfully
+2026-02-28T18:52:54.467Z [info]: Topics fetched successfully
+2026-02-28T18:52:55.216Z [info]: Topics fetched successfully
+2026-02-28T18:52:55.855Z [info]: Topic with problems fetched
+2026-02-28T18:52:57.267Z [info]: Topics fetched successfully
+2026-02-28T18:52:58.596Z [info]: Topics fetched successfully
+2026-02-28T18:52:59.814Z [info]: Fetching child topics
+2026-02-28T18:52:59.815Z [info]: Parent topic found
+2026-02-28T18:52:59.816Z [info]: Child topics fetched successfully
+2026-02-28T18:53:01.000Z [info]: Topics fetched successfully
+2026-02-28T18:54:04.585Z [info]: Categories fetched successfully
+2026-02-28T18:54:05.964Z [info]: Profile fetched successfully
+2026-02-28T18:54:07.452Z [info]: Topics fetched successfully
+2026-02-28T18:54:08.818Z [info]: Topic with problems fetched
+2026-02-28T18:54:11.436Z [info]: Topics fetched successfully
+2026-02-28T18:54:12.280Z [info]: Topics fetched successfully
+2026-02-28T18:54:13.182Z [info]: Fetching child topics
+2026-02-28T18:54:13.183Z [info]: Parent topic found
+2026-02-28T18:54:13.184Z [info]: Child topics fetched successfully
+2026-02-28T18:54:15.216Z [info]: Fetching child topics
+2026-02-28T18:54:15.217Z [info]: Parent topic found
+2026-02-28T18:54:15.218Z [info]: Child topics fetched successfully
+2026-02-28T18:54:16.680Z [info]: Topics fetched successfully
+2026-02-28T18:54:17.548Z [info]: Fetching child topics
+2026-02-28T18:54:17.549Z [info]: Parent topic found
+2026-02-28T18:54:17.550Z [info]: Child topics fetched successfully
+2026-02-28T18:54:21.131Z [info]: Categories fetched successfully
+2026-02-28T18:54:54.345Z [info]: Categories fetched successfully
+2026-02-28T18:54:55.196Z [info]: Topics fetched successfully
+2026-02-28T18:54:56.266Z [info]: Categories fetched successfully
+2026-02-28T18:54:59.559Z [info]: Fetching child topics
+2026-02-28T18:54:59.560Z [info]: Parent topic found
+2026-02-28T18:54:59.561Z [info]: Child topics fetched successfully
+2026-02-28T18:55:01.777Z [info]: Fetching child topics
+2026-02-28T18:55:01.778Z [info]: Parent topic found
+2026-02-28T18:55:01.779Z [info]: Child topics fetched successfully
+2026-02-28T18:55:03.998Z [info]: Fetching child topics
+2026-02-28T18:55:03.999Z [info]: Parent topic found
+2026-02-28T18:55:04.000Z [info]: Child topics fetched successfully
+2026-02-28T18:55:22.410Z [info]: Fetching child topics
+2026-02-28T18:55:22.411Z [info]: Parent topic found
+2026-02-28T18:55:22.412Z [info]: Child topics fetched successfully
+2026-02-28T18:55:38.825Z [info]: Fetching child topics
+2026-02-28T18:55:38.826Z [info]: Parent topic found
+2026-02-28T18:55:38.827Z [info]: Child topics fetched successfully
+2026-02-28T18:55:45.984Z [info]: Profile fetched successfully
+2026-02-28T18:55:49.009Z [info]: Topics fetched successfully
+2026-02-28T18:55:55.176Z [info]: Topics fetched successfully
+2026-02-28T18:56:00.457Z [info]: Topics fetched successfully
+2026-02-28T18:56:07.942Z [info]: Topics fetched successfully
+2026-02-28T18:56:48.463Z [info]: Topics fetched successfully
+2026-02-28T18:56:52.381Z [info]: Topics fetched successfully
+2026-02-28T18:56:53.329Z [info]: Profile fetched successfully
+2026-02-28T18:56:54.333Z [info]: Categories fetched successfully
+2026-02-28T18:56:57.595Z [info]: Profile fetched successfully
+2026-02-28T18:56:58.373Z [info]: Topics fetched successfully
+2026-02-28T18:57:06.202Z [info]: User logged in successfully
+2026-02-28T18:57:06.217Z [info]: Categories fetched successfully
+2026-02-28T18:57:09.099Z [info]: Profile fetched successfully
+2026-02-28T18:57:11.497Z [info]: Topics fetched successfully
+2026-02-28T18:57:12.064Z [info]: Profile fetched successfully
+2026-02-28T18:57:14.280Z [info]: Topics fetched successfully
+2026-02-28T19:00:03.398Z [info]: Topics fetched successfully
+2026-02-28T19:00:15.690Z [info]: Fetching child topics
+2026-02-28T19:00:15.691Z [info]: Parent topic found
+2026-02-28T19:00:15.692Z [info]: Child topics fetched successfully
+2026-02-28T19:00:17.973Z [info]: Fetching child topics
+2026-02-28T19:00:17.974Z [info]: Parent topic found
+2026-02-28T19:00:17.975Z [info]: Child topics fetched successfully
+2026-02-28T19:00:21.607Z [info]: Categories fetched successfully
+2026-02-28T19:00:27.273Z [info]: Profile fetched successfully
+2026-02-28T19:00:29.141Z [info]: Topics fetched successfully
+2026-02-28T19:00:58.406Z [info]: Categories fetched successfully
+2026-02-28T19:01:01.578Z [info]: Topics fetched successfully
+2026-02-28T19:01:34.308Z [info]: Categories fetched successfully
+2026-02-28T19:03:02.326Z [info]: Categories fetched successfully
+2026-02-28T19:03:03.395Z [info]: Categories fetched successfully
+2026-02-28T19:03:03.670Z [info]: Categories fetched successfully
+2026-02-28T19:03:03.834Z [info]: Categories fetched successfully
+2026-02-28T19:03:03.984Z [info]: Categories fetched successfully
+2026-02-28T19:03:04.136Z [info]: Categories fetched successfully
+2026-02-28T19:03:04.681Z [info]: Categories fetched successfully
+2026-02-28T19:03:05.693Z [info]: Topics fetched successfully
+2026-02-28T19:03:11.155Z [info]: Topics fetched successfully
+2026-02-28T19:03:13.557Z [warn]: GetTopicWithProblems: Topic not found
+2026-02-28T19:03:15.008Z [info]: Topics fetched successfully
+2026-02-28T19:03:15.890Z [warn]: GetTopicWithProblems: Topic not found
+2026-02-28T19:03:17.090Z [info]: Topics fetched successfully
+2026-02-28T19:03:37.149Z [info]: Topics fetched successfully
+2026-02-28T19:03:57.306Z [info]: Profile fetched successfully
+2026-02-28T19:03:58.470Z [info]: Categories fetched successfully
+2026-02-28T19:04:57.954Z [info]: Topics fetched successfully
+2026-02-28T19:04:59.068Z [info]: Profile fetched successfully
+2026-02-28T19:05:00.323Z [info]: Categories fetched successfully
+2026-02-28T19:05:03.651Z [info]: Profile fetched successfully
+2026-02-28T19:05:05.084Z [info]: Categories fetched successfully
+2026-02-28T19:05:06.971Z [info]: Topics fetched successfully
+2026-02-28T19:05:07.923Z [info]: Categories fetched successfully
+2026-02-28T19:05:10.222Z [info]: Categories fetched successfully
+2026-02-28T19:05:13.467Z [info]: Fetching child topics
+2026-02-28T19:05:13.469Z [info]: Parent topic found
+2026-02-28T19:05:13.470Z [info]: Child topics fetched successfully
+2026-02-28T19:05:17.689Z [info]: Fetching child topics
+2026-02-28T19:05:17.690Z [info]: Parent topic found
+2026-02-28T19:05:17.691Z [info]: Child topics fetched successfully
+2026-02-28T19:05:19.556Z [info]: Fetching child topics
+2026-02-28T19:05:19.558Z [info]: Parent topic found
+2026-02-28T19:05:19.558Z [info]: Child topics fetched successfully
+2026-02-28T19:05:21.204Z [info]: Fetching child topics
+2026-02-28T19:05:21.205Z [info]: Parent topic found
+2026-02-28T19:05:21.206Z [info]: Child topics fetched successfully
+2026-02-28T19:05:22.954Z [info]: Fetching child topics
+2026-02-28T19:05:22.956Z [info]: Parent topic found
+2026-02-28T19:05:22.956Z [info]: Child topics fetched successfully
+2026-02-28T19:05:25.157Z [info]: Profile fetched successfully
+2026-02-28T19:05:26.120Z [info]: Categories fetched successfully
+2026-02-28T19:05:27.038Z [info]: Topics fetched successfully
+2026-02-28T19:05:28.255Z [info]: Categories fetched successfully
+2026-02-28T19:05:34.335Z [info]: Topics fetched successfully
+2026-02-28T19:05:35.226Z [info]: Topic with problems fetched
+2026-02-28T19:05:37.309Z [info]: Topics fetched successfully
+2026-02-28T19:05:39.082Z [info]: Fetching child topics
+2026-02-28T19:05:39.083Z [info]: Parent topic found
+2026-02-28T19:05:39.083Z [info]: Child topics fetched successfully
+2026-02-28T19:05:47.306Z [info]: Fetching child topics
+2026-02-28T19:05:47.307Z [info]: Parent topic found
+2026-02-28T19:05:47.308Z [info]: Child topics fetched successfully
+2026-02-28T19:09:10.550Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:09:10.552Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:09:54.480Z [info]: Fetching child topics
+2026-02-28T19:09:54.508Z [info]: Parent topic found
+2026-02-28T19:09:54.509Z [info]: Child topics fetched successfully
+2026-02-28T19:09:58.946Z [info]: Topics fetched successfully
+2026-02-28T19:10:01.131Z [info]: Topic with problems fetched
+2026-02-28T19:10:02.191Z [info]: Topics fetched successfully
+2026-02-28T19:10:03.968Z [info]: Fetching child topics
+2026-02-28T19:10:03.970Z [info]: Parent topic found
+2026-02-28T19:10:03.971Z [info]: Child topics fetched successfully
+2026-02-28T19:10:04.686Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:04.689Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:06.021Z [info]: Fetching child topics
+2026-02-28T19:10:06.024Z [info]: Parent topic found
+2026-02-28T19:10:06.025Z [info]: Child topics fetched successfully
+2026-02-28T19:10:06.818Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:06.820Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:07.994Z [info]: Fetching child topics
+2026-02-28T19:10:07.996Z [info]: Parent topic found
+2026-02-28T19:10:07.997Z [info]: Child topics fetched successfully
+2026-02-28T19:10:08.916Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:08.919Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:10:10.268Z [info]: Fetching child topics
+2026-02-28T19:10:10.269Z [info]: Parent topic found
+2026-02-28T19:10:10.269Z [info]: Child topics fetched successfully
+2026-02-28T19:10:56.266Z [info]: Fetching child topics
+2026-02-28T19:10:56.268Z [info]: Parent topic found
+2026-02-28T19:10:56.269Z [info]: Child topics fetched successfully
+2026-02-28T19:10:58.502Z [info]: Fetching child topics
+2026-02-28T19:10:58.503Z [info]: Parent topic found
+2026-02-28T19:10:58.505Z [info]: Child topics fetched successfully
+2026-02-28T19:13:51.703Z [info]: Fetching child topics
+2026-02-28T19:13:51.719Z [info]: Parent topic found
+2026-02-28T19:13:51.720Z [info]: Child topics fetched successfully
+2026-02-28T19:14:17.625Z [info]: Topics fetched successfully
+2026-02-28T19:14:39.515Z [info]: Topic with problems fetched
+2026-02-28T19:14:40.928Z [info]: Topics fetched successfully
+2026-02-28T19:14:42.619Z [info]: Fetching child topics
+2026-02-28T19:14:42.621Z [info]: Parent topic found
+2026-02-28T19:14:42.622Z [info]: Child topics fetched successfully
+2026-02-28T19:14:43.274Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:14:43.278Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:14:45.439Z [info]: Fetching child topics
+2026-02-28T19:14:45.441Z [info]: Parent topic found
+2026-02-28T19:14:45.442Z [info]: Child topics fetched successfully
+2026-02-28T19:15:09.802Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:15:09.806Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:15:11.191Z [info]: Fetching child topics
+2026-02-28T19:15:11.192Z [info]: Parent topic found
+2026-02-28T19:15:11.193Z [info]: Child topics fetched successfully
+2026-02-28T19:15:11.990Z [info]: Fetching child topics
+2026-02-28T19:15:11.991Z [info]: Parent topic found
+2026-02-28T19:15:11.992Z [info]: Child topics fetched successfully
+2026-02-28T19:15:13.120Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:15:13.126Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:15:14.256Z [info]: Fetching child topics
+2026-02-28T19:15:14.258Z [info]: Parent topic found
+2026-02-28T19:15:14.260Z [info]: Child topics fetched successfully
+2026-02-28T19:16:53.141Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:16:53.144Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:16:54.540Z [info]: Fetching child topics
+2026-02-28T19:16:54.541Z [info]: Parent topic found
+2026-02-28T19:16:54.542Z [info]: Child topics fetched successfully
+2026-02-28T19:16:55.255Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:16:55.258Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:16:56.405Z [info]: Fetching child topics
+2026-02-28T19:16:56.406Z [info]: Parent topic found
+2026-02-28T19:16:56.407Z [info]: Child topics fetched successfully
+2026-02-28T19:16:58.852Z [info]: Fetching child topics
+2026-02-28T19:16:58.854Z [info]: Parent topic found
+2026-02-28T19:16:58.855Z [info]: Child topics fetched successfully
+2026-02-28T19:17:01.207Z [info]: Fetching child topics
+2026-02-28T19:17:01.209Z [info]: Parent topic found
+2026-02-28T19:17:01.210Z [info]: Child topics fetched successfully
+2026-02-28T19:17:02.940Z [info]: Fetching child topics
+2026-02-28T19:17:02.941Z [info]: Parent topic found
+2026-02-28T19:17:02.942Z [info]: Child topics fetched successfully
+2026-02-28T19:17:04.966Z [info]: Fetching child topics
+2026-02-28T19:17:04.967Z [info]: Parent topic found
+2026-02-28T19:17:04.968Z [info]: Child topics fetched successfully
+2026-02-28T19:17:05.836Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:17:05.839Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:17:07.257Z [info]: Fetching child topics
+2026-02-28T19:17:07.258Z [info]: Parent topic found
+2026-02-28T19:17:07.259Z [info]: Child topics fetched successfully
+2026-02-28T19:17:08.086Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:17:08.089Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:17:09.206Z [info]: Fetching child topics
+2026-02-28T19:17:09.207Z [info]: Parent topic found
+2026-02-28T19:17:09.207Z [info]: Child topics fetched successfully
+2026-02-28T19:17:10.001Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:17:10.003Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:18:27.982Z [info]: Fetching child topics
+2026-02-28T19:18:27.983Z [info]: Parent topic found
+2026-02-28T19:18:27.984Z [info]: Child topics fetched successfully
+2026-02-28T19:18:29.647Z [info]: Categories fetched successfully
+2026-02-28T19:18:30.871Z [info]: Topics fetched successfully
+2026-02-28T19:18:31.642Z [info]: Topic with problems fetched
+2026-02-28T19:18:32.709Z [info]: Topics fetched successfully
+2026-02-28T19:18:34.411Z [info]: Categories fetched successfully
+2026-02-28T19:18:36.034Z [info]: Fetching child topics
+2026-02-28T19:18:36.036Z [info]: Parent topic found
+2026-02-28T19:18:36.037Z [info]: Child topics fetched successfully
+2026-02-28T19:18:37.811Z [info]: Profile fetched successfully
+2026-02-28T19:18:38.804Z [info]: Categories fetched successfully
+2026-02-28T19:18:46.578Z [info]: User logged in successfully
+2026-02-28T19:18:46.601Z [info]: Categories fetched successfully
+2026-02-28T19:18:47.708Z [info]: Topics fetched successfully
+2026-02-28T19:18:49.059Z [info]: Categories fetched successfully
+2026-02-28T19:18:50.574Z [info]: Fetching child topics
+2026-02-28T19:18:50.576Z [info]: Parent topic found
+2026-02-28T19:18:50.577Z [info]: Child topics fetched successfully
+2026-02-28T19:18:51.302Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:18:51.305Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:22:21.989Z [warn]: Login: Invalid password attempt
+2026-02-28T19:22:25.408Z [info]: User logged in successfully
+2026-02-28T19:22:25.433Z [info]: Categories fetched successfully
+2026-02-28T19:22:27.743Z [info]: Fetching child topics
+2026-02-28T19:22:27.744Z [info]: Parent topic found
+2026-02-28T19:22:27.745Z [info]: Child topics fetched successfully
+2026-02-28T19:22:28.236Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:22:28.239Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:23:03.945Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:23:03.949Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:23:29.751Z [info]: Fetching child topics
+2026-02-28T19:23:29.752Z [info]: Parent topic found
+2026-02-28T19:23:29.754Z [info]: Child topics fetched successfully
+2026-02-28T19:23:31.705Z [info]: Categories fetched successfully
+2026-02-28T19:23:44.773Z [info]: Topics fetched successfully
+2026-02-28T19:23:45.583Z [info]: Topic with problems fetched
+2026-02-28T19:23:47.076Z [info]: Topics fetched successfully
+2026-02-28T19:23:48.737Z [info]: Fetching child topics
+2026-02-28T19:23:48.740Z [info]: Parent topic found
+2026-02-28T19:23:48.741Z [info]: Child topics fetched successfully
+2026-02-28T19:23:49.536Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:23:49.540Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:24:00.671Z [info]: Fetching child topics
+2026-02-28T19:24:00.672Z [info]: Parent topic found
+2026-02-28T19:24:00.674Z [info]: Child topics fetched successfully
+2026-02-28T19:24:02.768Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:24:02.770Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:26:32.038Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:26:32.040Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:26:33.470Z [info]: Fetching child topics
+2026-02-28T19:26:33.472Z [info]: Parent topic found
+2026-02-28T19:26:33.474Z [info]: Child topics fetched successfully
+2026-02-28T19:26:34.287Z [info]: Categories fetched successfully
+2026-02-28T19:26:35.021Z [info]: Topics fetched successfully
+2026-02-28T19:26:36.205Z [info]: Categories fetched successfully
+2026-02-28T19:26:38.304Z [info]: Categories fetched successfully
+2026-02-28T19:26:39.123Z [info]: Profile fetched successfully
+2026-02-28T19:26:39.902Z [info]: Topics fetched successfully
+2026-02-28T19:26:40.606Z [info]: Topic with problems fetched
+2026-02-28T19:26:41.739Z [info]: Topics fetched successfully
+2026-02-28T19:26:42.337Z [info]: Topic with problems fetched
+2026-02-28T19:26:43.521Z [info]: Topics fetched successfully
+2026-02-28T19:26:44.189Z [info]: Topic with problems fetched
+2026-02-28T19:26:47.321Z [info]: Topics fetched successfully
+2026-02-28T19:26:48.189Z [info]: Topic with problems fetched
+2026-02-28T19:26:49.354Z [info]: Topics fetched successfully
+2026-02-28T19:26:50.593Z [info]: Topic with problems fetched
+2026-02-28T19:26:57.438Z [info]: Topics fetched successfully
+2026-02-28T19:26:58.457Z [info]: Topic with problems fetched
+2026-02-28T19:26:59.637Z [info]: Topics fetched successfully
+2026-02-28T19:27:01.069Z [info]: Fetching child topics
+2026-02-28T19:27:01.071Z [info]: Parent topic found
+2026-02-28T19:27:01.072Z [info]: Child topics fetched successfully
+2026-02-28T19:27:04.120Z [info]: Fetching child topics
+2026-02-28T19:27:04.121Z [info]: Parent topic found
+2026-02-28T19:27:04.122Z [info]: Child topics fetched successfully
+2026-02-28T19:27:06.420Z [info]: Fetching child topics
+2026-02-28T19:27:06.422Z [info]: Parent topic found
+2026-02-28T19:27:06.423Z [info]: Child topics fetched successfully
+2026-02-28T19:27:09.435Z [info]: Fetching child topics
+2026-02-28T19:27:09.437Z [info]: Parent topic found
+2026-02-28T19:27:09.437Z [info]: Child topics fetched successfully
+2026-02-28T19:27:09.896Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:27:09.900Z [warn]: GetTopicsByCategory: Category not found
+2026-02-28T19:27:11.387Z [info]: Fetching child topics
+2026-02-28T19:27:11.388Z [info]: Parent topic found
+2026-02-28T19:27:11.389Z [info]: Child topics fetched successfully
+2026-02-28T19:27:13.985Z [info]: Fetching child topics
+2026-02-28T19:27:13.986Z [info]: Parent topic found
+2026-02-28T19:27:13.987Z [info]: Child topics fetched successfully
+2026-02-28T19:27:15.886Z [info]: Fetching child topics
+2026-02-28T19:27:15.888Z [info]: Parent topic found
+2026-02-28T19:27:15.889Z [info]: Child topics fetched successfully

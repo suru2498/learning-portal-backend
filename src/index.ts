@@ -8,7 +8,6 @@ import topicRoutes from "./routes/topicRoutes";
 import problemRoutes from "./routes/problemRoutes";
 
 dotenv.config();
-
 const app = express();
 
 app.use(cors());
@@ -19,6 +18,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/topics", topicRoutes);
 app.use("/api/problems", problemRoutes);
+
 app.get("/", (req, res) => {
   res.send("Server Running");
 });

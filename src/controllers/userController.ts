@@ -4,188 +4,265 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../utils/sendEmail";
 import { randomBytes } from "crypto";
+import { logger } from "../utils/logger";
 
 interface AuthRequest extends Request {
   user?: any;
 }
 
+/* ======================================================
+   REGISTER
+====================================================== */
 export const register = async (req: Request, res: Response) => {
   try {
     const { name, email, password } = req.body;
 
     if (!name?.trim() || !email?.trim() || !password?.trim()) {
+      logger.warn("Register: Missing required fields", { body: req.body });
       return res.status(400).json({
-        message: "Name, email and password are required"
+        message: "Name, email and password are required",
       });
     }
 
-    // Check duplicate
     const [existing]: any = await pool.query(
       "SELECT id FROM users WHERE email = ?",
       [email.trim()]
     );
 
     if (existing.length > 0) {
+      logger.warn("Register: Duplicate email attempt", { email });
       return res.status(400).json({
-        message: "User already exists"
+        message: "User already exists",
       });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert user
     const [result]: any = await pool.query(
       "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
       [name.trim(), email.trim(), hashedPassword]
     );
 
-    const userId = result.insertId; // ✅ THIS IS YOUR USER ID
+    const userId = result.insertId;
 
-    // Send email
     await sendMail(userId, email, "WELCOME_EMAIL", {
-  name: name.trim(),
-});
-
-    return res.status(201).json({
-      message: "User registered successfully"
+      name: name.trim(),
     });
 
-  } catch (error) {
-    console.error(error);
+    logger.info("User registered successfully", {
+      userId,
+      email,
+    });
+
+    return res.status(201).json({
+      message: "User registered successfully",
+    });
+
+  } catch (error: any) {
+    logger.error("Register Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
     return res.status(500).json({
-      message: "Internal server error"
+      message: "Internal server error",
     });
   }
 };
 
+/* ======================================================
+   LOGIN
+====================================================== */
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
-    // ✅ Required validation
     if (!email?.trim() || !password?.trim()) {
+      logger.warn("Login: Missing credentials", { email });
       return res.status(400).json({
-        message: "Email and password are required"
+        message: "Email and password are required",
       });
     }
 
-    // ✅ Fetch user
     const [rows]: any = await pool.query(
       "SELECT * FROM users WHERE email = ?",
       [email.trim()]
     );
 
     if (rows.length === 0) {
+      logger.warn("Login: User not found", { email });
       return res.status(400).json({
-        message: "User not found"
+        message: "Invalid credentials",
       });
     }
 
     const user = rows[0];
 
-    // ✅ Compare password
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
+      logger.warn("Login: Invalid password attempt", { email });
       return res.status(400).json({
-        message: "Invalid credentials"
+        message: "Invalid credentials",
       });
     }
 
-    // ✅ Generate JWT
     const token = jwt.sign(
-      { id: user.id, role: user.role},
+      { id: user.id, role: user.role },
       process.env.JWT_SECRET as string,
       { expiresIn: "1d" }
     );
 
-    return res.json({ token, user: {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    role: user.role,   // 👈 VERY IMPORTANT
-  }, });
+    logger.info("User logged in successfully", {
+      userId: user.id,
+      role: user.role,
+    });
 
-  } catch (error) {
-    console.error("Login Error:", error);
+    return res.status(200).json({
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+
+  } catch (error: any) {
+    logger.error("Login Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
     return res.status(500).json({
-      message: "Internal server error"
+      message: "Internal server error",
     });
   }
 };
 
+/* ======================================================
+   FORGOT PASSWORD
+====================================================== */
 export const forgotPassword = async (req: Request, res: Response) => {
-  const { email } = req.body;
-
-  const [users]: any = await pool.query(
-    "SELECT * FROM users WHERE email = ?",
-    [email]
-  );
-
-  if (users.length === 0) {
-    return res.status(404).json({ message: "User not found" });
-  }
-
-  const user = users[0];
-
-  const resetToken = randomBytes(32).toString("hex");
-  const expiry = new Date(Date.now() + 15 * 60 * 1000);
-
-  await pool.query(
-    "UPDATE users SET reset_token = ?, reset_token_expiry = ? WHERE id = ?",
-    [resetToken, expiry, user.id]
-  );
-
-  const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
-
-  // 🔥 Fetch Template
-  const [templates]: any = await pool.query(
-    "SELECT * FROM email_templates WHERE name = ?",
-    ["FORGOT_PASSWORD"]
-  );
-
-  const template = templates[0];
-
-  // Replace placeholders
-  let emailBody = template.html_content
-    .replace("{{NAME}}", user.name)
-    .replace(/{{RESET_LINK}}/g, resetLink);
-
-  await sendMail(user.id, user.email, "FORGOT_PASSWORD", {
-  NAME: user.name,
-  RESET_LINK: resetLink,
-});
-
-  return res.json({ message: "Reset email sent successfully" });
-};
-
-export const resetPassword = async (req: Request, res: Response) => {
-  const { token, newPassword } = req.body;
-
-  const [rows]: any = await pool.query(
-    "SELECT * FROM users WHERE reset_token = ? AND reset_token_expiry > NOW()",
-    [token]
-  );
-
-  if (rows.length === 0) {
-    return res.status(400).json({ message: "Invalid or expired token" });
-  }
-
-  const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-  await pool.query(
-    `UPDATE users 
-     SET password = ?, reset_token = NULL, reset_token_expiry = NULL
-     WHERE reset_token = ?`,
-    [hashedPassword, token]
-  );
-
-  res.json({ message: "Password reset successful" });
-};
-
-export const getMyProfile = async (req: AuthRequest, res: Response) => {
   try {
-    const userId = req.user.id;
+    const { email } = req.body;
+
+    if (!email?.trim()) {
+      logger.warn("ForgotPassword: Missing email");
+      return res.status(400).json({
+        message: "Email is required",
+      });
+    }
+
+    const [users]: any = await pool.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email.trim()]
+    );
+
+    if (users.length === 0) {
+      logger.warn("ForgotPassword: User not found", { email });
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = users[0];
+
+    const resetToken = randomBytes(32).toString("hex");
+    const expiry = new Date(Date.now() + 15 * 60 * 1000);
+
+    await pool.query(
+      "UPDATE users SET reset_token = ?, reset_token_expiry = ? WHERE id = ?",
+      [resetToken, expiry, user.id]
+    );
+
+    const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+
+    await sendMail(user.id, user.email, "FORGOT_PASSWORD", {
+      NAME: user.name,
+      RESET_LINK: resetLink,
+    });
+
+    logger.info("Password reset email sent", {
+      userId: user.id,
+    });
+
+    return res.status(200).json({
+      message: "Reset email sent successfully",
+    });
+
+  } catch (error: any) {
+    logger.error("ForgotPassword Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+
+/* ======================================================
+   RESET PASSWORD
+====================================================== */
+export const resetPassword = async (req: Request, res: Response) => {
+  try {
+    const { token, newPassword } = req.body;
+
+    if (!token || !newPassword?.trim()) {
+      logger.warn("ResetPassword: Missing fields");
+      return res.status(400).json({
+        message: "Token and new password are required",
+      });
+    }
+
+    const [rows]: any = await pool.query(
+      "SELECT * FROM users WHERE reset_token = ? AND reset_token_expiry > NOW()",
+      [token]
+    );
+
+    if (rows.length === 0) {
+      logger.warn("ResetPassword: Invalid or expired token");
+      return res.status(400).json({
+        message: "Invalid or expired token",
+      });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    await pool.query(
+      `UPDATE users 
+       SET password = ?, reset_token = NULL, reset_token_expiry = NULL
+       WHERE reset_token = ?`,
+      [hashedPassword, token]
+    );
+
+    logger.info("Password reset successfully");
+
+    return res.status(200).json({
+      message: "Password reset successful",
+    });
+
+  } catch (error: any) {
+    logger.error("ResetPassword Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
+
+/* ======================================================
+   GET MY PROFILE
+====================================================== */
+export const getMyProfile = async (
+  req: AuthRequest,
+  res: Response
+) => {
+  try {
+    const userId = req.user?.id;
 
     const [rows]: any = await pool.query(
       "SELECT id, name, email, role, created_at FROM users WHERE id = ?",
@@ -193,39 +270,61 @@ export const getMyProfile = async (req: AuthRequest, res: Response) => {
     );
 
     if (rows.length === 0) {
+      logger.warn("GetMyProfile: User not found", { userId });
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.json(rows[0]);
+    logger.info("Profile fetched successfully", { userId });
 
-  } catch (err) {
-    console.error("GetMe Error:", err);
-    res.status(500).json({ message: "Server error" });
+    return res.status(200).json(rows[0]);
+
+  } catch (error: any) {
+    logger.error("GetMyProfile Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
-export const updateMyProfile = async (req: AuthRequest, res: Response) => {
+/* ======================================================
+   UPDATE MY PROFILE
+====================================================== */
+export const updateMyProfile = async (
+  req: AuthRequest,
+  res: Response
+) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user?.id;
     const { name, email } = req.body;
 
-    if (!name || !email) {
-      return res.status(400).json({ message: "Missing fields" });
+    if (!name?.trim() || !email?.trim()) {
+      logger.warn("UpdateMyProfile: Missing fields", { userId });
+      return res.status(400).json({
+        message: "Name and email are required",
+      });
     }
 
-    // Check if email already exists (for other users)
     const [existing]: any = await pool.query(
       "SELECT id FROM users WHERE email = ? AND id != ?",
-      [email, userId]
+      [email.trim(), userId]
     );
 
     if (existing.length > 0) {
-      return res.status(400).json({ message: "Email already in use" });
+      logger.warn("UpdateMyProfile: Email already in use", {
+        userId,
+        email,
+      });
+
+      return res.status(400).json({
+        message: "Email already in use",
+      });
     }
 
     await pool.query(
       "UPDATE users SET name = ?, email = ? WHERE id = ?",
-      [name, email, userId]
+      [name.trim(), email.trim(), userId]
     );
 
     const [updatedUser]: any = await pool.query(
@@ -233,10 +332,18 @@ export const updateMyProfile = async (req: AuthRequest, res: Response) => {
       [userId]
     );
 
-    res.json(updatedUser[0]);
+    logger.info("Profile updated successfully", { userId });
 
-  } catch (err) {
-    console.error("UpdateMe Error:", err);
-    res.status(500).json({ message: "Server error" });
+    return res.status(200).json(updatedUser[0]);
+
+  } catch (error: any) {
+    logger.error("UpdateMyProfile Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({
+      message: "Internal server error",
+    });
   }
 };

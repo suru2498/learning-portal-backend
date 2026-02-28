@@ -1,22 +1,14 @@
 import express from "express";
-import {
-  getTopicsByCategorySlug,
-  addTopic,
-  getTopicWithProblems,
-  addProblem,
-  markProblemSolved,
-  unmarkProblemSolved,
-  deleteTopic,
-  updateTopic
-} from "../controllers/topicController";
+import { getTopicsByCategorySlug, createTopic, getTopicWithProblems, addProblem, markProblemSolved, unmarkProblemSolved, deleteTopic, updateTopic, getChildTopics } from "../controllers/topicController";
 import { verifyToken } from "../middleware/userMiddleware";
 import { verifyAdmin } from "../middleware/adminMiddleware";
 
 const router = express.Router();
 
 router.get("/topic/:slug", verifyToken, getTopicWithProblems);
-router.get("/category/:slug", getTopicsByCategorySlug);
-router.post("/", verifyToken, verifyAdmin, addTopic);
+router.get("/:slug", getTopicsByCategorySlug);
+router.get("/children/:topicSlug", getChildTopics);
+router.post("/", verifyToken, verifyAdmin, createTopic);
 router.post("/problem", verifyToken, verifyAdmin, addProblem);
 router.post("/problem/:id/solve", verifyToken, markProblemSolved);
 router.put("/:id", verifyToken, verifyAdmin, updateTopic);
