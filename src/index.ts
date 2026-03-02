@@ -6,6 +6,8 @@ import userRoutes from "./routes/userRoutes";
 import categoryRoutes from "./routes/categoryRoutes";
 import topicRoutes from "./routes/topicRoutes";
 import problemRoutes from "./routes/problemRoutes";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./config/swagger";
 
 dotenv.config();
 const app = express();
@@ -18,6 +20,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/topics", topicRoutes);
 app.use("/api/problems", problemRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Server Running");
