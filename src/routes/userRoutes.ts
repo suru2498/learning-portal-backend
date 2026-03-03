@@ -5,7 +5,11 @@ import {
   forgotPassword,
   resetPassword,
   getMyProfile,
-  updateMyProfile
+  updateMyProfile,
+  verifyMobileOtp,
+  sendMobileOtp,
+  verifyEmailOtp,
+  sendEmailOtp
 } from "../controllers/userController";
 import { verifyToken } from "../middleware/userMiddleware";
 
@@ -172,5 +176,11 @@ router.get("/me", verifyToken, getMyProfile);
  *         description: Unauthorized
  */
 router.put("/me", verifyToken, updateMyProfile);
+
+router.post("/send-email-otp", sendEmailOtp);
+router.post("/verify-email-otp", verifyEmailOtp);
+
+router.post("/send-mobile-otp", sendMobileOtp);
+router.post("/verify-mobile-otp", verifyMobileOtp); 
 
 export default router;

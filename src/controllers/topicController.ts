@@ -30,11 +30,11 @@ export const getTopicsByCategorySlug = async (
     const categoryId = categoryRows[0].id;
 
     const [rows] = await pool.query(
-  "SELECT * FROM topics WHERE category_id = ? AND parent_id IS NULL",
-  [categoryId]
-);
+      "SELECT * FROM topics WHERE category_id = ? AND parent_id IS NULL",
+      [categoryId]
+    );
 
-    logger.info("Topics fetched successfully", {
+    logger.info("DSA Topics fetched successfully", {
       categorySlug: slug
     });
 
@@ -315,11 +315,13 @@ export const unmarkProblemSolved = async (
 export const updateTopic = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { title, description, summary } = req.body;
+    const { title, description, summary, pseudo_code } = req.body;
 
     const [result]: any = await pool.query(
-      "UPDATE topics SET title = ?, description = ?, summary = ? WHERE id = ?",
-      [title, description, summary, id]
+      `UPDATE topics 
+   SET title = ?, description = ?, summary = ?, pseudo_code = ?
+   WHERE id = ?`,
+      [title, description, summary, pseudo_code, id]
     );
 
     if (result.affectedRows === 0) {
@@ -344,52 +346,36 @@ export const updateTopic = async (req: Request, res: Response) => {
 
 export const getChildTopics = async (req: Request, res: Response) => {
   try {
-    const { topicSlug } = req.params;
+    const { slug } = req.params;
 
-    logger.info("Fetching child topics", { topicSlug });
-
-    const [parent]: any = await pool.query(
+    // 1️⃣ Find parent topic
+    const [parentRows]: any = await pool.query(
       "SELECT id FROM topics WHERE slug = ?",
-      [topicSlug]
+      [slug]
     );
 
-    if (!parent.length) {
-      logger.warn("Parent topic not found", { topicSlug });
-
-      return res.status(404).json({ message: "Topic not found" });
+    if (parentRows.length === 0) {
+      return res.status(404).json({ message: "Parent topic not found" });
     }
 
-    const parentId = parent[0].id;
+    const parentId = parentRows[0].id;
 
-    logger.info("Parent topic found", { topicSlug, parentId });
-
-    const [children] = await pool.query(
-      "SELECT * FROM topics WHERE parent_id = ?",
+    // 2️⃣ Fetch children using parent_id
+    const [children]: any = await pool.query(
+      "SELECT id, title, slug FROM topics WHERE parent_id = ?",
       [parentId]
     );
 
-    logger.info("Child topics fetched successfully", {
-      topicSlug,
-      parentId,
-      count: (children as any[]).length,
-    });
-
-    res.status(200).json(children);
-
-  } catch (error: any) {
-    logger.error("Error fetching child topics", {
-      topicSlug: req.params.topicSlug,
-      message: error.message,
-      stack: error.stack,
-    });
-
+    res.json(children);
+  } catch (error) {
+    console.error("Error fetching children:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
 
 export const createTopic = async (req: Request, res: Response) => {
   try {
-    const { title, slug, categorySlug, parentSlug } = req.body;
+    const { title, slug, categorySlug, parentSlug, description, summary, pseudo_code } = req.body;
 
     if (!title || !slug) {
       return res.status(400).json({ message: "Title and slug are required" });
@@ -428,8 +414,18 @@ export const createTopic = async (req: Request, res: Response) => {
     }
 
     await pool.query(
-      "INSERT INTO topics (title, slug, category_id, parent_id) VALUES (?, ?, ?, ?)",
-      [title.trim(), slug.trim(), categoryId, parentId]
+      `INSERT INTO topics 
+   (title, slug, category_id, parent_id, description, summary, pseudo_code) 
+   VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        title.trim(),
+        slug.trim(),
+        categoryId,
+        parentId,
+        description || null,
+        summary || null,
+        pseudo_code || null
+      ]
     );
 
     res.status(201).json({ message: "Topic created successfully" });

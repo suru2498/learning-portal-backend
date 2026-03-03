@@ -3,8 +3,10 @@ import { pool } from "../config/db";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { sendMail } from "../utils/sendEmail";
+import { sendSms } from "../utils/sendSms";
 import { randomBytes } from "crypto";
 import { logger } from "../utils/logger";
+import crypto from "crypto";
 
 interface AuthRequest extends Request {
   user?: any;
@@ -345,5 +347,401 @@ export const updateMyProfile = async (
     return res.status(500).json({
       message: "Internal server error",
     });
+  }
+};
+
+/* ======================================================
+   SEND EMAIL OTP
+====================================================== */
+export const sendEmailOtp = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.body;
+
+    if (!email?.trim()) {
+      return res.status(400).json({ message: "Email is required" });
+    }
+
+    const [rows]: any = await pool.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email.trim()]
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = rows[0];
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    const hashedOtp = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    const expiry = new Date(Date.now() + 5 * 60 * 1000);
+
+    await pool.query(
+      "UPDATE users SET email_otp = ?, email_otp_expiry = ? WHERE id = ?",
+      [hashedOtp, expiry, user.id]
+    );
+
+    await sendMail(user.id, user.email, "LOGIN_EMAIL_OTP", {
+      NAME: user.name,
+      OTP: otp,
+    });
+
+    logger.info("Email OTP sent", { userId: user.id });
+
+    return res.status(200).json({ message: "OTP sent successfully" });
+
+  } catch (error: any) {
+    logger.error("SendEmailOtp Error", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+/* ======================================================
+   VERIFY EMAIL OTP
+====================================================== */
+/* ======================================================
+   VERIFY EMAIL OTP (WITH ATTEMPTS LIMIT)
+====================================================== */
+export const verifyEmailOtp = async (req: Request, res: Response) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email?.trim() || !otp?.trim()) {
+      return res.status(400).json({
+        message: "Email and OTP are required",
+      });
+    }
+
+    const [rows]: any = await pool.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email.trim()]
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = rows[0];
+
+    /* ================= BLOCK CHECK ================= */
+    if (
+      user.email_otp_blocked_until &&
+      new Date(user.email_otp_blocked_until) > new Date()
+    ) {
+      return res.status(403).json({
+        message: "Too many attempts. Try again later.",
+      });
+    }
+
+    if (!user.email_otp || !user.email_otp_expiry) {
+      return res.status(400).json({
+        message: "No OTP found. Request again.",
+      });
+    }
+
+    if (new Date(user.email_otp_expiry) < new Date()) {
+      return res.status(400).json({
+        message: "OTP expired",
+      });
+    }
+
+    const hashedIncomingOtp = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    /* ================= INVALID OTP ================= */
+    if (hashedIncomingOtp !== user.email_otp) {
+
+      const attempts = user.email_otp_attempts + 1;
+
+      if (attempts >= 5) {
+        const blockUntil = new Date(Date.now() + 15 * 60 * 1000); // 15 mins
+
+        await pool.query(
+          `UPDATE users 
+           SET email_otp_attempts = ?, 
+               email_otp_blocked_until = ?
+           WHERE id = ?`,
+          [attempts, blockUntil, user.id]
+        );
+
+        return res.status(403).json({
+          message: "Too many failed attempts. Blocked for 15 minutes.",
+        });
+      }
+
+      await pool.query(
+        "UPDATE users SET email_otp_attempts = ? WHERE id = ?",
+        [attempts, user.id]
+      );
+
+      return res.status(400).json({
+        message: `Invalid OTP. Attempts left: ${5 - attempts}`,
+      });
+    }
+
+    /* ================= SUCCESS ================= */
+
+    await pool.query(
+      `UPDATE users 
+       SET email_otp = NULL,
+           email_otp_expiry = NULL,
+           email_otp_attempts = 0,
+           email_otp_blocked_until = NULL
+       WHERE id = ?`,
+      [user.id]
+    );
+
+    const token = jwt.sign(
+      { id: user.id, role: user.role },
+      process.env.JWT_SECRET as string,
+      { expiresIn: "1d" }
+    );
+
+    return res.status(200).json({
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+
+  } catch (error: any) {
+    logger.error("VerifyEmailOtp Error", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+/* ======================================================
+   SEND MOBILE OTP
+====================================================== */
+export const sendMobileOtp = async (req: Request, res: Response) => {
+  try {
+    let { phone } = req.body;
+
+    /* ===============================
+       VALIDATION
+    =============================== */
+
+    if (!phone) {
+      return res.status(400).json({
+        message: "Phone number is required",
+      });
+    }
+
+    // Remove all non-digits
+    phone = phone.replace(/\D/g, "");
+
+    // If 10 digit Indian number → add country code
+    if (phone.length === 10) {
+      phone = `91${phone}`;
+    }
+
+    // Now must be 12 digits starting with 91
+    if (!(phone.length === 12 && phone.startsWith("91"))) {
+      return res.status(400).json({
+        message: "Invalid phone number format",
+      });
+    }
+
+    // Convert to E.164 format required by Twilio
+    phone = `+${phone}`;
+
+    /* ===============================
+       CHECK USER
+    =============================== */
+
+    const [rows]: any = await pool.query(
+      "SELECT * FROM users WHERE phone = ?",
+      [phone]
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    const user = rows[0];
+
+    /* ===============================
+       GENERATE OTP
+    =============================== */
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    const hashedOtp = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    const expiry = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+
+    /* ===============================
+       SAVE OTP IN DB
+    =============================== */
+
+    await pool.query(
+      `UPDATE users 
+       SET mobile_otp = ?, 
+           mobile_otp_expiry = ?,
+           mobile_otp_attempts = 0,
+           mobile_otp_blocked_until = NULL
+       WHERE id = ?`,
+      [hashedOtp, expiry, user.id]
+    );
+
+    /* ===============================
+       SEND SMS VIA TWILIO
+    =============================== */
+
+    await sendSms(
+      phone,
+      `Your OTP is ${otp}. It is valid for 5 minutes. Do not share this OTP.`
+    );
+
+    logger.info("Mobile OTP sent via Twilio", {
+      userId: user.id,
+      phone,
+    });
+
+    return res.status(200).json({
+      message: "OTP sent successfully",
+    });
+
+  } catch (error: any) {
+    logger.error("SendMobileOtp Error", {
+      message: error.message,
+    });
+
+    return res.status(500).json({
+      message: "Failed to send OTP",
+    });
+  }
+};
+
+/* ======================================================
+   VERIFY MOBILE OTP
+====================================================== */
+export const verifyMobileOtp = async (req: Request, res: Response) => {
+  try {
+    const { phone, otp } = req.body;
+
+    if (!phone?.trim() || !otp?.trim()) {
+      return res.status(400).json({
+        message: "Phone and OTP are required",
+      });
+    }
+
+    const [rows]: any = await pool.query(
+      "SELECT * FROM users WHERE phone = ?",
+      [phone.trim()]
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = rows[0];
+
+    /* ================= BLOCK CHECK ================= */
+    if (
+      user.mobile_otp_blocked_until &&
+      new Date(user.mobile_otp_blocked_until) > new Date()
+    ) {
+      return res.status(403).json({
+        message: "Too many failed attempts. Try again later.",
+      });
+    }
+
+    if (!user.mobile_otp || !user.mobile_otp_expiry) {
+      return res.status(400).json({
+        message: "No OTP found. Request again.",
+      });
+    }
+
+    if (new Date(user.mobile_otp_expiry) < new Date()) {
+      return res.status(400).json({
+        message: "OTP expired",
+      });
+    }
+
+    const hashedIncomingOtp = crypto
+      .createHash("sha256")
+      .update(otp)
+      .digest("hex");
+
+    /* ================= INVALID OTP ================= */
+    if (hashedIncomingOtp !== user.mobile_otp) {
+
+      const attempts = user.mobile_otp_attempts + 1;
+
+      if (attempts >= 5) {
+        const blockUntil = new Date(Date.now() + 15 * 60 * 1000); // 15 mins
+
+        await pool.query(
+          `UPDATE users 
+           SET mobile_otp_attempts = ?, 
+               mobile_otp_blocked_until = ?
+           WHERE id = ?`,
+          [attempts, blockUntil, user.id]
+        );
+
+        return res.status(403).json({
+          message: "Too many failed attempts. Blocked for 15 minutes.",
+        });
+      }
+
+      await pool.query(
+        "UPDATE users SET mobile_otp_attempts = ? WHERE id = ?",
+        [attempts, user.id]
+      );
+
+      return res.status(400).json({
+        message: `Invalid OTP. Attempts left: ${5 - attempts}`,
+      });
+    }
+
+    /* ================= SUCCESS ================= */
+
+    await pool.query(
+      `UPDATE users 
+       SET mobile_otp = NULL,
+           mobile_otp_expiry = NULL,
+           mobile_otp_attempts = 0,
+           mobile_otp_blocked_until = NULL
+       WHERE id = ?`,
+      [user.id]
+    );
+
+    const token = jwt.sign(
+      { id: user.id, role: user.role },
+      process.env.JWT_SECRET as string,
+      { expiresIn: "1d" }
+    );
+
+    logger.info("User logged in via Mobile OTP", { userId: user.id });
+
+    return res.status(200).json({
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+
+  } catch (error: any) {
+    logger.error("VerifyMobileOtp Error", error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };

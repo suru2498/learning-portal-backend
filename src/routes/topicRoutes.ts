@@ -15,25 +15,24 @@ import { verifyAdmin } from "../middleware/adminMiddleware";
 
 const router = express.Router();
 
-
 /**
  * @swagger
- * /api/topics/{slug}:
+ * /api/topics/children/{topicSlug}:
  *   get:
- *     summary: Get topics by category slug
+ *     summary: Get child topics by parent slug
  *     tags: [Topics]
  *     parameters:
  *       - in: path
- *         name: slug
+ *         name: topicSlug
  *         required: true
  *         schema:
  *           type: string
- *         example: dsa
+ *         example: hld
  *     responses:
  *       200:
- *         description: List of topics
+ *         description: List of child topics
  */
-router.get("/:slug", getTopicsByCategorySlug);
+router.get("/children/:slug", getChildTopics);
 
 /**
  * @swagger
@@ -60,22 +59,22 @@ router.get("/topic/:slug", verifyToken, getTopicWithProblems);
 
 /**
  * @swagger
- * /api/topics/children/{topicSlug}:
+ * /api/topics/{slug}:
  *   get:
- *     summary: Get child topics by parent slug
+ *     summary: Get topics by category slug
  *     tags: [Topics]
  *     parameters:
  *       - in: path
- *         name: topicSlug
+ *         name: slug
  *         required: true
  *         schema:
  *           type: string
- *         example: hld
+ *         example: dsa
  *     responses:
  *       200:
- *         description: List of child topics
+ *         description: List of topics
  */
-router.get("/children/:topicSlug", getChildTopics);
+router.get("/:slug", getTopicsByCategorySlug);
 
 /**
  * @swagger

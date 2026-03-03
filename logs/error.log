@@ -1,0 +1,94 @@
+2026-03-02T17:33:49.242Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:33:49.248Z [error]: SendOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:34:01.835Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:34:01.837Z [error]: SendOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:52:05.665Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:52:05.669Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:57:12.859Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:57:12.862Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T18:14:36.204Z [error]: Twilio SMS failed Authenticate
+2026-03-02T18:14:36.207Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-02T18:14:49.495Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-02T18:14:49.497Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T08:12:22.393Z [error]: Twilio SMS failed Authenticate
+2026-03-03T08:12:22.395Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-03T08:12:28.611Z [error]: Twilio SMS failed Authenticate
+2026-03-03T08:12:28.612Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-03T13:35:47.410Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:35:47.415Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:31.771Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:31.777Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:51.219Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:51.220Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:14.253Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:14.258Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:19.839Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:19.841Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:53:46.798Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:53:46.799Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)

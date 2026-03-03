@@ -1634,3 +1634,371 @@
 2026-03-02T07:57:14.793Z [info]: Fetching child topics
 2026-03-02T07:57:14.795Z [info]: Parent topic found
 2026-03-02T07:57:14.796Z [info]: Child topics fetched successfully
+2026-03-02T08:17:45.406Z [info]: User logged in successfully
+2026-03-02T08:17:45.434Z [info]: Categories fetched successfully
+2026-03-02T08:17:47.706Z [info]: Fetching child topics
+2026-03-02T08:17:47.708Z [info]: Parent topic found
+2026-03-02T08:17:47.711Z [info]: Child topics fetched successfully
+2026-03-02T08:17:47.713Z [info]: Fetching child topics
+2026-03-02T08:17:47.715Z [info]: Parent topic found
+2026-03-02T08:17:47.717Z [info]: Child topics fetched successfully
+2026-03-02T08:17:49.118Z [info]: Fetching child topics
+2026-03-02T08:17:49.120Z [info]: Parent topic found
+2026-03-02T08:17:49.122Z [info]: Child topics fetched successfully
+2026-03-02T08:17:50.218Z [info]: Fetching child topics
+2026-03-02T08:17:50.220Z [info]: Parent topic found
+2026-03-02T08:17:50.222Z [info]: Child topics fetched successfully
+2026-03-02T08:17:50.891Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T08:17:50.895Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T08:17:55.929Z [info]: Fetching child topics
+2026-03-02T08:17:55.932Z [info]: Parent topic found
+2026-03-02T08:17:55.932Z [info]: Child topics fetched successfully
+2026-03-02T08:17:55.936Z [info]: Fetching child topics
+2026-03-02T08:17:55.937Z [info]: Parent topic found
+2026-03-02T08:17:55.938Z [info]: Child topics fetched successfully
+2026-03-02T08:18:01.364Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T08:18:01.368Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T08:28:07.072Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T08:28:07.075Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:11:47.852Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:11:47.855Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:15:40.624Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:15:40.627Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:15:41.248Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:15:41.250Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:15:46.709Z [info]: Topics fetched successfully
+2026-03-02T14:15:48.429Z [info]: Profile fetched successfully
+2026-03-02T14:15:49.590Z [info]: Topics fetched successfully
+2026-03-02T14:17:06.469Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:17:06.474Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:17:17.135Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:17:17.143Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:18:31.901Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:18:31.904Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:20:42.647Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:20:42.650Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:20:59.422Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:20:59.427Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:21:01.197Z [warn]: GetTopicsByCategory: Category not found
+2026-03-02T14:24:16.183Z [info]: Topic with problems fetched
+2026-03-02T14:24:16.187Z [info]: Topic with problems fetched
+2026-03-02T14:24:24.933Z [info]: Topic with problems fetched
+2026-03-02T14:24:24.937Z [info]: Topic with problems fetched
+2026-03-02T14:24:26.780Z [info]: Topic with problems fetched
+2026-03-02T14:24:26.785Z [info]: Topic with problems fetched
+2026-03-02T14:24:29.584Z [info]: Topic with problems fetched
+2026-03-02T14:24:29.589Z [info]: Topic with problems fetched
+2026-03-02T14:25:54.652Z [info]: Topic with problems fetched
+2026-03-02T14:25:54.657Z [info]: Topic with problems fetched
+2026-03-02T14:25:56.798Z [info]: Topic with problems fetched
+2026-03-02T14:25:56.803Z [info]: Topic with problems fetched
+2026-03-02T14:25:58.881Z [info]: Topic with problems fetched
+2026-03-02T14:25:58.886Z [info]: Topic with problems fetched
+2026-03-02T14:26:00.513Z [info]: Topic with problems fetched
+2026-03-02T14:26:00.517Z [info]: Topic with problems fetched
+2026-03-02T14:27:47.217Z [info]: Categories fetched successfully
+2026-03-02T14:27:48.785Z [info]: Topics fetched successfully
+2026-03-02T14:27:49.558Z [info]: Topic with problems fetched
+2026-03-02T14:27:50.467Z [info]: Topics fetched successfully
+2026-03-02T14:27:51.030Z [info]: Categories fetched successfully
+2026-03-02T14:27:53.199Z [info]: Topic with problems fetched
+2026-03-02T14:27:53.202Z [info]: Topic with problems fetched
+2026-03-02T14:27:54.897Z [info]: Topic with problems fetched
+2026-03-02T14:27:54.902Z [info]: Topic with problems fetched
+2026-03-02T14:30:11.882Z [info]: Topic with problems fetched
+2026-03-02T14:30:11.887Z [info]: Topic with problems fetched
+2026-03-02T14:34:19.218Z [info]: Topic with problems fetched
+2026-03-02T14:34:19.221Z [info]: Topic with problems fetched
+2026-03-02T14:34:19.802Z [info]: Topic with problems fetched
+2026-03-02T14:34:19.806Z [info]: Topic with problems fetched
+2026-03-02T14:34:20.309Z [info]: Topic with problems fetched
+2026-03-02T14:34:20.310Z [info]: Topic with problems fetched
+2026-03-02T14:34:20.747Z [info]: Topic with problems fetched
+2026-03-02T14:34:20.750Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.101Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.106Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.249Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.252Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.398Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.401Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.530Z [info]: Topic with problems fetched
+2026-03-02T14:34:21.531Z [info]: Topic with problems fetched
+2026-03-02T14:34:22.016Z [info]: Topic with problems fetched
+2026-03-02T14:34:22.019Z [info]: Topic with problems fetched
+2026-03-02T14:34:27.734Z [info]: Topic with problems fetched
+2026-03-02T14:34:27.737Z [info]: Topic with problems fetched
+2026-03-02T14:35:31.714Z [info]: Topic with problems fetched
+2026-03-02T14:35:31.716Z [info]: Topic with problems fetched
+2026-03-02T14:35:36.267Z [info]: Topic with problems fetched
+2026-03-02T14:35:36.272Z [info]: Topic with problems fetched
+2026-03-02T14:35:38.187Z [info]: Topic with problems fetched
+2026-03-02T14:35:38.191Z [info]: Topic with problems fetched
+2026-03-02T14:35:39.617Z [info]: Categories fetched successfully
+2026-03-02T14:35:40.306Z [info]: Profile fetched successfully
+2026-03-02T14:35:40.870Z [info]: Topics fetched successfully
+2026-03-02T14:35:57.014Z [info]: Categories fetched successfully
+2026-03-02T14:35:57.998Z [info]: Topics fetched successfully
+2026-03-02T14:36:00.380Z [info]: Categories fetched successfully
+2026-03-02T14:36:10.585Z [info]: Topics fetched successfully
+2026-03-02T14:37:10.953Z [info]: Profile fetched successfully
+2026-03-02T14:37:16.324Z [info]: Profile fetched successfully
+2026-03-02T14:37:19.801Z [info]: Categories fetched successfully
+2026-03-02T14:37:20.555Z [info]: Profile fetched successfully
+2026-03-02T14:37:22.556Z [info]: Categories fetched successfully
+2026-03-02T14:37:24.223Z [info]: Topics fetched successfully
+2026-03-02T14:37:30.591Z [info]: Topic with problems fetched
+2026-03-02T14:37:30.594Z [info]: Topic with problems fetched
+2026-03-02T14:37:36.394Z [info]: Topic with problems fetched
+2026-03-02T14:37:36.398Z [info]: Topic with problems fetched
+2026-03-02T15:33:40.264Z [info]: Topic with problems fetched
+2026-03-02T15:33:40.269Z [info]: Topic with problems fetched
+2026-03-02T15:33:42.281Z [info]: Topic with problems fetched
+2026-03-02T15:33:42.288Z [info]: Topic with problems fetched
+2026-03-02T15:34:28.273Z [info]: Profile fetched successfully
+2026-03-02T15:34:52.807Z [info]: Topics fetched successfully
+2026-03-02T15:36:12.203Z [info]: Profile fetched successfully
+2026-03-02T15:36:54.989Z [info]: Profile fetched successfully
+2026-03-02T15:36:56.253Z [info]: Categories fetched successfully
+2026-03-02T15:37:03.652Z [info]: Profile fetched successfully
+2026-03-02T15:37:07.572Z [info]: Topics fetched successfully
+2026-03-02T15:37:25.866Z [info]: Categories fetched successfully
+2026-03-02T15:37:29.392Z [info]: Profile fetched successfully
+2026-03-02T15:37:31.808Z [info]: Topics fetched successfully
+2026-03-02T15:38:12.628Z [info]: Topic with problems fetched
+2026-03-02T16:37:05.944Z [info]: User logged in successfully
+2026-03-02T16:37:05.966Z [info]: Categories fetched successfully
+2026-03-02T16:37:11.865Z [info]: Profile fetched successfully
+2026-03-02T16:37:13.977Z [info]: DSA Topics fetched successfully
+2026-03-02T16:37:22.565Z [info]: Topic with problems fetched
+2026-03-02T16:42:37.813Z [info]: Topic with problems fetched
+2026-03-02T17:00:58.188Z [info]: Topic with problems fetched
+2026-03-02T17:02:04.307Z [info]: Topic with problems fetched
+2026-03-02T17:05:49.094Z [info]: Topic with problems fetched
+2026-03-02T17:06:04.123Z [info]: Topic with problems fetched
+2026-03-02T17:06:09.239Z [info]: Categories fetched successfully
+2026-03-02T17:06:10.757Z [info]: Profile fetched successfully
+2026-03-02T17:06:13.171Z [info]: DSA Topics fetched successfully
+2026-03-02T17:06:16.274Z [info]: Topic with problems fetched
+2026-03-02T17:06:17.787Z [info]: DSA Topics fetched successfully
+2026-03-02T17:06:22.734Z [info]: Topic with problems fetched
+2026-03-02T17:06:24.786Z [info]: Topic with problems fetched
+2026-03-02T17:06:26.720Z [info]: Topic with problems fetched
+2026-03-02T17:06:54.117Z [info]: Topic with problems fetched
+2026-03-02T17:06:58.388Z [info]: Categories fetched successfully
+2026-03-02T17:07:00.718Z [info]: Profile fetched successfully
+2026-03-02T17:07:02.709Z [info]: DSA Topics fetched successfully
+2026-03-02T17:09:15.418Z [info]: Topic with problems fetched
+2026-03-02T17:09:17.352Z [info]: Topic with problems fetched
+2026-03-02T17:09:19.105Z [info]: Topic with problems fetched
+2026-03-02T17:09:21.016Z [info]: Topic with problems fetched
+2026-03-02T17:21:20.542Z [info]: Profile fetched successfully
+2026-03-02T17:21:22.550Z [info]: Categories fetched successfully
+2026-03-02T17:21:24.549Z [info]: Profile fetched successfully
+2026-03-02T17:21:25.212Z [info]: Categories fetched successfully
+2026-03-02T17:21:26.600Z [info]: Profile fetched successfully
+2026-03-02T17:21:27.243Z [info]: Categories fetched successfully
+2026-03-02T17:21:28.761Z [info]: Profile fetched successfully
+2026-03-02T17:21:29.363Z [info]: Categories fetched successfully
+2026-03-02T17:21:30.463Z [info]: Profile fetched successfully
+2026-03-02T17:21:31.166Z [info]: Categories fetched successfully
+2026-03-02T17:21:32.445Z [info]: Profile fetched successfully
+2026-03-02T17:21:32.995Z [info]: Categories fetched successfully
+2026-03-02T17:21:34.230Z [info]: Profile fetched successfully
+2026-03-02T17:21:35.776Z [info]: Categories fetched successfully
+2026-03-02T17:21:37.226Z [info]: Profile fetched successfully
+2026-03-02T17:21:38.661Z [info]: Categories fetched successfully
+2026-03-02T17:22:50.890Z [info]: Categories fetched successfully
+2026-03-02T17:31:01.280Z [info]: User logged in successfully
+2026-03-02T17:31:01.300Z [info]: Categories fetched successfully
+2026-03-02T17:33:49.226Z [warn]: SendMail: Template not found
+2026-03-02T17:33:49.242Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:33:49.248Z [error]: SendOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:34:01.834Z [warn]: SendMail: Template not found
+2026-03-02T17:34:01.835Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:34:01.837Z [error]: SendOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:397:5)
+2026-03-02T17:52:00.956Z [info]: User logged in successfully
+2026-03-02T17:52:01.012Z [info]: Categories fetched successfully
+2026-03-02T17:52:05.645Z [warn]: SendMail: Template not found
+2026-03-02T17:52:05.665Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:52:05.669Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:57:08.102Z [info]: User logged in successfully
+2026-03-02T17:57:08.126Z [info]: Categories fetched successfully
+2026-03-02T17:57:12.857Z [warn]: SendMail: Template not found
+2026-03-02T17:57:12.859Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:57:12.862Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:388:5)
+2026-03-02T17:58:37.603Z [info]: Mobile OTP generated
+2026-03-02T17:59:21.070Z [info]: User logged in via Mobile OTP
+2026-03-02T17:59:21.083Z [info]: Categories fetched successfully
+2026-03-02T18:14:36.204Z [error]: Twilio SMS failed Authenticate
+2026-03-02T18:14:36.207Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-02T18:14:49.476Z [warn]: SendMail: Template not found
+2026-03-02T18:14:49.495Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-02T18:14:49.497Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-02T18:14:55.350Z [info]: User logged in successfully
+2026-03-02T18:14:55.367Z [info]: Categories fetched successfully
+2026-03-02T18:14:57.385Z [info]: Profile fetched successfully
+2026-03-02T18:14:59.469Z [info]: DSA Topics fetched successfully
+2026-03-02T18:15:04.823Z [info]: Topic with problems fetched
+2026-03-02T18:15:08.285Z [info]: Topic with problems fetched
+2026-03-03T03:31:01.031Z [info]: Topic with problems fetched
+2026-03-03T03:31:37.011Z [info]: Topic with problems fetched
+2026-03-03T04:56:41.517Z [info]: Topic with problems fetched
+2026-03-03T05:13:16.755Z [info]: Topic with problems fetched
+2026-03-03T08:01:12.478Z [info]: Topic with problems fetched
+2026-03-03T08:12:22.393Z [error]: Twilio SMS failed Authenticate
+2026-03-03T08:12:22.395Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-03T08:12:28.611Z [error]: Twilio SMS failed Authenticate
+2026-03-03T08:12:28.612Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-03T13:35:47.389Z [warn]: SendMail: Template not found
+2026-03-03T13:35:47.410Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:35:47.415Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:31.769Z [warn]: SendMail: Template not found
+2026-03-03T13:48:31.771Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:31.777Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:51.208Z [warn]: SendMail: Template not found
+2026-03-03T13:48:51.219Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:48:51.220Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:09.940Z [info]: User logged in successfully
+2026-03-03T13:51:09.979Z [info]: Categories fetched successfully
+2026-03-03T13:51:14.252Z [warn]: SendMail: Template not found
+2026-03-03T13:51:14.253Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:14.258Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:19.837Z [warn]: SendMail: Template not found
+2026-03-03T13:51:19.839Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:51:19.841Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:53:46.791Z [warn]: SendMail: Template not found
+2026-03-03T13:53:46.798Z [error]: SendMail Error Email template not found - Error: Email template not found
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:36:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:53:46.799Z [error]: SendEmailOtp Error Email sending failed - Error: Email sending failed
+    at sendMail (/Users/surajsinghkanyal/Desktop/backend_code/src/utils/sendEmail.ts:116:11)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at sendEmailOtp (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:389:5)
+2026-03-03T13:55:41.170Z [info]: Email sent successfully
+2026-03-03T13:55:41.175Z [info]: Email OTP sent
+2026-03-03T14:00:16.613Z [info]: Categories fetched successfully
+2026-03-03T14:00:20.753Z [info]: Profile fetched successfully
+2026-03-03T14:00:21.951Z [info]: DSA Topics fetched successfully
+2026-03-03T14:00:26.164Z [info]: Categories fetched successfully
+2026-03-03T14:02:12.735Z [info]: Categories fetched successfully
+2026-03-03T14:02:13.720Z [info]: Categories fetched successfully
+2026-03-03T14:02:14.590Z [info]: Categories fetched successfully
+2026-03-03T14:02:15.359Z [info]: Categories fetched successfully
+2026-03-03T14:05:24.268Z [info]: Categories fetched successfully
+2026-03-03T14:05:25.159Z [info]: Categories fetched successfully
+2026-03-03T14:05:26.023Z [info]: Categories fetched successfully
+2026-03-03T14:05:26.803Z [info]: Categories fetched successfully
+2026-03-03T14:05:27.706Z [info]: Categories fetched successfully
+2026-03-03T14:18:33.656Z [info]: Categories fetched successfully
+2026-03-03T14:18:34.494Z [info]: Categories fetched successfully
+2026-03-03T14:18:35.257Z [info]: Categories fetched successfully
+2026-03-03T14:18:35.957Z [info]: Categories fetched successfully
+2026-03-03T14:18:38.344Z [info]: Profile fetched successfully
+2026-03-03T14:18:40.977Z [info]: DSA Topics fetched successfully
+2026-03-03T14:18:41.720Z [info]: Profile fetched successfully
+2026-03-03T14:18:42.945Z [info]: Profile fetched successfully
+2026-03-03T14:18:44.422Z [info]: DSA Topics fetched successfully
+2026-03-03T14:18:48.795Z [info]: Topic with problems fetched
+2026-03-03T14:21:29.420Z [info]: Topic with problems fetched
+2026-03-03T14:23:57.426Z [info]: Topic with problems fetched
+2026-03-03T14:27:16.011Z [info]: Topic with problems fetched
+2026-03-03T14:28:16.803Z [info]: Topic with problems fetched
+2026-03-03T14:28:17.552Z [info]: Topic with problems fetched
+2026-03-03T14:28:20.889Z [info]: Topic with problems fetched
+2026-03-03T14:28:39.353Z [info]: Topic with problems fetched
+2026-03-03T14:28:40.873Z [info]: Topic with problems fetched
+2026-03-03T14:28:55.594Z [info]: Topic with problems fetched
+2026-03-03T14:28:58.172Z [info]: Topic with problems fetched
+2026-03-03T14:30:43.344Z [info]: Topic with problems fetched
+2026-03-03T14:30:49.474Z [info]: Topic with problems fetched
+2026-03-03T14:30:49.479Z [info]: Topic with problems fetched
+2026-03-03T14:30:51.301Z [info]: Topic with problems fetched
+2026-03-03T14:30:51.306Z [info]: Topic with problems fetched
+2026-03-03T14:31:26.561Z [info]: Topic with problems fetched
+2026-03-03T14:31:26.564Z [info]: Topic with problems fetched
+2026-03-03T14:31:27.309Z [info]: Topic with problems fetched
+2026-03-03T14:31:27.312Z [info]: Topic with problems fetched
+2026-03-03T14:31:27.758Z [info]: Topic with problems fetched
+2026-03-03T14:31:27.760Z [info]: Topic with problems fetched
+2026-03-03T14:32:05.138Z [info]: Topic with problems fetched
+2026-03-03T14:32:05.142Z [info]: Topic with problems fetched
+2026-03-03T14:32:05.741Z [info]: Topic with problems fetched
+2026-03-03T14:32:05.743Z [info]: Topic with problems fetched
+2026-03-03T14:37:17.129Z [info]: Topic with problems fetched
+2026-03-03T14:37:17.133Z [info]: Topic with problems fetched
+2026-03-03T14:37:17.791Z [info]: Topic with problems fetched
+2026-03-03T14:37:17.795Z [info]: Topic with problems fetched
+2026-03-03T14:37:22.100Z [info]: Topic with problems fetched
+2026-03-03T14:37:22.106Z [info]: Topic with problems fetched
+2026-03-03T14:39:56.738Z [info]: DSA Topics fetched successfully
+2026-03-03T14:41:54.818Z [info]: Topic with problems fetched
+2026-03-03T14:41:54.826Z [info]: Topic with problems fetched
+2026-03-03T14:42:13.155Z [info]: Topic with problems fetched
+2026-03-03T14:42:13.160Z [info]: Topic with problems fetched
+2026-03-03T14:42:16.337Z [info]: Topic with problems fetched
+2026-03-03T14:42:16.343Z [info]: Topic with problems fetched
+2026-03-03T14:43:19.343Z [info]: Topic with problems fetched
+2026-03-03T14:43:19.346Z [info]: Topic with problems fetched
+2026-03-03T14:43:20.207Z [info]: Topic with problems fetched
+2026-03-03T14:43:20.210Z [info]: Topic with problems fetched
