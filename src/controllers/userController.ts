@@ -112,7 +112,7 @@ export const login = async (req: Request, res: Response) => {
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET as string,
-      { expiresIn: "1d" }
+      { expiresIn: "1h" }
     );
 
     logger.info("User logged in successfully", {
@@ -501,7 +501,7 @@ export const verifyEmailOtp = async (req: Request, res: Response) => {
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET as string,
-      { expiresIn: "1d" }
+      { expiresIn: "1h" }
     );
 
     return res.status(200).json({
@@ -725,7 +725,7 @@ export const verifyMobileOtp = async (req: Request, res: Response) => {
     const token = jwt.sign(
       { id: user.id, role: user.role },
       process.env.JWT_SECRET as string,
-      { expiresIn: "1d" }
+      { expiresIn: "1h" }
     );
 
     logger.info("User logged in via Mobile OTP", { userId: user.id });

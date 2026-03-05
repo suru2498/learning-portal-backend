@@ -6,6 +6,9 @@ const client = twilio(
   process.env.TWILIO_AUTH_TOKEN as string
 );
 
+console.log(process.env.TWILIO_ACCOUNT_SID);
+console.log(process.env.TWILIO_AUTH_TOKEN);
+
 export const sendSms = async (phone: string, message: string) => {
   try {
     await client.messages.create({

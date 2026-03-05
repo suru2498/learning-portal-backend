@@ -8,7 +8,8 @@ import {
   unmarkProblemSolved,
   deleteTopic,
   updateTopic,
-  getChildTopics
+  getChildTopics,
+  getTopicBySlug
 } from "../controllers/topicController";
 import { verifyToken } from "../middleware/userMiddleware";
 import { verifyAdmin } from "../middleware/adminMiddleware";
@@ -248,5 +249,7 @@ router.put("/:id", verifyToken, verifyAdmin, updateTopic);
  *         description: Topic deleted successfully
  */
 router.delete("/:id", verifyToken, verifyAdmin, deleteTopic);
+
+router.get("/theory/:slug", verifyToken, getTopicBySlug);
 
 export default router;

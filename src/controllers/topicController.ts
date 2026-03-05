@@ -315,13 +315,13 @@ export const unmarkProblemSolved = async (
 export const updateTopic = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const { title, description, summary, pseudo_code } = req.body;
+    const { title, description, pseudo_code } = req.body;
 
     const [result]: any = await pool.query(
       `UPDATE topics 
-   SET title = ?, description = ?, summary = ?, pseudo_code = ?
+   SET title = ?, description = ?, pseudo_code = ?
    WHERE id = ?`,
-      [title, description, summary, pseudo_code, id]
+      [title, description, pseudo_code, id]
     );
 
     if (result.affectedRows === 0) {
@@ -375,7 +375,7 @@ export const getChildTopics = async (req: Request, res: Response) => {
 
 export const createTopic = async (req: Request, res: Response) => {
   try {
-    const { title, slug, categorySlug, parentSlug, description, summary, pseudo_code } = req.body;
+    const { title, slug, categorySlug, parentSlug, description, pseudo_code } = req.body;
 
     if (!title || !slug) {
       return res.status(400).json({ message: "Title and slug are required" });
@@ -415,7 +415,7 @@ export const createTopic = async (req: Request, res: Response) => {
 
     await pool.query(
       `INSERT INTO topics 
-   (title, slug, category_id, parent_id, description, summary, pseudo_code) 
+   (title, slug, category_id, parent_id, description, pseudo_code) 
    VALUES (?, ?, ?, ?, ?, ?, ?)`,
       [
         title.trim(),
@@ -423,7 +423,6 @@ export const createTopic = async (req: Request, res: Response) => {
         categoryId,
         parentId,
         description || null,
-        summary || null,
         pseudo_code || null
       ]
     );
@@ -436,5 +435,25 @@ export const createTopic = async (req: Request, res: Response) => {
     }
 
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const getTopicBySlug = async (req: Request, res: Response) => {
+  try {
+    const { slug } = req.params;
+
+    const [rows]: any = await pool.query(
+      "SELECT id, title, description, pseudo_code FROM topics WHERE slug = ?",
+      [slug]
+    );
+
+    if (!rows.length) {
+      return res.status(404).json({ message: "Topic not found" });
+    }
+
+    return res.status(200).json(rows[0]);
+
+  } catch (error: any) {
+    return res.status(500).json({ message: "Server error" });
   }
 };
