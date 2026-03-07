@@ -537,23 +537,17 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
       });
     }
 
-    // Remove all non-digits
-    phone = phone.replace(/\D/g, "");
+    // Remove spaces
+    phone = phone.trim();
 
-    // If 10 digit Indian number → add country code
-    if (phone.length === 10) {
-      phone = `91${phone}`;
-    }
+    // Validate E.164 format (+countrycode + number)
+    const phoneRegex = /^\+[1-9]\d{9,14}$/;
 
-    // Now must be 12 digits starting with 91
-    if (!(phone.length === 12 && phone.startsWith("91"))) {
+    if (!phoneRegex.test(phone)) {
       return res.status(400).json({
-        message: "Invalid phone number format",
+        message: "Invalid phone number format. Use +countrycode format",
       });
     }
-
-    // Convert to E.164 format required by Twilio
-    phone = `+${phone}`;
 
     /* ===============================
        CHECK USER
@@ -583,7 +577,7 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
       .update(otp)
       .digest("hex");
 
-    const expiry = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+    const expiry = new Date(Date.now() + 5 * 60 * 1000);
 
     /* ===============================
        SAVE OTP IN DB

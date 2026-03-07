@@ -10,6 +10,8 @@ console.log(process.env.TWILIO_ACCOUNT_SID);
 console.log(process.env.TWILIO_AUTH_TOKEN);
 
 export const sendSms = async (phone: string, message: string) => {
+      logger.info("SMS sent via Twilio", { phone });
+
   try {
     await client.messages.create({
       body: message,
