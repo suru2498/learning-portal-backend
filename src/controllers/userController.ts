@@ -267,7 +267,7 @@ export const getMyProfile = async (
     const userId = req.user?.id;
 
     const [rows]: any = await pool.query(
-      "SELECT id, name, email, role, created_at FROM users WHERE id = ?",
+      "SELECT id, name, email, phone, role, created_at FROM users WHERE id = ?",
       [userId]
     );
 

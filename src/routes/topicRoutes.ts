@@ -7,9 +7,11 @@ import {
   markProblemSolved,
   unmarkProblemSolved,
   deleteTopic,
-  updateTopic,
+  updateDSATopic,
   getChildTopics,
-  getTopicBySlug
+  getTopicBySlug,
+  updateSystemDesignTopic,
+  deleteSystemDesignTopic
 } from "../controllers/topicController";
 import { verifyToken } from "../middleware/userMiddleware";
 import { verifyAdmin } from "../middleware/adminMiddleware";
@@ -227,7 +229,7 @@ router.delete("/problem/:id/solve", verifyToken, unmarkProblemSolved);
  *       200:
  *         description: Topic updated successfully
  */
-router.put("/:id", verifyToken, verifyAdmin, updateTopic);
+router.put("/dsa/:id", verifyToken, verifyAdmin, updateDSATopic);
 
 /**
  * @swagger
@@ -248,8 +250,12 @@ router.put("/:id", verifyToken, verifyAdmin, updateTopic);
  *       200:
  *         description: Topic deleted successfully
  */
-router.delete("/:id", verifyToken, verifyAdmin, deleteTopic);
+router.delete("/dsa/:id", verifyToken, verifyAdmin, deleteTopic);
 
 router.get("/theory/:slug", verifyToken, getTopicBySlug);
+
+router.put("/sd/:id", verifyToken, verifyAdmin, updateSystemDesignTopic);
+
+router.delete("/sd/:id", verifyToken, verifyAdmin, deleteSystemDesignTopic);
 
 export default router;

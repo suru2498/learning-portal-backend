@@ -2183,3 +2183,284 @@
 2026-03-05T20:21:34.348Z [info]: DSA Topics fetched successfully
 2026-03-05T20:21:34.352Z [info]: DSA Topics fetched successfully
 2026-03-05T20:21:36.040Z [info]: Profile fetched successfully
+2026-03-06T16:05:46.643Z [warn]: verifyToken: Token expired
+2026-03-06T16:05:51.119Z [info]: User logged in successfully
+2026-03-06T16:05:51.152Z [info]: Categories fetched successfully
+2026-03-06T16:05:53.333Z [info]: Profile fetched successfully
+2026-03-06T16:05:55.148Z [info]: DSA Topics fetched successfully
+2026-03-06T16:05:55.153Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:12.868Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:12.872Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:17.017Z [info]: Topic with problems fetched
+2026-03-06T16:18:18.830Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:18.837Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:19.601Z [info]: Topic with problems fetched
+2026-03-06T16:18:20.897Z [info]: DSA Topics fetched successfully
+2026-03-06T16:18:20.904Z [info]: DSA Topics fetched successfully
+2026-03-06T16:38:15.817Z [error]: Twilio SMS failed Authenticate
+2026-03-06T16:38:15.818Z [error]: SendMobileOtp Error SMS sending failed
+2026-03-06T16:38:35.723Z [info]: User logged in successfully
+2026-03-06T16:38:35.746Z [info]: Categories fetched successfully
+2026-03-06T16:38:42.876Z [info]: Profile fetched successfully
+2026-03-06T16:44:54.241Z [info]: Profile fetched successfully
+2026-03-06T17:15:13.165Z [info]: Profile fetched successfully
+2026-03-06T17:46:15.466Z [warn]: verifyToken: Token expired
+2026-03-06T17:46:17.779Z [warn]: verifyToken: Token expired
+2026-03-06T17:46:23.471Z [info]: User logged in successfully
+2026-03-06T17:46:23.489Z [info]: Categories fetched successfully
+2026-03-06T17:46:25.172Z [info]: Profile fetched successfully
+2026-03-06T17:49:30.106Z [error]: GetMyProfile Error Unknown column 'mobile' in 'field list' - Error: Unknown column 'mobile' in 'field list'
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyProfile (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:269:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at verifyToken (/Users/surajsinghkanyal/Desktop/backend_code/src/middleware/userMiddleware.ts:63:5)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+2026-03-06T17:49:32.541Z [error]: GetMyProfile Error Unknown column 'mobile' in 'field list' - Error: Unknown column 'mobile' in 'field list'
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyProfile (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:269:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at verifyToken (/Users/surajsinghkanyal/Desktop/backend_code/src/middleware/userMiddleware.ts:63:5)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+2026-03-06T17:49:42.410Z [info]: Categories fetched successfully
+2026-03-06T17:49:43.461Z [error]: GetMyProfile Error Unknown column 'mobile' in 'field list' - Error: Unknown column 'mobile' in 'field list'
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at getMyProfile (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:269:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at verifyToken (/Users/surajsinghkanyal/Desktop/backend_code/src/middleware/userMiddleware.ts:63:5)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+2026-03-06T17:51:00.810Z [info]: Profile fetched successfully
+2026-03-06T17:51:46.527Z [info]: Profile fetched successfully
+2026-03-06T17:56:58.483Z [info]: Profile fetched successfully
+2026-03-06T17:59:01.419Z [info]: Profile fetched successfully
+2026-03-06T18:00:26.784Z [info]: Profile fetched successfully
+2026-03-06T18:10:48.680Z [info]: Profile fetched successfully
+2026-03-06T18:11:25.232Z [info]: Categories fetched successfully
+2026-03-06T18:13:34.727Z [info]: Categories fetched successfully
+2026-03-06T18:13:35.520Z [info]: Categories fetched successfully
+2026-03-06T18:13:36.570Z [info]: Categories fetched successfully
+2026-03-06T18:13:37.935Z [info]: Categories fetched successfully
+2026-03-06T18:14:45.452Z [info]: Categories fetched successfully
+2026-03-06T18:59:58.062Z [info]: User logged in successfully
+2026-03-06T18:59:58.091Z [info]: Categories fetched successfully
+2026-03-06T19:00:05.339Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:05.341Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:13.167Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:13.171Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:18.421Z [info]: Profile fetched successfully
+2026-03-06T19:00:27.756Z [info]: Profile updated successfully
+2026-03-06T19:00:29.360Z [info]: Categories fetched successfully
+2026-03-06T19:00:31.702Z [info]: Profile fetched successfully
+2026-03-06T19:00:32.572Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:32.574Z [info]: DSA Topics fetched successfully
+2026-03-06T19:00:33.671Z [info]: Categories fetched successfully
+2026-03-06T19:00:34.504Z [info]: Profile fetched successfully
+2026-03-06T19:04:01.223Z [info]: Profile fetched successfully
+2026-03-06T19:04:02.350Z [info]: Categories fetched successfully
+2026-03-06T19:04:13.201Z [info]: Profile fetched successfully
+2026-03-06T19:04:13.919Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:13.923Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:19.397Z [info]: Categories fetched successfully
+2026-03-06T19:04:37.852Z [info]: Profile fetched successfully
+2026-03-06T19:04:38.651Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:38.654Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:41.114Z [info]: Profile fetched successfully
+2026-03-06T19:04:41.701Z [info]: Categories fetched successfully
+2026-03-06T19:04:45.831Z [info]: Profile fetched successfully
+2026-03-06T19:04:46.452Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:46.456Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:50.777Z [info]: Categories fetched successfully
+2026-03-06T19:04:52.915Z [info]: Profile fetched successfully
+2026-03-06T19:04:55.995Z [info]: DSA Topics fetched successfully
+2026-03-06T19:04:56.001Z [info]: DSA Topics fetched successfully
+2026-03-06T19:15:00.895Z [info]: Profile fetched successfully
+2026-03-06T19:15:05.391Z [info]: Categories fetched successfully
+2026-03-06T19:15:08.782Z [info]: Categories fetched successfully
+2026-03-06T19:15:13.993Z [info]: Categories fetched successfully
+2026-03-06T19:20:36.447Z [info]: Categories fetched successfully
+2026-03-06T19:34:45.093Z [info]: Categories fetched successfully
+2026-03-06T19:34:46.659Z [info]: Categories fetched successfully
+2026-03-06T19:35:23.291Z [info]: DSA Topics fetched successfully
+2026-03-06T19:35:23.296Z [info]: DSA Topics fetched successfully
+2026-03-06T19:35:31.105Z [info]: DSA Topics fetched successfully
+2026-03-06T19:35:31.108Z [info]: DSA Topics fetched successfully
+2026-03-06T19:35:46.410Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:47.207Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:47.424Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:47.591Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:48.175Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:48.492Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:48.659Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:35:51.555Z [info]: DSA Topics fetched successfully
+2026-03-06T19:35:51.559Z [info]: DSA Topics fetched successfully
+2026-03-06T19:36:08.857Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:36:09.509Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:36:17.676Z [info]: verifyAdmin: Admin access granted
+2026-03-06T19:37:08.939Z [info]: DSA Topics fetched successfully
+2026-03-06T19:37:08.942Z [info]: DSA Topics fetched successfully
+2026-03-06T19:37:17.222Z [info]: Categories fetched successfully
+2026-03-06T19:43:56.626Z [info]: Categories fetched successfully
+2026-03-06T19:44:22.942Z [info]: Profile fetched successfully
+2026-03-06T19:44:25.239Z [info]: DSA Topics fetched successfully
+2026-03-06T19:44:25.245Z [info]: DSA Topics fetched successfully
+2026-03-06T19:44:26.809Z [info]: Topic with problems fetched
+2026-03-06T19:44:28.673Z [info]: DSA Topics fetched successfully
+2026-03-06T19:44:28.678Z [info]: DSA Topics fetched successfully
+2026-03-06T19:44:33.923Z [info]: Categories fetched successfully
+2026-03-06T19:52:32.095Z [info]: Categories fetched successfully
+2026-03-06T19:52:56.238Z [info]: Categories fetched successfully
+2026-03-06T19:52:58.528Z [info]: Categories fetched successfully
+2026-03-06T19:56:20.532Z [info]: Categories fetched successfully
+2026-03-06T19:56:48.049Z [info]: Profile fetched successfully
+2026-03-06T19:56:48.692Z [info]: DSA Topics fetched successfully
+2026-03-06T19:56:48.698Z [info]: DSA Topics fetched successfully
+2026-03-06T19:56:53.449Z [info]: Categories fetched successfully
+2026-03-06T20:00:02.586Z [info]: User logged in successfully
+2026-03-06T20:00:02.608Z [info]: Categories fetched successfully
+2026-03-06T20:00:14.623Z [info]: DSA Topics fetched successfully
+2026-03-06T20:00:14.626Z [info]: DSA Topics fetched successfully
+2026-03-06T20:00:16.659Z [info]: Topic with problems fetched
+2026-03-06T20:03:20.648Z [info]: Topic with problems fetched
+2026-03-06T20:03:24.168Z [info]: Topic with problems fetched
+2026-03-06T20:03:30.199Z [info]: Problem marked as solved
+2026-03-06T20:03:30.222Z [info]: Topic with problems fetched
+2026-03-06T20:03:31.542Z [info]: Problem unmarked as solved
+2026-03-06T20:03:31.556Z [info]: Topic with problems fetched
+2026-03-06T20:03:34.841Z [info]: Categories fetched successfully
+2026-03-06T20:03:35.607Z [info]: Profile fetched successfully
+2026-03-06T20:03:37.052Z [info]: Categories fetched successfully
+2026-03-06T20:04:02.807Z [info]: Profile fetched successfully
+2026-03-06T20:04:04.024Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:04.026Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:17.799Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:17.804Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:19.838Z [info]: Profile fetched successfully
+2026-03-06T20:04:41.465Z [info]: Categories fetched successfully
+2026-03-06T20:04:42.653Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:42.655Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:51.619Z [info]: DSA Topics fetched successfully
+2026-03-06T20:04:51.623Z [info]: DSA Topics fetched successfully
+2026-03-06T20:05:02.844Z [info]: verifyAdmin: Admin access granted
+2026-03-06T20:09:01.546Z [info]: Topic with problems fetched
+2026-03-06T20:09:03.905Z [info]: DSA Topics fetched successfully
+2026-03-06T20:09:03.908Z [info]: DSA Topics fetched successfully
+2026-03-07T04:48:20.994Z [info]: User logged in successfully
+2026-03-07T04:48:21.032Z [info]: Categories fetched successfully
+2026-03-07T04:48:22.767Z [info]: DSA Topics fetched successfully
+2026-03-07T04:48:22.770Z [info]: DSA Topics fetched successfully
+2026-03-07T04:48:24.355Z [info]: Categories fetched successfully
+2026-03-07T05:01:41.002Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:02:11.885Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:02:32.171Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:02:37.414Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:08:19.237Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:08:20.724Z [info]: DSA Topics fetched successfully
+2026-03-07T05:08:20.728Z [info]: DSA Topics fetched successfully
+2026-03-07T05:08:21.877Z [info]: DSA Topics fetched successfully
+2026-03-07T05:08:21.880Z [info]: DSA Topics fetched successfully
+2026-03-07T05:08:22.404Z [info]: Topic with problems fetched
+2026-03-07T05:08:28.033Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:08:28.037Z [info]: Topic updated successfully
+2026-03-07T05:08:28.047Z [info]: Topic with problems fetched
+2026-03-07T05:11:35.772Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:11:43.230Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:12:40.099Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:12:46.396Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:16:51.739Z [info]: Categories fetched successfully
+2026-03-07T05:16:52.598Z [info]: DSA Topics fetched successfully
+2026-03-07T05:16:52.604Z [info]: DSA Topics fetched successfully
+2026-03-07T05:16:54.226Z [info]: Topic with problems fetched
+2026-03-07T05:17:10.561Z [info]: Profile fetched successfully
+2026-03-07T05:17:11.890Z [info]: DSA Topics fetched successfully
+2026-03-07T05:17:11.893Z [info]: DSA Topics fetched successfully
+2026-03-07T05:17:12.641Z [info]: Profile fetched successfully
+2026-03-07T05:17:22.026Z [info]: Categories fetched successfully
+2026-03-07T05:17:22.622Z [info]: Profile fetched successfully
+2026-03-07T05:17:23.193Z [info]: DSA Topics fetched successfully
+2026-03-07T05:17:23.196Z [info]: DSA Topics fetched successfully
+2026-03-07T05:17:26.557Z [info]: Categories fetched successfully
+2026-03-07T05:21:07.580Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:25:10.293Z [info]: User logged in successfully
+2026-03-07T05:25:10.319Z [info]: Categories fetched successfully
+2026-03-07T05:25:11.561Z [info]: Profile fetched successfully
+2026-03-07T05:25:12.279Z [info]: DSA Topics fetched successfully
+2026-03-07T05:25:12.283Z [info]: DSA Topics fetched successfully
+2026-03-07T05:25:29.437Z [info]: DSA Topics fetched successfully
+2026-03-07T05:25:29.440Z [info]: DSA Topics fetched successfully
+2026-03-07T05:25:35.476Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:25:51.561Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:38:59.957Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:25.480Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:37.728Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:40.426Z [info]: DSA Topics fetched successfully
+2026-03-07T05:39:40.431Z [info]: DSA Topics fetched successfully
+2026-03-07T05:39:45.645Z [info]: Topic with problems fetched
+2026-03-07T05:39:47.854Z [info]: DSA Topics fetched successfully
+2026-03-07T05:39:47.856Z [info]: DSA Topics fetched successfully
+2026-03-07T05:39:55.959Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:56.975Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:57.142Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:57.326Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:58.258Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:58.443Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:39:58.626Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:40:08.238Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:15.222Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:27.192Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:31.142Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:39.061Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:42.059Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:43:58.437Z [info]: DSA Topics fetched successfully
+2026-03-07T05:43:58.441Z [info]: DSA Topics fetched successfully
+2026-03-07T05:44:05.308Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:44:09.973Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:49:08.618Z [info]: DSA Topics fetched successfully
+2026-03-07T05:49:08.622Z [info]: DSA Topics fetched successfully
+2026-03-07T05:49:18.349Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:51:30.741Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:51:30.759Z [info]: DSA Topics fetched successfully
+2026-03-07T05:51:34.165Z [info]: Topic with problems fetched
+2026-03-07T05:51:37.344Z [info]: DSA Topics fetched successfully
+2026-03-07T05:51:37.347Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:21.176Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:21.181Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:23.813Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:23.816Z [info]: Topic deleted successfully
+2026-03-07T05:52:23.825Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:25.849Z [info]: Categories fetched successfully
+2026-03-07T05:52:26.790Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:26.792Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:31.878Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:31.890Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:33.796Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:33.799Z [info]: Topic deleted successfully
+2026-03-07T05:52:33.807Z [info]: DSA Topics fetched successfully
+2026-03-07T05:52:42.728Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:49.162Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:53.260Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:52:57.813Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:53:07.261Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:53:14.161Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:53:19.362Z [info]: verifyAdmin: Admin access granted
+2026-03-07T05:53:22.177Z [info]: DSA Topics fetched successfully
+2026-03-07T05:53:22.180Z [info]: DSA Topics fetched successfully
+2026-03-07T05:53:23.979Z [info]: Topic with problems fetched
+2026-03-07T05:53:25.889Z [info]: DSA Topics fetched successfully
+2026-03-07T05:53:25.894Z [info]: DSA Topics fetched successfully
+2026-03-07T05:53:27.378Z [info]: Topic with problems fetched
+2026-03-07T05:53:28.489Z [info]: DSA Topics fetched successfully
+2026-03-07T05:53:28.495Z [info]: DSA Topics fetched successfully

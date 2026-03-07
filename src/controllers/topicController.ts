@@ -312,7 +312,7 @@ export const unmarkProblemSolved = async (
 /* ======================================================
    UPDATE TOPIC
 ====================================================== */
-export const updateTopic = async (req: Request, res: Response) => {
+export const updateDSATopic = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { title, description, pseudo_code } = req.body;
@@ -416,7 +416,7 @@ export const createTopic = async (req: Request, res: Response) => {
     await pool.query(
       `INSERT INTO topics 
    (title, slug, category_id, parent_id, description, pseudo_code) 
-   VALUES (?, ?, ?, ?, ?, ?, ?)`,
+   VALUES (?, ?, ?, ?, ?, ?)`,
       [
         title.trim(),
         slug.trim(),
@@ -430,6 +430,7 @@ export const createTopic = async (req: Request, res: Response) => {
     res.status(201).json({ message: "Topic created successfully" });
 
   } catch (error: any) {
+    logger.error("Create topic error:", error);
     if (error.code === "ER_DUP_ENTRY") {
       return res.status(400).json({ message: "Slug already exists" });
     }
@@ -455,5 +456,45 @@ export const getTopicBySlug = async (req: Request, res: Response) => {
 
   } catch (error: any) {
     return res.status(500).json({ message: "Server error" });
+  }
+};
+
+export const updateSystemDesignTopic = async (req: Request, res: Response) => {
+  try {
+
+    const { id } = req.params;
+    const { title, description, pseudo_code } = req.body;
+
+    await pool.query(
+      `UPDATE topics 
+       SET title = ?, description = ?, pseudo_code = ?
+       WHERE id = ?`,
+      [title, description, pseudo_code, id]
+    );
+
+    res.json({
+      message: "Topic updated successfully"
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: (err as Error).message });
+  }
+};
+
+export const deleteSystemDesignTopic = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    await pool.query(
+      "DELETE FROM topics WHERE id = ?",
+      [id]
+    );
+
+    res.json({
+      message: "Topic deleted successfully"
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: (err as Error).message });
   }
 };
