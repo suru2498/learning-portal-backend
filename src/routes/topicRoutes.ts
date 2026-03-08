@@ -252,10 +252,89 @@ router.put("/dsa/:id", verifyToken, verifyAdmin, updateDSATopic);
  */
 router.delete("/dsa/:id", verifyToken, verifyAdmin, deleteTopic);
 
+/**
+ * @swagger
+ * /api/topics/theory/{slug}:
+ *   get:
+ *     summary: Get theory topic by slug
+ *     tags: [Topics]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: slug
+ *         required: true
+ *         schema:
+ *           type: string
+ *         example: binary-search
+ *     responses:
+ *       200:
+ *         description: Topic fetched successfully
+ *       404:
+ *         description: Topic not found
+ */
 router.get("/theory/:slug", verifyToken, getTopicBySlug);
 
+/**
+ * @swagger
+ * /api/topics/sd/{id}:
+ *   put:
+ *     summary: Update System Design topic (Admin only)
+ *     tags: [Topics]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 12
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: Rate Limiter
+ *               description:
+ *                 type: string
+ *                 example: Explanation of rate limiting strategies
+ *               pseudo_code:
+ *                 type: string
+ *                 example: Token bucket algorithm example
+ *     responses:
+ *       200:
+ *         description: System Design topic updated successfully
+ *       401:
+ *         description: Unauthorized
+ */
 router.put("/sd/:id", verifyToken, verifyAdmin, updateSystemDesignTopic);
 
+/**
+ * @swagger
+ * /api/topics/sd/{id}:
+ *   delete:
+ *     summary: Delete System Design topic (Admin only)
+ *     tags: [Topics]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         example: 12
+ *     responses:
+ *       200:
+ *         description: System Design topic deleted successfully
+ *       401:
+ *         description: Unauthorized
+ */
 router.delete("/sd/:id", verifyToken, verifyAdmin, deleteSystemDesignTopic);
 
 export default router;

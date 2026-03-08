@@ -177,10 +177,116 @@ router.get("/me", verifyToken, getMyProfile);
  */
 router.put("/me", verifyToken, updateMyProfile);
 
+/**
+ * @swagger
+ * /api/user/send-email-otp:
+ *   post:
+ *     summary: Send OTP to user's email
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: suraj@gmail.com
+ *     responses:
+ *       200:
+ *         description: Email OTP sent successfully
+ *       400:
+ *         description: Invalid email
+ */
 router.post("/send-email-otp", sendEmailOtp);
+
+/**
+ * @swagger
+ * /api/user/verify-email-otp:
+ *   post:
+ *     summary: Verify email OTP
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - otp
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: suraj@gmail.com
+ *               otp:
+ *                 type: string
+ *                 example: "123456"
+ *     responses:
+ *       200:
+ *         description: Email verified successfully
+ *       400:
+ *         description: Invalid OTP
+ */
 router.post("/verify-email-otp", verifyEmailOtp);
 
+/**
+ * @swagger
+ * /api/user/send-mobile-otp:
+ *   post:
+ *     summary: Send OTP to user's mobile number
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - phone
+ *             properties:
+ *               phone:
+ *                 type: string
+ *                 example: "9876543210"
+ *     responses:
+ *       200:
+ *         description: Mobile OTP sent successfully
+ *       400:
+ *         description: Invalid phone number
+ */
 router.post("/send-mobile-otp", sendMobileOtp);
+
+/**
+ * @swagger
+ * /api/user/verify-mobile-otp:
+ *   post:
+ *     summary: Verify mobile OTP
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - phone
+ *               - otp
+ *             properties:
+ *               phone:
+ *                 type: string
+ *                 example: "9876543210"
+ *               otp:
+ *                 type: string
+ *                 example: "123456"
+ *     responses:
+ *       200:
+ *         description: Mobile verified successfully
+ *       400:
+ *         description: Invalid OTP
+ */
 router.post("/verify-mobile-otp", verifyMobileOtp); 
 
 export default router;

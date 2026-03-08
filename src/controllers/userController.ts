@@ -17,12 +17,12 @@ interface AuthRequest extends Request {
 ====================================================== */
 export const register = async (req: Request, res: Response) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
 
-    if (!name?.trim() || !email?.trim() || !password?.trim()) {
+    if (!name?.trim() || !email?.trim() || !password?.trim() || !phone?.trim()) {
       logger.warn("Register: Missing required fields", { body: req.body });
       return res.status(400).json({
-        message: "Name, email and password are required",
+        message: "Name, email, password and phone are required",
       });
     }
 
@@ -41,8 +41,8 @@ export const register = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result]: any = await pool.query(
-      "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-      [name.trim(), email.trim(), hashedPassword]
+      "INSERT INTO users (name, email, password, phone) VALUES (?, ?, ?, ?)",
+      [name.trim(), email.trim(), hashedPassword, phone.trim()]
     );
 
     const userId = result.insertId;
@@ -54,6 +54,7 @@ export const register = async (req: Request, res: Response) => {
     logger.info("User registered successfully", {
       userId,
       email,
+      phone,
     });
 
     return res.status(201).json({
