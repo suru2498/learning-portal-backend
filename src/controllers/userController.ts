@@ -47,9 +47,13 @@ export const register = async (req: Request, res: Response) => {
 
     const userId = result.insertId;
 
-    await sendMail(userId, email, "WELCOME_EMAIL", {
-      name: name.trim(),
-    });
+    try {
+      await sendMail(userId, email, "WELCOME_EMAIL", {
+        name: name.trim(),
+      });
+    } catch (err) {
+      logger.error("Email sending failed but user registered", err);
+    }
 
     logger.info("User registered successfully", {
       userId,
