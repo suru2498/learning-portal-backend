@@ -426,22 +426,32 @@ export const updateMyProfile = async (
 ====================================================== */
 export const sendEmailOtp = async (req: Request, res: Response) => {
   try {
+    logger.info("SendEmailOtp: Request received");
+
     const { email } = req.body;
 
     if (!email?.trim()) {
+      logger.warn("SendEmailOtp: Email missing");
       return res.status(400).json({ message: "Email is required" });
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+
+    logger.info("SendEmailOtp: Fetching user", { email: normalizedEmail });
+
     const [rows]: any = await pool.query(
-      "SELECT * FROM users WHERE email = ?",
-      [email.trim()]
+      "SELECT id, name, email FROM users WHERE email = ? LIMIT 1",
+      [normalizedEmail]
     );
 
-    if (rows.length === 0) {
+    if (!rows || rows.length === 0) {
+      logger.warn("SendEmailOtp: User not found", { email: normalizedEmail });
       return res.status(404).json({ message: "User not found" });
     }
 
     const user = rows[0];
+
+    logger.info("SendEmailOtp: User found", { userId: user.id });
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
@@ -452,23 +462,51 @@ export const sendEmailOtp = async (req: Request, res: Response) => {
 
     const expiry = new Date(Date.now() + 5 * 60 * 1000);
 
+    logger.info("SendEmailOtp: Updating OTP in DB");
+
     await pool.query(
       "UPDATE users SET email_otp = ?, email_otp_expiry = ? WHERE id = ?",
       [hashedOtp, expiry, user.id]
     );
 
-    await sendMail(user.id, user.email, "LOGIN_EMAIL_OTP", {
-      NAME: user.name,
-      OTP: otp,
+    logger.info("SendEmailOtp: Sending OTP email");
+
+    try {
+      await sendMail(user.id, user.email, "LOGIN_EMAIL_OTP", {
+        NAME: user.name,
+        OTP: otp,
+      });
+
+      logger.info("SendEmailOtp: Email sent successfully", {
+        userId: user.id,
+      });
+
+    } catch (mailError: any) {
+
+      logger.error("SendEmailOtp: Email sending failed", {
+        userId: user.id,
+        error: mailError.message,
+      });
+
+      return res.status(500).json({
+        message: "Failed to send OTP email",
+      });
+    }
+
+    return res.status(200).json({
+      message: "OTP sent successfully",
     });
 
-    logger.info("Email OTP sent", { userId: user.id });
-
-    return res.status(200).json({ message: "OTP sent successfully" });
-
   } catch (error: any) {
-    logger.error("SendEmailOtp Error", error);
-    return res.status(500).json({ message: "Internal server error" });
+
+    logger.error("SendEmailOtp Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({
+      message: "Internal server error",
+    });
   }
 };
 
