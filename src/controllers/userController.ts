@@ -16,15 +16,36 @@ interface AuthRequest extends Request {
    REGISTER
 ====================================================== */
 export const register = async (req: Request, res: Response) => {
+  logger.info("Register API called", {
+    body: {
+      name: req.body?.name,
+      email: req.body?.email,
+      phone: req.body?.phone,
+    },
+  });
+
   try {
     const { name, email, password, phone } = req.body;
 
+    /* ======================================================
+       1️⃣ Validate Input
+    ====================================================== */
     if (!name?.trim() || !email?.trim() || !password?.trim() || !phone?.trim()) {
-      logger.warn("Register: Missing required fields", { body: req.body });
+      logger.warn("Register: Missing required fields", {
+        name,
+        email,
+        phone,
+      });
+
       return res.status(400).json({
         message: "Name, email, password and phone are required",
       });
     }
+
+    /* ======================================================
+       2️⃣ Check Existing User
+    ====================================================== */
+    logger.info("Register: Checking if user already exists", { email });
 
     const [existing]: any = await pool.query(
       "SELECT id FROM users WHERE email = ?",
@@ -33,12 +54,29 @@ export const register = async (req: Request, res: Response) => {
 
     if (existing.length > 0) {
       logger.warn("Register: Duplicate email attempt", { email });
+
       return res.status(400).json({
         message: "User already exists",
       });
     }
 
+    logger.info("Register: Email available, proceeding with registration", {
+      email,
+    });
+
+    /* ======================================================
+       3️⃣ Hash Password
+    ====================================================== */
+    logger.info("Register: Hashing password");
+
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    logger.info("Register: Password hashed successfully");
+
+    /* ======================================================
+       4️⃣ Insert User
+    ====================================================== */
+    logger.info("Register: Inserting user into database");
 
     const [result]: any = await pool.query(
       "INSERT INTO users (name, email, password, phone) VALUES (?, ?, ?, ?)",
@@ -47,15 +85,42 @@ export const register = async (req: Request, res: Response) => {
 
     const userId = result.insertId;
 
+    logger.info("Register: User inserted successfully", {
+      userId,
+      email,
+    });
+
+    /* ======================================================
+       5️⃣ Send Welcome Email
+    ====================================================== */
+    logger.info("Register: Sending welcome email", {
+      userId,
+      email,
+      template: "WELCOME_EMAIL",
+    });
+
     try {
-      await sendMail(userId, email, "WELCOME_EMAIL", {
+      await sendMail(userId, email.trim(), "WELCOME_EMAIL", {
         name: name.trim(),
       });
-    } catch (err) {
-      logger.error("Email sending failed but user registered", err);
+
+      logger.info("Register: Welcome email sent successfully", {
+        userId,
+        email,
+      });
+
+    } catch (err: any) {
+      logger.error("Register: Email sending failed but user registered", {
+        userId,
+        email,
+        error: err?.message,
+      });
     }
 
-    logger.info("User registered successfully", {
+    /* ======================================================
+       6️⃣ Success Response
+    ====================================================== */
+    logger.info("Register: User registered successfully", {
       userId,
       email,
       phone,
@@ -66,6 +131,7 @@ export const register = async (req: Request, res: Response) => {
     });
 
   } catch (error: any) {
+
     logger.error("Register Error", {
       message: error.message,
       stack: error.stack,
