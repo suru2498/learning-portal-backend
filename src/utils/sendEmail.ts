@@ -66,13 +66,17 @@ export const sendMail = async (
     });
 
     const response = await resend.emails.send({
-  from: `DSA Portal 🚀 <${process.env.EMAIL_FROM}>`,
-  to,
-  subject,
-  html: finalHtml,
-});
+      from: process.env.EMAIL_FROM!,
+      to,
+      subject,
+      html: finalHtml,
+    });
 
-console.log("Resend response:", response);
+    console.log("Resend response:", response);
+
+    if (response.error) {
+      throw new Error(response.error.message);
+    }
 
     logger.info("SendMail: Resend API response", {
       response,
