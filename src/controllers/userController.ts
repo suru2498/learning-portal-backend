@@ -247,7 +247,13 @@ export const forgotPassword = async (req: Request, res: Response) => {
       [resetToken, expiry, user.id]
     );
 
-    const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+    // use env variable instead of localhost
+    const frontendUrl =
+      process.env.FRONTEND_URL || "https://learnandgrow-inky.vercel.app";
+
+    const resetLink = `${frontendUrl}/reset-password?token=${encodeURIComponent(
+      resetToken
+    )}`;
 
     await sendMail(user.id, user.email, "FORGOT_PASSWORD", {
       NAME: user.name,
@@ -261,7 +267,6 @@ export const forgotPassword = async (req: Request, res: Response) => {
     return res.status(200).json({
       message: "Reset email sent successfully",
     });
-
   } catch (error: any) {
     logger.error("ForgotPassword Error", {
       message: error.message,
