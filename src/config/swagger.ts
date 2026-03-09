@@ -1,4 +1,9 @@
 import swaggerJsdoc from "swagger-jsdoc";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const PORT = process.env.PORT || 7777;
 
 const options: swaggerJsdoc.Options = {
   definition: {
@@ -10,7 +15,8 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
       {
-        url: "http://localhost:7777",
+        url: process.env.BASE_URL || `http://localhost:${PORT}`,
+        description: "Current Environment Server",
       },
     ],
     components: {
@@ -23,7 +29,7 @@ const options: swaggerJsdoc.Options = {
       },
     },
   },
-  apis: ["./src/routes/*.ts"],  // ✅ FIXED
+  apis: ["./src/routes/*.ts"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
