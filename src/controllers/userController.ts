@@ -639,6 +639,11 @@ export const verifyEmailOtp = async (req: Request, res: Response) => {
 ====================================================== */
 export const sendMobileOtp = async (req: Request, res: Response) => {
   try {
+    logger.info("sendMobileOtp request received", {
+      body: req.body,
+      ip: req.ip,
+    });
+
     let { phone } = req.body;
 
     /* ===============================
@@ -646,6 +651,10 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
     =============================== */
 
     if (!phone) {
+      logger.warn("Phone number missing in request", {
+        body: req.body,
+      });
+
       return res.status(400).json({
         message: "Phone number is required",
       });
@@ -654,25 +663,49 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
     // Remove spaces
     phone = phone.trim();
 
-    // Validate E.164 format (+countrycode + number)
-    const phoneRegex = /^\+[1-9]\d{9,14}$/;
+    logger.info("Phone number after trim", {
+      phone,
+    });
+
+    // Validate 10 digit number
+    const phoneRegex = /^\d{10}$/;
 
     if (!phoneRegex.test(phone)) {
+      logger.warn("Phone validation failed", {
+        phone,
+      });
+
       return res.status(400).json({
-        message: "Invalid phone number format. Use +countrycode format",
+        message: "Invalid phone number. Enter a valid 10-digit mobile number",
       });
     }
+
+    logger.info("Phone validation passed", {
+      phone,
+    });
 
     /* ===============================
        CHECK USER
     =============================== */
+
+    logger.info("Checking user with phone", {
+      phone,
+    });
 
     const [rows]: any = await pool.query(
       "SELECT * FROM users WHERE phone = ?",
       [phone]
     );
 
+    logger.info("User query result", {
+      count: rows.length,
+    });
+
     if (rows.length === 0) {
+      logger.warn("User not found for phone", {
+        phone,
+      });
+
       return res.status(404).json({
         message: "User not found",
       });
@@ -680,11 +713,20 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
 
     const user = rows[0];
 
+    logger.info("User found", {
+      userId: user.id,
+      phone: user.phone,
+    });
+
     /* ===============================
        GENERATE OTP
     =============================== */
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    logger.info("OTP generated", {
+      userId: user.id,
+    });
 
     const hashedOtp = crypto
       .createHash("sha256")
@@ -693,9 +735,18 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
 
     const expiry = new Date(Date.now() + 5 * 60 * 1000);
 
+    logger.info("OTP hashed and expiry set", {
+      userId: user.id,
+      expiry,
+    });
+
     /* ===============================
        SAVE OTP IN DB
     =============================== */
+
+    logger.info("Saving OTP to database", {
+      userId: user.id,
+    });
 
     await pool.query(
       `UPDATE users 
@@ -707,12 +758,22 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
       [hashedOtp, expiry, user.id]
     );
 
+    logger.info("OTP saved successfully", {
+      userId: user.id,
+    });
+
     /* ===============================
        SEND SMS VIA TWILIO
     =============================== */
+    const formattedPhone = `+91${phone}`;
+
+    logger.info("Sending SMS via Twilio", {
+      phone: formattedPhone,
+      userId: user.id,
+    });
 
     await sendSms(
-      phone,
+      formattedPhone,
       `Your OTP is ${otp}. It is valid for 5 minutes. Do not share this OTP.`
     );
 
@@ -728,6 +789,8 @@ export const sendMobileOtp = async (req: Request, res: Response) => {
   } catch (error: any) {
     logger.error("SendMobileOtp Error", {
       message: error.message,
+      stack: error.stack,
+      body: req.body,
     });
 
     return res.status(500).json({
