@@ -8,8 +8,10 @@ import topicRoutes from "./routes/topicRoutes";
 import problemRoutes from "./routes/problemRoutes";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger";
+import { connectRedis, redisClient } from "./config/redis";
 
 dotenv.config();
+
 const app = express();
 
 app.disable("x-powered-by");
@@ -47,6 +49,25 @@ app.use((err: any, req: any, res: any, next: any) => {
 });
 
 const PORT = process.env.PORT || 7777;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+async function startServer() {
+  try {
+    // 1️⃣ Connect Redis
+    await connectRedis();
+
+    // 2️⃣ Clear cache on deployment/start
+    await redisClient.flushAll();
+    console.log("Redis cache cleared on server startup");
+
+    // 3️⃣ Start Express server
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
+}
+
+startServer();

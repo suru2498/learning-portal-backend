@@ -1,18 +1,37 @@
 import { Request, Response } from "express";
 import { pool } from "../config/db";
 import { logger } from "../utils/logger";
+import { redisClient } from "../config/redis";
 
 /* ======================================================
    GET ALL CATEGORIES
 ====================================================== */
 export const getCategories = async (_req: Request, res: Response) => {
+  const cacheKey = "categories";
+
   try {
+
+    // 1️⃣ Check cache first
+    const cachedCategories = await redisClient.get(cacheKey);
+
+    if (cachedCategories) {
+      logger.info("Categories fetched from cache");
+
+      return res.status(200).json(JSON.parse(cachedCategories));
+    }
+
+    // 2️⃣ If cache miss → fetch from DB
     const [rows]: any = await pool.query(
       "SELECT * FROM categories ORDER BY id ASC"
     );
 
-    logger.info("Categories fetched successfully", {
+    logger.info("Categories fetched from DB", {
       count: rows.length,
+    });
+
+    // 3️⃣ Save to Redis (10 minutes)
+    await redisClient.set(cacheKey, JSON.stringify(rows), {
+      EX: 600,
     });
 
     return res.status(200).json(rows);

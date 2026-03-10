@@ -1,0 +1,98 @@
+2026-03-09T19:21:41.503Z [info]: Categories fetched successfully
+2026-03-10T03:46:09.264Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)
+2026-03-10T03:46:15.347Z [info]: User logged in successfully
+2026-03-10T03:46:15.636Z [info]: Categories fetched successfully
+2026-03-10T03:46:17.442Z [info]: Profile fetched successfully
+2026-03-10T03:46:19.167Z [info]: DSA Topics fetched successfully
+2026-03-10T03:46:19.707Z [info]: DSA Topics fetched successfully
+2026-03-10T03:46:20.923Z [info]: Topic with problems fetched
+2026-03-10T03:46:28.964Z [info]: Topic with problems fetched
+2026-03-10T03:46:36.350Z [info]: DSA Topics fetched successfully
+2026-03-10T03:46:36.932Z [info]: DSA Topics fetched successfully
+2026-03-10T03:46:37.597Z [info]: Topic with problems fetched
+2026-03-10T03:47:51.232Z [info]: Topic with problems fetched
+2026-03-10T03:47:52.866Z [info]: DSA Topics fetched successfully
+2026-03-10T03:47:53.382Z [info]: DSA Topics fetched successfully
+2026-03-10T03:47:54.566Z [info]: Topic with problems fetched
+2026-03-10T03:47:56.409Z [info]: DSA Topics fetched successfully
+2026-03-10T03:47:56.949Z [info]: DSA Topics fetched successfully
+2026-03-10T03:47:58.136Z [info]: Topic with problems fetched
+2026-03-10T03:48:04.403Z [info]: DSA Topics fetched successfully
+2026-03-10T03:48:04.941Z [info]: DSA Topics fetched successfully
+2026-03-10T03:48:05.742Z [info]: Topic with problems fetched
+2026-03-10T03:48:07.177Z [info]: DSA Topics fetched successfully
+2026-03-10T03:48:07.713Z [info]: DSA Topics fetched successfully
+2026-03-10T03:51:04.985Z [info]: Categories fetched successfully
+2026-03-10T19:26:14.580Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)
+2026-03-10T19:27:41.420Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)
+2026-03-10T19:28:52.769Z [info]: User logged in successfully
+2026-03-10T19:28:53.076Z [info]: Categories fetched successfully
+2026-03-10T19:44:54.360Z [info]: Profile fetched from DB
+2026-03-10T19:45:03.798Z [info]: Topics fetched from DB
+2026-03-10T19:45:03.803Z [info]: Topics fetched from cache
+2026-03-10T19:45:08.450Z [info]: Profile fetched from cache
+2026-03-10T19:45:09.947Z [info]: Topics fetched from cache
+2026-03-10T19:45:09.949Z [info]: Topics fetched from cache
+2026-03-10T19:45:13.670Z [info]: Categories fetched from DB
+2026-03-10T19:45:16.231Z [info]: Profile fetched from cache
+2026-03-10T19:45:18.525Z [info]: Categories fetched from cache
+2026-03-10T19:45:24.444Z [info]: Child topics fetched from DB
+2026-03-10T19:45:24.448Z [info]: Child topics fetched from cache
+2026-03-10T19:45:27.765Z [info]: Topic fetched from DB
+2026-03-10T19:45:27.770Z [info]: Topic fetched from cache
+2026-03-10T19:45:32.447Z [info]: Child topics fetched from cache
+2026-03-10T19:45:32.450Z [info]: Child topics fetched from cache
+2026-03-10T19:45:34.519Z [info]: Topic fetched from DB
+2026-03-10T19:45:34.525Z [info]: Topic fetched from cache
+2026-03-10T19:45:35.642Z [info]: Child topics fetched from cache
+2026-03-10T19:45:35.643Z [info]: Child topics fetched from cache
+2026-03-10T19:45:36.578Z [info]: Topic fetched from cache
+2026-03-10T19:45:36.581Z [info]: Topic fetched from cache
+2026-03-10T19:45:37.659Z [info]: Child topics fetched from cache
+2026-03-10T19:45:37.662Z [info]: Child topics fetched from cache
+2026-03-10T19:45:39.154Z [info]: Topic fetched from DB
+2026-03-10T19:45:39.158Z [info]: Topic fetched from cache
+2026-03-10T19:45:39.942Z [info]: Child topics fetched from cache
+2026-03-10T19:45:39.944Z [info]: Child topics fetched from cache
+2026-03-10T19:45:40.702Z [info]: Topic fetched from cache
+2026-03-10T19:45:40.705Z [info]: Topic fetched from cache
+2026-03-10T19:45:41.776Z [info]: Categories fetched from cache
+2026-03-10T19:45:42.545Z [info]: Profile fetched from cache
+2026-03-10T19:45:43.312Z [info]: Topics fetched from cache
+2026-03-10T19:45:43.315Z [info]: Topics fetched from cache
+2026-03-10T19:45:44.892Z [info]: Child topics fetched from cache
+2026-03-10T19:45:44.894Z [info]: Child topics fetched from cache
+2026-03-10T19:45:45.962Z [info]: Topic fetched from cache
+2026-03-10T19:45:45.964Z [info]: Topic fetched from cache
+2026-03-10T19:45:47.007Z [info]: Child topics fetched from cache
+2026-03-10T19:45:47.010Z [info]: Child topics fetched from cache

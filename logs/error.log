@@ -1,0 +1,33 @@
+2026-03-10T03:46:09.264Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)
+2026-03-10T19:26:14.580Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)
+2026-03-10T19:27:41.420Z [error]: Login Error read ETIMEDOUT - Error: read ETIMEDOUT
+    at PromisePool.query (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/mysql2/lib/promise/pool.js:36:22)
+    at login (/Users/surajsinghkanyal/Desktop/backend_code/src/controllers/userController.ts:160:36)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/lib/layer.js:152:17)
+    at /Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:295:15
+    at processParams (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:582:12)
+    at next (/Users/surajsinghkanyal/Desktop/backend_code/node_modules/router/index.js:291:5)

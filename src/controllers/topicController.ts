@@ -1,22 +1,31 @@
 import { Request, Response } from "express";
 import { pool } from "../config/db";
 import { logger } from "../utils/logger";
+import { redisClient } from "../config/redis";
 
-/* ======================================================
-   GET TOPICS BY CATEGORY SLUG
-====================================================== */
 export const getTopicsByCategorySlug = async (
   req: Request,
   res: Response
 ) => {
+  const { slug } = req.params;
+  const cacheKey = `topics_category:${slug}`;
+
   try {
-    const { slug } = req.params;
 
     if (!slug) {
       logger.warn("GetTopicsByCategory: Missing slug");
       return res.status(400).json({ message: "Category slug required" });
     }
 
+    // 1️⃣ Check Redis Cache
+    const cachedTopics = await redisClient.get(cacheKey);
+
+    if (cachedTopics) {
+      logger.info("Topics fetched from cache", { categorySlug: slug });
+      return res.status(200).json(JSON.parse(cachedTopics));
+    }
+
+    // 2️⃣ Fetch category id
     const [categoryRows]: any = await pool.query(
       "SELECT id FROM categories WHERE slug = ?",
       [slug]
@@ -29,16 +38,24 @@ export const getTopicsByCategorySlug = async (
 
     const categoryId = categoryRows[0].id;
 
-    const [rows] = await pool.query(
+    // 3️⃣ Fetch topics from DB
+    const [rows]: any = await pool.query(
       "SELECT * FROM topics WHERE category_id = ? AND parent_id IS NULL",
       [categoryId]
     );
 
-    logger.info("DSA Topics fetched successfully", {
-      categorySlug: slug
+    logger.info("Topics fetched from DB", {
+      categorySlug: slug,
+      count: rows.length
+    });
+
+    // 4️⃣ Save to Redis (5 min TTL)
+    await redisClient.set(cacheKey, JSON.stringify(rows), {
+      EX: 300
     });
 
     return res.status(200).json(rows);
+
   } catch (error: any) {
     logger.error("GetTopicsByCategory Error", {
       message: error.message,
@@ -49,9 +66,6 @@ export const getTopicsByCategorySlug = async (
   }
 };
 
-/* ======================================================
-   ADD TOPIC
-====================================================== */
 export const addTopic = async (req: Request, res: Response) => {
   try {
     const { title, description, categorySlug } = req.body;
@@ -113,9 +127,6 @@ export const addTopic = async (req: Request, res: Response) => {
   }
 };
 
-/* ======================================================
-   DELETE TOPIC
-====================================================== */
 export const deleteTopic = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -148,17 +159,30 @@ export const deleteTopic = async (req: Request, res: Response) => {
   }
 };
 
-/* ======================================================
-   GET TOPIC WITH PROBLEMS
-====================================================== */
 export const getTopicWithProblems = async (
   req: Request,
   res: Response
 ) => {
-  try {
-    const { slug } = req.params;
-    const userId = (req as any).user?.id || null;
+  const { slug } = req.params;
+  const userId = (req as any).user?.id || null;
 
+  const cacheKey = `topic_problems:${slug}:${userId}`;
+
+  try {
+
+    // 1️⃣ Check Redis cache
+    const cachedData = await redisClient.get(cacheKey);
+
+    if (cachedData) {
+      logger.info("Topic with problems fetched from cache", {
+        topicSlug: slug,
+        userId
+      });
+
+      return res.status(200).json(JSON.parse(cachedData));
+    }
+
+    // 2️⃣ Fetch topic
     const [topics]: any = await pool.query(
       "SELECT * FROM topics WHERE slug = ?",
       [slug]
@@ -171,6 +195,7 @@ export const getTopicWithProblems = async (
 
     const topic = topics[0];
 
+    // 3️⃣ Fetch problems
     const [problems]: any = await pool.query(
       `
       SELECT p.*,
@@ -185,15 +210,24 @@ export const getTopicWithProblems = async (
       [userId, topic.id]
     );
 
-    logger.info("Topic with problems fetched", {
-      topicSlug: slug,
-      problemCount: problems.length,
-    });
-
-    return res.status(200).json({
+    const responseData = {
       ...topic,
       problems,
+    };
+
+    logger.info("Topic with problems fetched from DB", {
+      topicSlug: slug,
+      problemCount: problems.length,
+      userId
     });
+
+    // 4️⃣ Save to Redis (5 min)
+    await redisClient.set(cacheKey, JSON.stringify(responseData), {
+      EX: 300
+    });
+
+    return res.status(200).json(responseData);
+
   } catch (error: any) {
     logger.error("GetTopicWithProblems Error", {
       message: error.message,
@@ -204,9 +238,6 @@ export const getTopicWithProblems = async (
   }
 };
 
-/* ======================================================
-   ADD PROBLEM
-====================================================== */
 export const addProblem = async (req: Request, res: Response) => {
   try {
     const { title, difficulty, leetcode_link, topic_id } = req.body;
@@ -245,9 +276,6 @@ export const addProblem = async (req: Request, res: Response) => {
   }
 };
 
-/* ======================================================
-   MARK PROBLEM SOLVED
-====================================================== */
 export const markProblemSolved = async (
   req: Request,
   res: Response
@@ -277,9 +305,6 @@ export const markProblemSolved = async (
   }
 };
 
-/* ======================================================
-   UNMARK PROBLEM SOLVED
-====================================================== */
 export const unmarkProblemSolved = async (
   req: Request,
   res: Response
@@ -309,18 +334,16 @@ export const unmarkProblemSolved = async (
   }
 };
 
-/* ======================================================
-   UPDATE TOPIC
-====================================================== */
 export const updateDSATopic = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { title, description, pseudo_code } = req.body;
 
+    // 1️⃣ Update topic
     const [result]: any = await pool.query(
       `UPDATE topics 
-   SET title = ?, description = ?, pseudo_code = ?
-   WHERE id = ?`,
+       SET title = ?, description = ?, pseudo_code = ?
+       WHERE id = ?`,
       [title, description, pseudo_code, id]
     );
 
@@ -329,11 +352,29 @@ export const updateDSATopic = async (req: Request, res: Response) => {
       return res.status(404).json({ message: "Topic not found" });
     }
 
+    // 2️⃣ Get topic slug (needed for cache invalidation)
+    const [rows]: any = await pool.query(
+      "SELECT slug FROM topics WHERE id = ?",
+      [id]
+    );
+
+    const slug = rows?.[0]?.slug;
+
+    if (slug) {
+      // remove topic cache for all users
+      const keys = await redisClient.keys(`topic_problems:${slug}:*`);
+
+      if (keys.length > 0) {
+        await redisClient.del(keys);
+      }
+    }
+
     logger.info("Topic updated successfully", { id });
 
     return res.status(200).json({
       message: "Topic updated successfully",
     });
+
   } catch (error: any) {
     logger.error("UpdateTopic Error", {
       message: error.message,
@@ -345,31 +386,59 @@ export const updateDSATopic = async (req: Request, res: Response) => {
 };
 
 export const getChildTopics = async (req: Request, res: Response) => {
-  try {
-    const { slug } = req.params;
+  const { slug } = req.params;
+  const cacheKey = `child_topics:${slug}`;
 
-    // 1️⃣ Find parent topic
+  try {
+
+    // 1️⃣ Check Redis Cache
+    const cachedChildren = await redisClient.get(cacheKey);
+
+    if (cachedChildren) {
+      logger.info("Child topics fetched from cache", { slug });
+
+      return res.status(200).json(JSON.parse(cachedChildren));
+    }
+
+    // 2️⃣ Find parent topic
     const [parentRows]: any = await pool.query(
       "SELECT id FROM topics WHERE slug = ?",
       [slug]
     );
 
     if (parentRows.length === 0) {
+      logger.warn("GetChildTopics: Parent topic not found", { slug });
+
       return res.status(404).json({ message: "Parent topic not found" });
     }
 
     const parentId = parentRows[0].id;
 
-    // 2️⃣ Fetch children using parent_id
+    // 3️⃣ Fetch children topics
     const [children]: any = await pool.query(
       "SELECT id, title, slug FROM topics WHERE parent_id = ?",
       [parentId]
     );
 
-    res.json(children);
-  } catch (error) {
-    console.error("Error fetching children:", error);
-    res.status(500).json({ message: "Server error" });
+    logger.info("Child topics fetched from DB", {
+      parentSlug: slug,
+      count: children.length
+    });
+
+    // 4️⃣ Save in Redis (10 min)
+    await redisClient.set(cacheKey, JSON.stringify(children), {
+      EX: 600
+    });
+
+    return res.status(200).json(children);
+
+  } catch (error: any) {
+    logger.error("GetChildTopics Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
+    return res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -440,31 +509,57 @@ export const createTopic = async (req: Request, res: Response) => {
 };
 
 export const getTopicBySlug = async (req: Request, res: Response) => {
-  try {
-    const { slug } = req.params;
+  const { slug } = req.params;
+  const cacheKey = `topic:${slug}`;
 
+  try {
+
+    // 1️⃣ Check Redis cache
+    const cachedTopic = await redisClient.get(cacheKey);
+
+    if (cachedTopic) {
+      logger.info("Topic fetched from cache", { slug });
+      return res.status(200).json(JSON.parse(cachedTopic));
+    }
+
+    // 2️⃣ Cache miss → fetch from DB
     const [rows]: any = await pool.query(
       "SELECT id, title, description, pseudo_code FROM topics WHERE slug = ?",
       [slug]
     );
 
     if (!rows.length) {
+      logger.warn("GetTopicBySlug: Topic not found", { slug });
       return res.status(404).json({ message: "Topic not found" });
     }
 
-    return res.status(200).json(rows[0]);
+    const topic = rows[0];
+
+    logger.info("Topic fetched from DB", { slug });
+
+    // 3️⃣ Save to Redis (10 min TTL)
+    await redisClient.set(cacheKey, JSON.stringify(topic), {
+      EX: 600,
+    });
+
+    return res.status(200).json(topic);
 
   } catch (error: any) {
+    logger.error("GetTopicBySlug Error", {
+      message: error.message,
+      stack: error.stack,
+    });
+
     return res.status(500).json({ message: "Server error" });
   }
 };
 
 export const updateSystemDesignTopic = async (req: Request, res: Response) => {
   try {
-
     const { id } = req.params;
     const { title, description, pseudo_code } = req.body;
 
+    // 1️⃣ Update DB
     await pool.query(
       `UPDATE topics 
        SET title = ?, description = ?, pseudo_code = ?
@@ -472,12 +567,52 @@ export const updateSystemDesignTopic = async (req: Request, res: Response) => {
       [title, description, pseudo_code, id]
     );
 
-    res.json({
-      message: "Topic updated successfully"
+    // 2️⃣ Get slug + parent_id for cache invalidation
+    const [rows]: any = await pool.query(
+      "SELECT slug, parent_id FROM topics WHERE id = ?",
+      [id]
+    );
+
+    if (rows.length > 0) {
+      const { slug, parent_id } = rows[0];
+
+      // 3️⃣ Clear topic detail cache
+      await redisClient.del(`topic:${slug}`);
+
+      // 4️⃣ Clear topic problems cache (for all users)
+      const problemKeys = await redisClient.keys(`topic_problems:${slug}:*`);
+      if (problemKeys.length > 0) {
+        await redisClient.del(problemKeys);
+      }
+
+      // 5️⃣ Clear child topics cache if needed
+      if (parent_id) {
+        const [parent]: any = await pool.query(
+          "SELECT slug FROM topics WHERE id = ?",
+          [parent_id]
+        );
+
+        if (parent.length > 0) {
+          await redisClient.del(`child_topics:${parent[0].slug}`);
+        }
+      }
+    }
+
+    logger.info("System design topic updated successfully", { id });
+
+    return res.json({
+      message: "Topic updated successfully",
     });
 
-  } catch (err) {
-    res.status(500).json({ error: (err as Error).message });
+  } catch (err: any) {
+    logger.error("UpdateSystemDesignTopic Error", {
+      message: err.message,
+      stack: err.stack,
+    });
+
+    return res.status(500).json({
+      error: err.message,
+    });
   }
 };
 

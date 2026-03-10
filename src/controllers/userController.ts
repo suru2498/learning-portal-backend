@@ -7,6 +7,7 @@ import { sendSms } from "../utils/sendSms";
 import { randomBytes } from "crypto";
 import { logger } from "../utils/logger";
 import crypto from "crypto";
+import { redisClient } from "../config/redis";
 
 interface AuthRequest extends Request {
   user?: any;
@@ -335,13 +336,22 @@ export const resetPassword = async (req: Request, res: Response) => {
 /* ======================================================
    GET MY PROFILE
 ====================================================== */
-export const getMyProfile = async (
-  req: AuthRequest,
-  res: Response
-) => {
-  try {
-    const userId = req.user?.id;
+export const getMyProfile = async (req: AuthRequest, res: Response) => {
+  const userId = req.user?.id;
+  const cacheKey = `user_profile:${userId}`;
 
+  try {
+
+    // 1️⃣ Check Redis cache
+    const cachedProfile = await redisClient.get(cacheKey);
+
+    if (cachedProfile) {
+      logger.info("Profile fetched from cache", { userId });
+
+      return res.status(200).json(JSON.parse(cachedProfile));
+    }
+
+    // 2️⃣ Cache miss → query DB
     const [rows]: any = await pool.query(
       "SELECT id, name, email, phone, role, created_at FROM users WHERE id = ?",
       [userId]
@@ -352,7 +362,12 @@ export const getMyProfile = async (
       return res.status(404).json({ message: "User not found" });
     }
 
-    logger.info("Profile fetched successfully", { userId });
+    logger.info("Profile fetched from DB", { userId });
+
+    // 3️⃣ Save result to Redis (5 min)
+    await redisClient.set(cacheKey, JSON.stringify(rows[0]), {
+      EX: 300,
+    });
 
     return res.status(200).json(rows[0]);
 
@@ -400,11 +415,17 @@ export const updateMyProfile = async (
       });
     }
 
+    // 1️⃣ Update DB
     await pool.query(
       "UPDATE users SET name = ?, email = ? WHERE id = ?",
       [name.trim(), email.trim(), userId]
     );
 
+    // 2️⃣ Clear Redis cache
+    const cacheKey = `user_profile:${userId}`;
+    await redisClient.del(cacheKey);
+
+    // 3️⃣ Fetch updated user
     const [updatedUser]: any = await pool.query(
       "SELECT id, name, email, role, created_at FROM users WHERE id = ?",
       [userId]
