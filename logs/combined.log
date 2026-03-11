@@ -96,3 +96,305 @@
 2026-03-10T19:45:45.964Z [info]: Topic fetched from cache
 2026-03-10T19:45:47.007Z [info]: Child topics fetched from cache
 2026-03-10T19:45:47.010Z [info]: Child topics fetched from cache
+2026-03-11T18:12:00.291Z [info]: Initializing MySQL connection pool
+2026-03-11T18:12:00.464Z [info]: Initializing Twilio client
+2026-03-11T18:12:00.679Z [info]: Initializing Redis connection
+2026-03-11T18:12:00.685Z [info]: Redis connected successfully
+2026-03-11T18:12:01.815Z [info]: MySQL database connected successfully
+2026-03-11T18:13:08.213Z [info]: User logged in successfully
+2026-03-11T18:13:08.250Z [info]: GetCategories request received
+2026-03-11T18:13:08.255Z [info]: Cache miss for categories
+2026-03-11T18:13:08.522Z [info]: Categories fetched from DB
+2026-03-11T18:13:08.526Z [info]: Categories stored in cache
+2026-03-11T18:13:10.701Z [info]: verifyToken middleware invoked
+2026-03-11T18:13:10.704Z [info]: Token verified successfully
+2026-03-11T18:13:10.978Z [info]: Profile fetched from DB
+2026-03-11T18:13:29.497Z [info]: GetCategories request received
+2026-03-11T18:13:29.499Z [info]: Categories fetched from cache
+2026-03-11T18:13:31.183Z [info]: GetTopicsByCategory request received
+2026-03-11T18:13:31.185Z [info]: Cache miss for category topics
+2026-03-11T18:13:31.721Z [info]: Topics fetched from DB
+2026-03-11T18:13:31.722Z [info]: Topics cached
+2026-03-11T18:13:31.725Z [info]: GetTopicsByCategory request received
+2026-03-11T18:13:31.725Z [info]: Topics fetched from cache
+2026-03-11T18:13:33.120Z [info]: verifyToken middleware invoked
+2026-03-11T18:13:33.122Z [info]: Token verified successfully
+2026-03-11T18:13:33.122Z [info]: GetTopicWithProblems request received
+2026-03-11T18:13:33.661Z [info]: Topic with problems fetched from DB
+2026-03-11T18:17:34.917Z [info]: Initializing MySQL connection pool
+2026-03-11T18:17:35.042Z [info]: Initializing Twilio client
+2026-03-11T18:17:35.240Z [info]: Initializing Redis connection
+2026-03-11T18:17:35.243Z [info]: Redis connected successfully
+2026-03-11T18:17:36.306Z [info]: MySQL database connected successfully
+2026-03-11T18:17:43.127Z [info]: Initializing MySQL connection pool
+2026-03-11T18:17:43.240Z [info]: Initializing Twilio client
+2026-03-11T18:17:43.406Z [info]: Initializing Redis connection
+2026-03-11T18:17:43.410Z [info]: Redis connected successfully
+2026-03-11T18:17:44.477Z [info]: MySQL database connected successfully
+2026-03-11T18:21:03.417Z [info]: Initializing MySQL connection pool
+2026-03-11T18:21:03.543Z [info]: Initializing Twilio client
+2026-03-11T18:21:03.735Z [info]: Initializing Redis connection
+2026-03-11T18:21:03.737Z [info]: Redis connected successfully
+2026-03-11T18:21:05.174Z [info]: MySQL database connected successfully
+2026-03-11T18:21:09.465Z [info]: Initializing MySQL connection pool
+2026-03-11T18:21:09.515Z [info]: Initializing Twilio client
+2026-03-11T18:21:09.612Z [info]: Initializing Redis connection
+2026-03-11T18:21:09.614Z [info]: Redis connected successfully
+2026-03-11T18:21:10.743Z [info]: MySQL database connected successfully
+2026-03-11T18:21:14.532Z [info]: Initializing MySQL connection pool
+2026-03-11T18:21:14.599Z [info]: Initializing Twilio client
+2026-03-11T18:21:14.709Z [info]: Initializing Redis connection
+2026-03-11T18:21:14.713Z [info]: Redis connected successfully
+2026-03-11T18:21:15.362Z [info]: verifyToken middleware invoked
+2026-03-11T18:21:15.365Z [info]: Token verified successfully
+2026-03-11T18:21:15.837Z [info]: MySQL database connected successfully
+2026-03-11T18:21:16.866Z [info]: Profile fetched from DB
+2026-03-11T18:21:23.199Z [info]: GetChildTopics request received
+2026-03-11T18:21:23.788Z [info]: Child topics fetched from DB
+2026-03-11T18:21:23.789Z [info]: Child topics cached
+2026-03-11T18:21:23.791Z [info]: GetChildTopics request received
+2026-03-11T18:21:23.792Z [info]: Child topics fetched from cache
+2026-03-11T18:21:26.259Z [info]: GetTopicsByCategory request received
+2026-03-11T18:21:26.261Z [info]: Cache miss for category topics
+2026-03-11T18:21:26.844Z [info]: Topics fetched from DB
+2026-03-11T18:21:26.845Z [info]: Topics cached
+2026-03-11T18:21:26.848Z [info]: GetTopicsByCategory request received
+2026-03-11T18:21:26.849Z [info]: Topics fetched from cache
+2026-03-11T18:21:29.359Z [info]: GetCategories request received
+2026-03-11T18:21:29.360Z [info]: Cache miss for categories
+2026-03-11T18:21:29.654Z [info]: Categories fetched from DB
+2026-03-11T18:21:29.655Z [info]: Categories stored in cache
+2026-03-11T18:23:08.459Z [info]: GetTopicsByCategory request received
+2026-03-11T18:23:08.461Z [info]: Topics fetched from cache
+2026-03-11T18:23:08.465Z [info]: GetTopicsByCategory request received
+2026-03-11T18:23:08.468Z [info]: Topics fetched from cache
+2026-03-11T18:23:14.461Z [info]: verifyToken middleware invoked
+2026-03-11T18:23:14.463Z [info]: Token verified successfully
+2026-03-11T18:23:14.464Z [info]: GetTopicWithProblems request received
+2026-03-11T18:23:15.049Z [info]: Topic with problems fetched from DB
+2026-03-11T18:24:43.141Z [info]: Initializing MySQL connection pool
+2026-03-11T18:24:43.267Z [info]: Initializing Twilio client
+2026-03-11T18:24:43.463Z [info]: Initializing Redis connection
+2026-03-11T18:24:43.467Z [info]: Redis connected successfully
+2026-03-11T18:24:44.662Z [info]: MySQL database connected successfully
+2026-03-11T18:24:49.822Z [info]: GetTopicsByCategory request received
+2026-03-11T18:24:49.823Z [info]: Cache miss for category topics
+2026-03-11T18:24:50.412Z [info]: Topics fetched from DB
+2026-03-11T18:24:50.414Z [info]: Topics cached
+2026-03-11T18:24:50.421Z [info]: GetTopicsByCategory request received
+2026-03-11T18:24:50.423Z [info]: Topics fetched from cache
+2026-03-11T18:26:12.374Z [info]: GetCategories request received
+2026-03-11T18:26:12.375Z [info]: Cache miss for categories
+2026-03-11T18:26:12.662Z [info]: Categories fetched from DB
+2026-03-11T18:26:12.663Z [info]: Categories stored in cache
+2026-03-11T18:26:15.161Z [info]: verifyToken middleware invoked
+2026-03-11T18:26:15.166Z [info]: Decoded JWT payload
+2026-03-11T18:26:15.166Z [info]: Token verified successfully
+2026-03-11T18:26:15.458Z [info]: Profile fetched from DB
+2026-03-11T18:26:16.093Z [info]: GetTopicsByCategory request received
+2026-03-11T18:26:16.094Z [info]: Topics fetched from cache
+2026-03-11T18:26:16.096Z [info]: GetTopicsByCategory request received
+2026-03-11T18:26:16.097Z [info]: Topics fetched from cache
+2026-03-11T18:26:21.852Z [info]: Initializing MySQL connection pool
+2026-03-11T18:26:22.022Z [info]: Initializing Twilio client
+2026-03-11T18:26:22.250Z [info]: Initializing Redis connection
+2026-03-11T18:26:22.254Z [info]: Redis connected successfully
+2026-03-11T18:26:23.311Z [info]: MySQL database connected successfully
+2026-03-11T18:26:25.391Z [info]: verifyToken middleware invoked
+2026-03-11T18:26:25.394Z [info]: Decoded JWT payload
+2026-03-11T18:26:25.395Z [info]: Token verified successfully
+2026-03-11T18:26:25.395Z [info]: GetTopicWithProblems request received
+2026-03-11T18:26:25.943Z [info]: Topic with problems fetched from DB
+2026-03-11T18:28:43.712Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T18:28:43.849Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T18:28:44.057Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T18:28:44.060Z [info]: Redis connected successfully
+2026-03-11T18:28:45.555Z [info]: MySQL database connected successfully
+2026-03-11T18:28:58.376Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/array","method":"GET"}
+2026-03-11T18:28:58.381Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:28:58.381Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/array"}
+2026-03-11T18:28:58.381Z [info]: GetTopicWithProblems request received {"slug":"array","userId":4}
+2026-03-11T18:28:58.990Z [info]: Topic with problems fetched from DB {"slug":"array","problemCount":5,"userId":4}
+2026-03-11T18:29:31.545Z [info]: GetCategories request received {"userId":"anonymous"}
+2026-03-11T18:29:31.546Z [info]: Cache miss for categories {"userId":"anonymous","cacheKey":"categories"}
+2026-03-11T18:29:31.848Z [info]: Categories fetched from DB {"userId":"anonymous","count":2}
+2026-03-11T18:29:31.850Z [info]: Categories stored in cache {"userId":"anonymous","cacheKey":"categories","ttlSeconds":600}
+2026-03-11T18:29:37.982Z [info]: verifyToken middleware invoked {"path":"/api/user/me","method":"GET"}
+2026-03-11T18:29:37.984Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:29:37.985Z [info]: Token verified successfully {"userId":4,"path":"/api/user/me"}
+2026-03-11T18:29:38.285Z [info]: Profile fetched from DB {"userId":4}
+2026-03-11T18:29:42.640Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:29:42.641Z [info]: Cache miss for category topics {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:29:43.242Z [info]: Topics fetched from DB {"slug":"dsa","count":28,"userId":"anonymous"}
+2026-03-11T18:29:43.243Z [info]: Topics cached {"cacheKey":"topics_category:dsa","userId":"anonymous"}
+2026-03-11T18:29:43.246Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:29:43.248Z [info]: Topics fetched from cache {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:31:05.072Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T18:31:05.200Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T18:31:05.443Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T18:31:05.446Z [info]: Redis connected successfully
+2026-03-11T18:31:06.593Z [info]: MySQL database connected successfully
+2026-03-11T18:31:09.099Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:31:09.101Z [info]: Cache miss for category topics {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:31:09.667Z [info]: Topics fetched from DB {"slug":"dsa","count":28,"userId":"anonymous"}
+2026-03-11T18:31:09.668Z [info]: Topics cached {"cacheKey":"topics_category:dsa","userId":"anonymous"}
+2026-03-11T18:31:09.674Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:31:09.675Z [info]: Topics fetched from cache {"slug":"dsa","userId":"anonymous"}
+2026-03-11T18:31:11.150Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/array","method":"GET"}
+2026-03-11T18:31:11.154Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:31:11.154Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/array"}
+2026-03-11T18:31:11.154Z [info]: GetTopicWithProblems request received {"slug":"array","userId":4}
+2026-03-11T18:31:11.719Z [info]: Topic with problems fetched from DB {"slug":"array","problemCount":5,"userId":4}
+2026-03-11T18:32:04.361Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T18:32:04.484Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T18:32:04.680Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T18:32:04.684Z [info]: Redis connected successfully
+2026-03-11T18:32:05.807Z [info]: MySQL database connected successfully
+2026-03-11T18:32:30.097Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T18:32:30.099Z [warn]: Authorization header missing {"path":"/api/categories","method":"GET"}
+2026-03-11T18:32:38.193Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T18:32:38.194Z [warn]: Authorization header missing {"path":"/api/categories","method":"GET"}
+2026-03-11T18:32:39.346Z [info]: verifyToken middleware invoked {"path":"/api/user/me","method":"GET"}
+2026-03-11T18:32:39.352Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:32:39.352Z [info]: Token verified successfully {"userId":4,"path":"/api/user/me"}
+2026-03-11T18:32:39.638Z [info]: Profile fetched from DB {"userId":4}
+2026-03-11T18:36:18.483Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T18:36:18.487Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:36:18.487Z [info]: Token verified successfully {"userId":4,"path":"/api/categories"}
+2026-03-11T18:36:18.488Z [info]: GetCategories request received {"userId":4}
+2026-03-11T18:36:18.490Z [info]: Cache miss for categories {"userId":4,"cacheKey":"categories"}
+2026-03-11T18:36:18.771Z [info]: Categories fetched from DB {"userId":4,"count":2}
+2026-03-11T18:36:18.772Z [info]: Categories stored in cache {"userId":4,"cacheKey":"categories","ttlSeconds":600}
+2026-03-11T18:36:25.678Z [info]: verifyToken middleware invoked {"path":"/api/user/me","method":"GET"}
+2026-03-11T18:36:25.679Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:36:25.680Z [info]: Token verified successfully {"userId":4,"path":"/api/user/me"}
+2026-03-11T18:36:25.681Z [info]: Profile fetched from cache {"userId":4}
+2026-03-11T18:36:26.630Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:36:26.631Z [warn]: Authorization header missing {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:36:26.634Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:36:26.634Z [warn]: Authorization header missing {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:38:02.992Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:38:02.993Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:02.993Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:38:02.994Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:38:02.994Z [info]: Cache miss for category topics {"slug":"dsa","userId":4}
+2026-03-11T18:38:03.522Z [info]: Topics fetched from DB {"slug":"dsa","count":28,"userId":4}
+2026-03-11T18:38:03.523Z [info]: Topics cached {"cacheKey":"topics_category:dsa","userId":4}
+2026-03-11T18:38:03.525Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:38:03.527Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:03.527Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:38:03.527Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:38:03.529Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T18:38:05.212Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/array","method":"GET"}
+2026-03-11T18:38:05.214Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:05.215Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/array"}
+2026-03-11T18:38:05.215Z [info]: GetTopicWithProblems request received {"slug":"array","userId":4}
+2026-03-11T18:38:05.743Z [info]: Topic with problems fetched from DB {"slug":"array","problemCount":5,"userId":4}
+2026-03-11T18:38:14.308Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:38:14.310Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:14.310Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:38:14.310Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:38:14.311Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T18:38:14.313Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:38:14.314Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:14.315Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:38:14.316Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:38:14.317Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T18:38:16.832Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/hld","method":"GET"}
+2026-03-11T18:38:16.834Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:16.835Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/hld"}
+2026-03-11T18:38:16.835Z [info]: GetChildTopics request received {"slug":"hld","userId":4}
+2026-03-11T18:38:17.363Z [info]: Child topics fetched from DB {"parentSlug":"hld","count":32,"userId":4}
+2026-03-11T18:38:17.365Z [info]: Child topics cached {"cacheKey":"child_topics:hld","userId":4}
+2026-03-11T18:38:17.368Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/hld","method":"GET"}
+2026-03-11T18:38:17.369Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:17.369Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/hld"}
+2026-03-11T18:38:17.369Z [info]: GetChildTopics request received {"slug":"hld","userId":4}
+2026-03-11T18:38:17.370Z [info]: Child topics fetched from cache {"slug":"hld","userId":4}
+2026-03-11T18:38:17.892Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/event-driven-architecture","method":"GET"}
+2026-03-11T18:38:17.893Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:17.893Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/event-driven-architecture"}
+2026-03-11T18:38:17.894Z [info]: GetTopicBySlug request received {"slug":"event-driven-architecture","userId":4}
+2026-03-11T18:38:18.171Z [info]: Topic fetched from DB {"slug":"event-driven-architecture","userId":4}
+2026-03-11T18:38:18.173Z [info]: Topic cached {"cacheKey":"topic:event-driven-architecture","userId":4}
+2026-03-11T18:38:18.176Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/event-driven-architecture","method":"GET"}
+2026-03-11T18:38:18.177Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:18.177Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/event-driven-architecture"}
+2026-03-11T18:38:18.177Z [info]: GetTopicBySlug request received {"slug":"event-driven-architecture","userId":4}
+2026-03-11T18:38:18.178Z [info]: Topic fetched from cache {"slug":"event-driven-architecture","userId":4}
+2026-03-11T18:38:19.170Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/hld","method":"GET"}
+2026-03-11T18:38:19.171Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:19.171Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/hld"}
+2026-03-11T18:38:19.171Z [info]: GetChildTopics request received {"slug":"hld","userId":4}
+2026-03-11T18:38:19.172Z [info]: Child topics fetched from cache {"slug":"hld","userId":4}
+2026-03-11T18:38:19.174Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/hld","method":"GET"}
+2026-03-11T18:38:19.174Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:19.174Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/hld"}
+2026-03-11T18:38:19.175Z [info]: GetChildTopics request received {"slug":"hld","userId":4}
+2026-03-11T18:38:19.175Z [info]: Child topics fetched from cache {"slug":"hld","userId":4}
+2026-03-11T18:38:21.191Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/consistent-hashing","method":"GET"}
+2026-03-11T18:38:21.192Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:21.192Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/consistent-hashing"}
+2026-03-11T18:38:21.192Z [info]: GetTopicBySlug request received {"slug":"consistent-hashing","userId":4}
+2026-03-11T18:38:21.465Z [info]: Topic fetched from DB {"slug":"consistent-hashing","userId":4}
+2026-03-11T18:38:21.466Z [info]: Topic cached {"cacheKey":"topic:consistent-hashing","userId":4}
+2026-03-11T18:38:21.469Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/consistent-hashing","method":"GET"}
+2026-03-11T18:38:21.470Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:21.470Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/consistent-hashing"}
+2026-03-11T18:38:21.470Z [info]: GetTopicBySlug request received {"slug":"consistent-hashing","userId":4}
+2026-03-11T18:38:21.471Z [info]: Topic fetched from cache {"slug":"consistent-hashing","userId":4}
+2026-03-11T18:38:24.291Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/lld","method":"GET"}
+2026-03-11T18:38:24.292Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:24.292Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/lld"}
+2026-03-11T18:38:24.292Z [info]: GetChildTopics request received {"slug":"lld","userId":4}
+2026-03-11T18:38:24.845Z [info]: Child topics fetched from DB {"parentSlug":"lld","count":18,"userId":4}
+2026-03-11T18:38:24.846Z [info]: Child topics cached {"cacheKey":"child_topics:lld","userId":4}
+2026-03-11T18:38:24.849Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/lld","method":"GET"}
+2026-03-11T18:38:24.851Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:24.851Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/lld"}
+2026-03-11T18:38:24.851Z [info]: GetChildTopics request received {"slug":"lld","userId":4}
+2026-03-11T18:38:24.852Z [info]: Child topics fetched from cache {"slug":"lld","userId":4}
+2026-03-11T18:38:27.642Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/factory","method":"GET"}
+2026-03-11T18:38:27.643Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:27.643Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/factory"}
+2026-03-11T18:38:27.643Z [info]: GetTopicBySlug request received {"slug":"factory","userId":4}
+2026-03-11T18:38:27.947Z [info]: Topic fetched from DB {"slug":"factory","userId":4}
+2026-03-11T18:38:27.949Z [info]: Topic cached {"cacheKey":"topic:factory","userId":4}
+2026-03-11T18:38:27.951Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/factory","method":"GET"}
+2026-03-11T18:38:27.952Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:27.952Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/factory"}
+2026-03-11T18:38:27.952Z [info]: GetTopicBySlug request received {"slug":"factory","userId":4}
+2026-03-11T18:38:27.953Z [info]: Topic fetched from cache {"slug":"factory","userId":4}
+2026-03-11T18:38:29.326Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/lld","method":"GET"}
+2026-03-11T18:38:29.327Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:29.327Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/lld"}
+2026-03-11T18:38:29.327Z [info]: GetChildTopics request received {"slug":"lld","userId":4}
+2026-03-11T18:38:29.328Z [info]: Child topics fetched from cache {"slug":"lld","userId":4}
+2026-03-11T18:38:29.331Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/lld","method":"GET"}
+2026-03-11T18:38:29.333Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:29.333Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/lld"}
+2026-03-11T18:38:29.333Z [info]: GetChildTopics request received {"slug":"lld","userId":4}
+2026-03-11T18:38:29.334Z [info]: Child topics fetched from cache {"slug":"lld","userId":4}
+2026-03-11T18:38:30.693Z [info]: verifyToken middleware invoked {"path":"/api/topics/children/oops","method":"GET"}
+2026-03-11T18:38:30.694Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:30.695Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/children/oops"}
+2026-03-11T18:38:30.695Z [info]: GetChildTopics request received {"slug":"oops","userId":4}
+2026-03-11T18:38:31.333Z [info]: Child topics fetched from DB {"parentSlug":"oops","count":11,"userId":4}
+2026-03-11T18:38:31.334Z [info]: Child topics cached {"cacheKey":"child_topics:oops","userId":4}
+2026-03-11T18:38:33.943Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/abstraction","method":"GET"}
+2026-03-11T18:38:33.943Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:33.944Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/abstraction"}
+2026-03-11T18:38:33.944Z [info]: GetTopicBySlug request received {"slug":"abstraction","userId":4}
+2026-03-11T18:38:34.205Z [info]: Topic fetched from DB {"slug":"abstraction","userId":4}
+2026-03-11T18:38:34.206Z [info]: Topic cached {"cacheKey":"topic:abstraction","userId":4}
+2026-03-11T18:38:34.208Z [info]: verifyToken middleware invoked {"path":"/api/topics/theory/abstraction","method":"GET"}
+2026-03-11T18:38:34.209Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773252788,"exp":1773256388}}
+2026-03-11T18:38:34.209Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/theory/abstraction"}
+2026-03-11T18:38:34.209Z [info]: GetTopicBySlug request received {"slug":"abstraction","userId":4}
+2026-03-11T18:38:34.210Z [info]: Topic fetched from cache {"slug":"abstraction","userId":4}
+2026-03-11T18:38:40.019Z [info]: User logged in successfully {"userId":4,"role":"ADMIN"}
+2026-03-11T18:38:40.047Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T18:38:40.048Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T18:38:40.048Z [info]: Token verified successfully {"userId":4,"path":"/api/categories"}
+2026-03-11T18:38:40.048Z [info]: GetCategories request received {"userId":4}
+2026-03-11T18:38:40.049Z [info]: Categories fetched from cache {"userId":4,"cacheKey":"categories"}

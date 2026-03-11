@@ -10,23 +10,24 @@ export const sendMail = async (
   templateName: string,
   variables: Record<string, string>
 ) => {
+
   let subject = "";
   let finalHtml = "";
 
-  logger.info("SendMail: Function triggered", {
+  logger.info("SendMail request received", {
     userId,
     to,
-    templateName,
-    variables,
+    templateName
   });
 
-  console.log("SendMail called:", { userId, to, templateName });
-
   try {
+
     /* ======================================================
-       1️⃣ Fetch Template
+       1️⃣ Fetch Email Template
     ====================================================== */
-    logger.info("SendMail: Fetching email template", { templateName });
+    logger.info("Fetching email template from DB", {
+      templateName
+    });
 
     const [rows]: any = await pool.query(
       "SELECT subject, html_content FROM email_templates WHERE name = ?",
@@ -34,61 +35,73 @@ export const sendMail = async (
     );
 
     if (!rows || rows.length === 0) {
-      logger.warn("SendMail: Template not found", { templateName });
+
+      logger.warn("Email template not found", {
+        templateName,
+        userId
+      });
+
       throw new Error("Email template not found");
     }
 
     subject = rows[0].subject;
     finalHtml = rows[0].html_content;
 
-    logger.info("SendMail: Template fetched successfully", {
-      subject,
+    logger.info("Email template fetched successfully", {
+      templateName,
+      subject
     });
 
+
     /* ======================================================
-       2️⃣ Replace Variables
+       2️⃣ Replace Template Variables
     ====================================================== */
-    logger.info("SendMail: Replacing template variables");
+    logger.info("Replacing template variables", {
+      variableCount: Object.keys(variables).length
+    });
 
     Object.keys(variables).forEach((key) => {
+
       const regex = new RegExp(`{{${key}}}`, "g");
       finalHtml = finalHtml.replace(regex, variables[key]);
+
     });
 
-    logger.info("SendMail: Variables replaced");
+    logger.info("Template variables replaced successfully");
+
 
     /* ======================================================
-       3️⃣ Send Email (Resend)
+       3️⃣ Send Email via Resend
     ====================================================== */
-    logger.info("SendMail: Sending email via Resend", {
+    logger.info("Sending email via Resend", {
       to,
-      subject,
+      subject
     });
 
     const response = await resend.emails.send({
-  from: `DSA Portal 🚀 <${process.env.EMAIL_FROM}>`,
-  to,
-  subject,
-  html: finalHtml,
-});
-
-console.log("Resend response:", response);
-
-    logger.info("SendMail: Resend API response", {
-      response,
+      from: `DSA Portal 🚀 <${process.env.EMAIL_FROM}>`,
+      to,
+      subject,
+      html: finalHtml
     });
 
-    logger.info("SendMail: Email sent successfully", {
+    logger.info("Email sent via Resend successfully", {
       userId,
       to,
       templateName,
+      resendId: response?.data?.id
     });
 
+
     /* ======================================================
-       4️⃣ Log Success In DB
+       4️⃣ Log SUCCESS Email in DB
     ====================================================== */
     try {
-      logger.info("SendMail: Logging SUCCESS email to DB");
+
+      logger.info("Logging SUCCESS email in DB", {
+        userId,
+        templateName
+      });
 
       await pool.query(
         `INSERT INTO email_logs 
@@ -97,28 +110,40 @@ console.log("Resend response:", response);
         [userId, to, subject, finalHtml, "SUCCESS"]
       );
 
-      logger.info("SendMail: SUCCESS email logged in DB");
-    } catch (logError: any) {
-      logger.error("SendMail: Failed to log SUCCESS email", {
-        message: logError.message,
+      logger.info("SUCCESS email log inserted", {
+        userId,
+        templateName
       });
+
+    } catch (logError: any) {
+
+      logger.error("Failed to log SUCCESS email", {
+        userId,
+        message: logError.message
+      });
+
     }
 
   } catch (error: any) {
 
-    logger.error("SendMail Error", {
-      message: error.message,
-      stack: error.stack,
+    logger.error("SendMail error occurred", {
       userId,
       to,
       templateName,
+      message: error.message,
+      stack: error.stack
     });
 
+
     /* ======================================================
-       Log Failure In DB
+       Log FAILED Email in DB
     ====================================================== */
     try {
-      logger.info("SendMail: Logging FAILED email to DB");
+
+      logger.info("Logging FAILED email in DB", {
+        userId,
+        templateName
+      });
 
       await pool.query(
         `INSERT INTO email_logs 
@@ -130,15 +155,22 @@ console.log("Resend response:", response);
           subject || templateName,
           finalHtml || "",
           "FAILED",
-          error.message,
+          error.message
         ]
       );
 
-      logger.info("SendMail: FAILED email logged in DB");
-    } catch (logError: any) {
-      logger.error("SendMail: Failed to log FAILED email", {
-        message: logError.message,
+      logger.info("FAILED email log inserted", {
+        userId,
+        templateName
       });
+
+    } catch (logError: any) {
+
+      logger.error("Failed to log FAILED email", {
+        userId,
+        message: logError.message
+      });
+
     }
 
     throw new Error("Email sending failed");

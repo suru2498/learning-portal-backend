@@ -29,7 +29,7 @@ const router = express.Router();
  *                   slug:
  *                     type: string
  */
-router.get("/", getCategories);
+router.get("/", verifyToken, getCategories);
 
 /**
  * @swagger

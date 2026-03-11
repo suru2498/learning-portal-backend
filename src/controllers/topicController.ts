@@ -3,63 +3,65 @@ import { pool } from "../config/db";
 import { logger } from "../utils/logger";
 import { redisClient } from "../config/redis";
 
-export const getTopicsByCategorySlug = async (
-  req: Request,
-  res: Response
-) => {
+export const getTopicsByCategorySlug = async (req: Request, res: Response) => {
+
   const { slug } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
   const cacheKey = `topics_category:${slug}`;
+
+  logger.info("GetTopicsByCategory request received", { slug, userId });
 
   try {
 
     if (!slug) {
-      logger.warn("GetTopicsByCategory: Missing slug");
+      logger.warn("Category slug missing", { userId });
       return res.status(400).json({ message: "Category slug required" });
     }
 
-    // 1️⃣ Check Redis Cache
     const cachedTopics = await redisClient.get(cacheKey);
 
     if (cachedTopics) {
-      logger.info("Topics fetched from cache", { categorySlug: slug });
+      logger.info("Topics fetched from cache", { slug, userId });
       return res.status(200).json(JSON.parse(cachedTopics));
     }
 
-    // 2️⃣ Fetch category id
+    logger.info("Cache miss for category topics", { slug, userId });
+
     const [categoryRows]: any = await pool.query(
       "SELECT id FROM categories WHERE slug = ?",
       [slug]
     );
 
-    if (categoryRows.length === 0) {
-      logger.warn("GetTopicsByCategory: Category not found", { slug });
+    if (!categoryRows.length) {
+      logger.warn("Category not found", { slug, userId });
       return res.status(404).json({ message: "Category not found" });
     }
 
     const categoryId = categoryRows[0].id;
 
-    // 3️⃣ Fetch topics from DB
     const [rows]: any = await pool.query(
       "SELECT * FROM topics WHERE category_id = ? AND parent_id IS NULL",
       [categoryId]
     );
 
     logger.info("Topics fetched from DB", {
-      categorySlug: slug,
-      count: rows.length
+      slug,
+      count: rows.length,
+      userId
     });
 
-    // 4️⃣ Save to Redis (5 min TTL)
-    await redisClient.set(cacheKey, JSON.stringify(rows), {
-      EX: 300
-    });
+    await redisClient.set(cacheKey, JSON.stringify(rows), { EX: 300 });
+
+    logger.info("Topics cached", { cacheKey, userId });
 
     return res.status(200).json(rows);
 
   } catch (error: any) {
+
     logger.error("GetTopicsByCategory Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
     return res.status(500).json({ message: "Internal server error" });
@@ -67,14 +69,20 @@ export const getTopicsByCategorySlug = async (
 };
 
 export const addTopic = async (req: Request, res: Response) => {
+
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("AddTopic request received", {
+    userId,
+    body: req.body
+  });
+
   try {
+
     const { title, description, categorySlug } = req.body;
 
     if (!title || !categorySlug) {
-      logger.warn("AddTopic: Missing required fields", {
-        body: req.body,
-      });
-
+      logger.warn("AddTopic validation failed", { userId });
       return res.status(400).json({ message: "Missing required fields" });
     }
 
@@ -83,44 +91,52 @@ export const addTopic = async (req: Request, res: Response) => {
       [categorySlug]
     );
 
-    if (categoryRows.length === 0) {
-      logger.warn("AddTopic: Category not found", { categorySlug });
+    if (!categoryRows.length) {
+      logger.warn("Category not found for topic creation", {
+        categorySlug,
+        userId
+      });
+
       return res.status(404).json({ message: "Category not found" });
     }
 
     const categoryId = categoryRows[0].id;
 
-    const slug = title
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-");
+    const slug = title.toLowerCase().trim().replace(/\s+/g, "-");
 
     const [result]: any = await pool.query(
       "INSERT INTO topics (category_id, slug, title, description) VALUES (?, ?, ?, ?)",
       [categoryId, slug, title.trim(), description || null]
     );
 
-    logger.info("Topic added successfully", {
+    logger.info("Topic created successfully", {
       topicId: result.insertId,
-      categorySlug,
+      slug,
+      userId
     });
 
     return res.status(201).json({
       message: "Topic added successfully",
-      topicId: result.insertId,
+      topicId: result.insertId
     });
+
   } catch (error: any) {
+
     if (error.code === "ER_DUP_ENTRY") {
-      logger.warn("AddTopic: Duplicate topic slug", {
-        title: req.body.title,
+      logger.warn("Duplicate topic slug detected", {
+        userId,
+        title: req.body.title
       });
 
-      return res.status(400).json({ message: "Topic already exists" });
+      return res.status(400).json({
+        message: "Topic already exists"
+      });
     }
 
     logger.error("AddTopic Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
     return res.status(500).json({ message: "Internal server error" });
@@ -128,11 +144,16 @@ export const addTopic = async (req: Request, res: Response) => {
 };
 
 export const deleteTopic = async (req: Request, res: Response) => {
+
+  const { id } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("DeleteTopic request received", { id, userId });
+
   try {
-    const { id } = req.params;
 
     if (!id) {
-      logger.warn("DeleteTopic: Missing id");
+      logger.warn("Topic id missing", { userId });
       return res.status(400).json({ message: "Topic id required" });
     }
 
@@ -141,61 +162,63 @@ export const deleteTopic = async (req: Request, res: Response) => {
       [id]
     );
 
-    if (result.affectedRows === 0) {
-      logger.warn("DeleteTopic: Topic not found", { id });
+    if (!result.affectedRows) {
+      logger.warn("Topic not found for deletion", { id, userId });
       return res.status(404).json({ message: "Topic not found" });
     }
 
-    logger.info("Topic deleted successfully", { id });
+    logger.info("Topic deleted successfully", { id, userId });
 
     return res.status(200).json({ message: "Topic deleted successfully" });
+
   } catch (error: any) {
+
     logger.error("DeleteTopic Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
     return res.status(500).json({ message: "Internal server error" });
   }
 };
 
-export const getTopicWithProblems = async (
-  req: Request,
-  res: Response
-) => {
-  const { slug } = req.params;
-  const userId = (req as any).user?.id || null;
+export const getTopicWithProblems = async (req: Request, res: Response) => {
 
+  const { slug } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
   const cacheKey = `topic_problems:${slug}:${userId}`;
+
+  logger.info("GetTopicWithProblems request received", {
+    slug,
+    userId
+  });
 
   try {
 
-    // 1️⃣ Check Redis cache
     const cachedData = await redisClient.get(cacheKey);
 
     if (cachedData) {
       logger.info("Topic with problems fetched from cache", {
-        topicSlug: slug,
+        slug,
         userId
       });
 
       return res.status(200).json(JSON.parse(cachedData));
     }
 
-    // 2️⃣ Fetch topic
     const [topics]: any = await pool.query(
       "SELECT * FROM topics WHERE slug = ?",
       [slug]
     );
 
-    if (topics.length === 0) {
-      logger.warn("GetTopicWithProblems: Topic not found", { slug });
+    if (!topics.length) {
+      logger.warn("Topic not found", { slug, userId });
       return res.status(404).json({ message: "Topic not found" });
     }
 
     const topic = topics[0];
 
-    // 3️⃣ Fetch problems
     const [problems]: any = await pool.query(
       `
       SELECT p.*,
@@ -212,26 +235,25 @@ export const getTopicWithProblems = async (
 
     const responseData = {
       ...topic,
-      problems,
+      problems
     };
 
     logger.info("Topic with problems fetched from DB", {
-      topicSlug: slug,
+      slug,
       problemCount: problems.length,
       userId
     });
 
-    // 4️⃣ Save to Redis (5 min)
-    await redisClient.set(cacheKey, JSON.stringify(responseData), {
-      EX: 300
-    });
+    await redisClient.set(cacheKey, JSON.stringify(responseData), { EX: 300 });
 
     return res.status(200).json(responseData);
 
   } catch (error: any) {
+
     logger.error("GetTopicWithProblems Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
     return res.status(500).json({ message: "Internal server error" });
@@ -239,50 +261,90 @@ export const getTopicWithProblems = async (
 };
 
 export const addProblem = async (req: Request, res: Response) => {
+
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("AddProblem request received", {
+    userId,
+    body: req.body
+  });
+
   try {
+
     const { title, difficulty, leetcode_link, topic_id } = req.body;
 
+    /* ===============================
+       1️⃣ Validation
+    =============================== */
     if (!title || !difficulty || !topic_id) {
-      logger.warn("AddProblem: Missing required fields", {
-        body: req.body,
+
+      logger.warn("AddProblem validation failed - missing fields", {
+        userId,
+        body: req.body
       });
 
       return res.status(400).json({
-        message: "Missing required fields",
+        message: "Missing required fields"
       });
     }
 
+
+    /* ===============================
+       2️⃣ Insert Problem
+    =============================== */
     const [result]: any = await pool.query(
       "INSERT INTO problems (title, difficulty, leetcode_link, topic_id) VALUES (?, ?, ?, ?)",
       [title.trim(), difficulty, leetcode_link || null, topic_id]
     );
 
-    logger.info("Problem added successfully", {
-      problemId: result.insertId,
+    const problemId = result.insertId;
+
+    logger.info("Problem inserted into DB", {
+      problemId,
       topicId: topic_id,
+      userId
+    });
+
+
+    /* ===============================
+       3️⃣ Success Response
+    =============================== */
+    logger.info("Problem added successfully", {
+      problemId,
+      topicId: topic_id,
+      userId
     });
 
     return res.status(201).json({
       message: "Problem added successfully",
-      problemId: result.insertId,
-    });
-  } catch (error: any) {
-    logger.error("AddProblem Error", {
-      message: error.message,
-      stack: error.stack,
+      problemId
     });
 
-    return res.status(500).json({ message: "Internal server error" });
+  } catch (error: any) {
+
+    logger.error("AddProblem Error", {
+      userId,
+      message: error.message,
+      stack: error.stack
+    });
+
+    return res.status(500).json({
+      message: "Internal server error"
+    });
   }
 };
 
-export const markProblemSolved = async (
-  req: Request,
-  res: Response
-) => {
+export const markProblemSolved = async (req: Request, res: Response) => {
+
+  const userId = (req as any).user?.id || "anonymous";
+  const problemId = req.params.id;
+
+  logger.info("MarkProblemSolved request received", {
+    userId,
+    problemId
+  });
+
   try {
-    const userId = (req as any).user?.id;
-    const problemId = req.params.id;
 
     await pool.query(
       "INSERT IGNORE INTO solved_problems (user_id, problem_id) VALUES (?, ?)",
@@ -291,27 +353,38 @@ export const markProblemSolved = async (
 
     logger.info("Problem marked as solved", {
       userId,
-      problemId,
+      problemId
     });
 
-    return res.status(200).json({ message: "Marked as solved" });
+    return res.status(200).json({
+      message: "Marked as solved"
+    });
+
   } catch (error: any) {
+
     logger.error("MarkProblemSolved Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({
+      message: "Internal server error"
+    });
   }
 };
 
-export const unmarkProblemSolved = async (
-  req: Request,
-  res: Response
-) => {
+export const unmarkProblemSolved = async (req: Request, res: Response) => {
+
+  const userId = (req as any).user?.id || "anonymous";
+  const problemId = req.params.id;
+
+  logger.info("UnmarkProblemSolved request received", {
+    userId,
+    problemId
+  });
+
   try {
-    const userId = (req as any).user?.id;
-    const problemId = req.params.id;
 
     await pool.query(
       "DELETE FROM solved_problems WHERE user_id = ? AND problem_id = ?",
@@ -320,26 +393,40 @@ export const unmarkProblemSolved = async (
 
     logger.info("Problem unmarked as solved", {
       userId,
-      problemId,
+      problemId
     });
 
-    return res.status(200).json({ message: "Marked as unsolved" });
+    return res.status(200).json({
+      message: "Marked as unsolved"
+    });
+
   } catch (error: any) {
+
     logger.error("UnmarkProblemSolved Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({
+      message: "Internal server error"
+    });
   }
 };
 
 export const updateDSATopic = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { title, description, pseudo_code } = req.body;
 
-    // 1️⃣ Update topic
+  const { id } = req.params;
+  const { title, description, pseudo_code } = req.body;
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("UpdateDSATopic request received", {
+    id,
+    userId
+  });
+
+  try {
+
     const [result]: any = await pool.query(
       `UPDATE topics 
        SET title = ?, description = ?, pseudo_code = ?
@@ -347,12 +434,17 @@ export const updateDSATopic = async (req: Request, res: Response) => {
       [title, description, pseudo_code, id]
     );
 
-    if (result.affectedRows === 0) {
-      logger.warn("UpdateTopic: Topic not found", { id });
-      return res.status(404).json({ message: "Topic not found" });
+    if (!result.affectedRows) {
+      logger.warn("UpdateDSATopic topic not found", {
+        id,
+        userId
+      });
+
+      return res.status(404).json({
+        message: "Topic not found"
+      });
     }
 
-    // 2️⃣ Get topic slug (needed for cache invalidation)
     const [rows]: any = await pool.query(
       "SELECT slug FROM topics WHERE id = ?",
       [id]
@@ -361,60 +453,86 @@ export const updateDSATopic = async (req: Request, res: Response) => {
     const slug = rows?.[0]?.slug;
 
     if (slug) {
-      // remove topic cache for all users
+
       const keys = await redisClient.keys(`topic_problems:${slug}:*`);
 
       if (keys.length > 0) {
         await redisClient.del(keys);
+
+        logger.info("Topic problem cache invalidated", {
+          slug,
+          deletedKeys: keys.length,
+          userId
+        });
       }
     }
 
-    logger.info("Topic updated successfully", { id });
+    logger.info("DSA topic updated successfully", {
+      id,
+      userId
+    });
 
     return res.status(200).json({
-      message: "Topic updated successfully",
+      message: "Topic updated successfully"
     });
 
   } catch (error: any) {
-    logger.error("UpdateTopic Error", {
+
+    logger.error("UpdateDSATopic Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
-    return res.status(500).json({ message: "Internal server error" });
+    return res.status(500).json({
+      message: "Internal server error"
+    });
   }
 };
 
 export const getChildTopics = async (req: Request, res: Response) => {
+
   const { slug } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
   const cacheKey = `child_topics:${slug}`;
+
+  logger.info("GetChildTopics request received", {
+    slug,
+    userId
+  });
 
   try {
 
-    // 1️⃣ Check Redis Cache
     const cachedChildren = await redisClient.get(cacheKey);
 
     if (cachedChildren) {
-      logger.info("Child topics fetched from cache", { slug });
+      logger.info("Child topics fetched from cache", {
+        slug,
+        userId
+      });
 
       return res.status(200).json(JSON.parse(cachedChildren));
     }
 
-    // 2️⃣ Find parent topic
     const [parentRows]: any = await pool.query(
       "SELECT id FROM topics WHERE slug = ?",
       [slug]
     );
 
-    if (parentRows.length === 0) {
-      logger.warn("GetChildTopics: Parent topic not found", { slug });
+    if (!parentRows.length) {
 
-      return res.status(404).json({ message: "Parent topic not found" });
+      logger.warn("Parent topic not found", {
+        slug,
+        userId
+      });
+
+      return res.status(404).json({
+        message: "Parent topic not found"
+      });
     }
 
     const parentId = parentRows[0].id;
 
-    // 3️⃣ Fetch children topics
     const [children]: any = await pool.query(
       "SELECT id, title, slug FROM topics WHERE parent_id = ?",
       [parentId]
@@ -422,61 +540,101 @@ export const getChildTopics = async (req: Request, res: Response) => {
 
     logger.info("Child topics fetched from DB", {
       parentSlug: slug,
-      count: children.length
+      count: children.length,
+      userId
     });
 
-    // 4️⃣ Save in Redis (10 min)
     await redisClient.set(cacheKey, JSON.stringify(children), {
       EX: 600
+    });
+
+    logger.info("Child topics cached", {
+      cacheKey,
+      userId
     });
 
     return res.status(200).json(children);
 
   } catch (error: any) {
+
     logger.error("GetChildTopics Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
-    return res.status(500).json({ message: "Server error" });
+    return res.status(500).json({
+      message: "Server error"
+    });
   }
 };
 
 export const createTopic = async (req: Request, res: Response) => {
+
+  const { title, slug, categorySlug, parentSlug, description, pseudo_code } = req.body;
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("CreateTopic request received", {
+    userId,
+    body: req.body
+  });
+
   try {
-    const { title, slug, categorySlug, parentSlug, description, pseudo_code } = req.body;
 
     if (!title || !slug) {
-      return res.status(400).json({ message: "Title and slug are required" });
+
+      logger.warn("CreateTopic validation failed", {
+        userId
+      });
+
+      return res.status(400).json({
+        message: "Title and slug are required"
+      });
     }
 
     let categoryId: number | null = null;
     let parentId: number | null = null;
 
-    // If nested topic
     if (parentSlug) {
+
       const [parent]: any = await pool.query(
         "SELECT id, category_id FROM topics WHERE slug = ?",
         [parentSlug]
       );
 
       if (!parent.length) {
-        return res.status(400).json({ message: "Parent topic not found" });
+
+        logger.warn("Parent topic not found", {
+          parentSlug,
+          userId
+        });
+
+        return res.status(400).json({
+          message: "Parent topic not found"
+        });
       }
 
       parentId = parent[0].id;
       categoryId = parent[0].category_id;
     }
 
-    // If top-level topic
     if (categorySlug) {
+
       const [category]: any = await pool.query(
         "SELECT id FROM categories WHERE slug = ?",
         [categorySlug]
       );
 
       if (!category.length) {
-        return res.status(400).json({ message: "Category not found" });
+
+        logger.warn("Category not found", {
+          categorySlug,
+          userId
+        });
+
+        return res.status(400).json({
+          message: "Category not found"
+        });
       }
 
       categoryId = category[0].id;
@@ -484,8 +642,8 @@ export const createTopic = async (req: Request, res: Response) => {
 
     await pool.query(
       `INSERT INTO topics 
-   (title, slug, category_id, parent_id, description, pseudo_code) 
-   VALUES (?, ?, ?, ?, ?, ?)`,
+       (title, slug, category_id, parent_id, description, pseudo_code) 
+       VALUES (?, ?, ?, ?, ?, ?)`,
       [
         title.trim(),
         slug.trim(),
@@ -496,140 +654,277 @@ export const createTopic = async (req: Request, res: Response) => {
       ]
     );
 
-    res.status(201).json({ message: "Topic created successfully" });
+    logger.info("Topic created successfully", {
+      slug,
+      userId
+    });
+
+    return res.status(201).json({
+      message: "Topic created successfully"
+    });
 
   } catch (error: any) {
-    logger.error("Create topic error:", error);
+
     if (error.code === "ER_DUP_ENTRY") {
-      return res.status(400).json({ message: "Slug already exists" });
+
+      logger.warn("Duplicate topic slug", {
+        slug,
+        userId
+      });
+
+      return res.status(400).json({
+        message: "Slug already exists"
+      });
     }
 
-    res.status(500).json({ message: "Server error" });
+    logger.error("CreateTopic Error", {
+      userId,
+      message: error.message,
+      stack: error.stack
+    });
+
+    return res.status(500).json({
+      message: "Server error"
+    });
   }
 };
 
 export const getTopicBySlug = async (req: Request, res: Response) => {
+
   const { slug } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
   const cacheKey = `topic:${slug}`;
+
+  logger.info("GetTopicBySlug request received", {
+    slug,
+    userId
+  });
 
   try {
 
-    // 1️⃣ Check Redis cache
     const cachedTopic = await redisClient.get(cacheKey);
 
     if (cachedTopic) {
-      logger.info("Topic fetched from cache", { slug });
+
+      logger.info("Topic fetched from cache", {
+        slug,
+        userId
+      });
+
       return res.status(200).json(JSON.parse(cachedTopic));
     }
 
-    // 2️⃣ Cache miss → fetch from DB
     const [rows]: any = await pool.query(
       "SELECT id, title, description, pseudo_code FROM topics WHERE slug = ?",
       [slug]
     );
 
     if (!rows.length) {
-      logger.warn("GetTopicBySlug: Topic not found", { slug });
-      return res.status(404).json({ message: "Topic not found" });
+
+      logger.warn("Topic not found", {
+        slug,
+        userId
+      });
+
+      return res.status(404).json({
+        message: "Topic not found"
+      });
     }
 
     const topic = rows[0];
 
-    logger.info("Topic fetched from DB", { slug });
+    logger.info("Topic fetched from DB", {
+      slug,
+      userId
+    });
 
-    // 3️⃣ Save to Redis (10 min TTL)
     await redisClient.set(cacheKey, JSON.stringify(topic), {
-      EX: 600,
+      EX: 600
+    });
+
+    logger.info("Topic cached", {
+      cacheKey,
+      userId
     });
 
     return res.status(200).json(topic);
 
   } catch (error: any) {
+
     logger.error("GetTopicBySlug Error", {
+      userId,
       message: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
 
-    return res.status(500).json({ message: "Server error" });
+    return res.status(500).json({
+      message: "Server error"
+    });
   }
 };
 
 export const updateSystemDesignTopic = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { title, description, pseudo_code } = req.body;
 
-    // 1️⃣ Update DB
-    await pool.query(
+  const { id } = req.params;
+  const { title, description, pseudo_code } = req.body;
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("UpdateSystemDesignTopic request received", {
+    topicId: id,
+    userId
+  });
+
+  try {
+
+    /* ===============================
+       1️⃣ Update DB
+    =============================== */
+    const [result]: any = await pool.query(
       `UPDATE topics 
        SET title = ?, description = ?, pseudo_code = ?
        WHERE id = ?`,
       [title, description, pseudo_code, id]
     );
 
-    // 2️⃣ Get slug + parent_id for cache invalidation
+    logger.info("Topic updated in DB", {
+      topicId: id,
+      affectedRows: result?.affectedRows,
+      userId
+    });
+
+
+    /* ===============================
+       2️⃣ Fetch slug + parent_id
+    =============================== */
     const [rows]: any = await pool.query(
       "SELECT slug, parent_id FROM topics WHERE id = ?",
       [id]
     );
 
     if (rows.length > 0) {
+
       const { slug, parent_id } = rows[0];
 
-      // 3️⃣ Clear topic detail cache
+      logger.info("Fetched topic slug for cache invalidation", {
+        slug,
+        parentId: parent_id,
+        userId
+      });
+
+      /* ===============================
+         3️⃣ Clear topic detail cache
+      =============================== */
       await redisClient.del(`topic:${slug}`);
 
-      // 4️⃣ Clear topic problems cache (for all users)
+      logger.info("Topic cache invalidated", {
+        cacheKey: `topic:${slug}`,
+        userId
+      });
+
+
+      /* ===============================
+         4️⃣ Clear topic problems cache
+      =============================== */
       const problemKeys = await redisClient.keys(`topic_problems:${slug}:*`);
+
       if (problemKeys.length > 0) {
+
         await redisClient.del(problemKeys);
+
+        logger.info("Topic problems cache cleared", {
+          deletedKeys: problemKeys.length,
+          topicSlug: slug,
+          userId
+        });
       }
 
-      // 5️⃣ Clear child topics cache if needed
+
+      /* ===============================
+         5️⃣ Clear child topics cache
+      =============================== */
       if (parent_id) {
+
         const [parent]: any = await pool.query(
           "SELECT slug FROM topics WHERE id = ?",
           [parent_id]
         );
 
         if (parent.length > 0) {
-          await redisClient.del(`child_topics:${parent[0].slug}`);
+
+          const parentSlug = parent[0].slug;
+
+          await redisClient.del(`child_topics:${parentSlug}`);
+
+          logger.info("Child topics cache invalidated", {
+            cacheKey: `child_topics:${parentSlug}`,
+            userId
+          });
         }
       }
     }
 
-    logger.info("System design topic updated successfully", { id });
+    logger.info("System design topic updated successfully", {
+      topicId: id,
+      userId
+    });
 
     return res.json({
-      message: "Topic updated successfully",
+      message: "Topic updated successfully"
     });
 
   } catch (err: any) {
+
     logger.error("UpdateSystemDesignTopic Error", {
+      userId,
+      topicId: id,
       message: err.message,
-      stack: err.stack,
+      stack: err.stack
     });
 
     return res.status(500).json({
-      error: err.message,
+      error: err.message
     });
   }
 };
 
 export const deleteSystemDesignTopic = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
 
-    await pool.query(
+  const { id } = req.params;
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("DeleteSystemDesignTopic request received", {
+    topicId: id,
+    userId
+  });
+
+  try {
+
+    const [result]: any = await pool.query(
       "DELETE FROM topics WHERE id = ?",
       [id]
     );
 
-    res.json({
+    logger.info("Topic deleted from DB", {
+      topicId: id,
+      affectedRows: result?.affectedRows,
+      userId
+    });
+
+    return res.json({
       message: "Topic deleted successfully"
     });
 
-  } catch (err) {
-    res.status(500).json({ error: (err as Error).message });
+  } catch (err: any) {
+
+    logger.error("DeleteSystemDesignTopic Error", {
+      topicId: id,
+      userId,
+      message: err.message,
+      stack: err.stack
+    });
+
+    return res.status(500).json({
+      error: err.message
+    });
   }
 };

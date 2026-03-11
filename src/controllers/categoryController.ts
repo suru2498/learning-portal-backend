@@ -6,38 +6,60 @@ import { redisClient } from "../config/redis";
 /* ======================================================
    GET ALL CATEGORIES
 ====================================================== */
-export const getCategories = async (_req: Request, res: Response) => {
+export const getCategories = async (req: Request, res: Response) => {
+  const userId = (req as any).user?.id || "anonymous";
   const cacheKey = "categories";
+
+  logger.info("GetCategories request received", {
+    userId,
+  });
 
   try {
 
-    // 1️⃣ Check cache first
+    /* 1️⃣ Check Cache */
     const cachedCategories = await redisClient.get(cacheKey);
 
     if (cachedCategories) {
-      logger.info("Categories fetched from cache");
+      logger.info("Categories fetched from cache", {
+        userId,
+        cacheKey,
+      });
 
       return res.status(200).json(JSON.parse(cachedCategories));
     }
 
-    // 2️⃣ If cache miss → fetch from DB
+    logger.info("Cache miss for categories", {
+      userId,
+      cacheKey,
+    });
+
+    /* 2️⃣ Fetch From DB */
     const [rows]: any = await pool.query(
       "SELECT * FROM categories ORDER BY id ASC"
     );
 
     logger.info("Categories fetched from DB", {
+      userId,
       count: rows.length,
     });
 
-    // 3️⃣ Save to Redis (10 minutes)
+    /* 3️⃣ Save to Redis */
     await redisClient.set(cacheKey, JSON.stringify(rows), {
       EX: 600,
+    });
+
+    logger.info("Categories stored in cache", {
+      userId,
+      cacheKey,
+      ttlSeconds: 600,
     });
 
     return res.status(200).json(rows);
 
   } catch (error: any) {
-    logger.error("GetCategories Error", {
+
+    logger.error("GetCategories error occurred", {
+      userId,
       message: error.message,
       stack: error.stack,
     });
@@ -53,11 +75,20 @@ export const getCategories = async (_req: Request, res: Response) => {
    ADD CATEGORY (ADMIN ONLY)
 ====================================================== */
 export const addCategory = async (req: Request, res: Response) => {
+  const userId = (req as any).user?.id || "anonymous";
+
+  logger.info("AddCategory request received", {
+    userId,
+    body: req.body,
+  });
+
   try {
     const { name } = req.body;
 
+    /* Validation */
     if (!name || !name.trim()) {
-      logger.warn("AddCategory: Missing category name", {
+      logger.warn("AddCategory validation failed - name missing", {
+        userId,
         body: req.body,
       });
 
@@ -66,25 +97,44 @@ export const addCategory = async (req: Request, res: Response) => {
       });
     }
 
+    /* Insert Category */
     const [result]: any = await pool.query(
       "INSERT INTO categories (name) VALUES (?)",
       [name.trim()]
     );
 
+    const categoryId = result.insertId;
+
+    logger.info("Category inserted into DB", {
+      userId,
+      categoryId,
+      name,
+    });
+
+    /* Invalidate cache */
+    await redisClient.del("categories");
+
+    logger.info("Categories cache invalidated", {
+      userId,
+      cacheKey: "categories",
+    });
+
     logger.info("Category added successfully", {
-      categoryId: result.insertId,
+      userId,
+      categoryId,
       name,
     });
 
     return res.status(201).json({
       message: "Category added successfully",
-      id: result.insertId,
+      id: categoryId,
     });
 
   } catch (error: any) {
 
     if (error.code === "ER_DUP_ENTRY") {
-      logger.warn("AddCategory: Duplicate category attempt", {
+      logger.warn("AddCategory duplicate category attempt", {
+        userId,
         name: req.body.name,
       });
 
@@ -93,7 +143,8 @@ export const addCategory = async (req: Request, res: Response) => {
       });
     }
 
-    logger.error("AddCategory Error", {
+    logger.error("AddCategory error occurred", {
+      userId,
       message: error.message,
       stack: error.stack,
     });

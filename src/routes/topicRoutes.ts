@@ -35,7 +35,7 @@ const router = express.Router();
  *       200:
  *         description: List of child topics
  */
-router.get("/children/:slug", getChildTopics);
+router.get("/children/:slug", verifyToken, getChildTopics);
 
 /**
  * @swagger
@@ -77,7 +77,7 @@ router.get("/topic/:slug", verifyToken, getTopicWithProblems);
  *       200:
  *         description: List of topics
  */
-router.get("/:slug", getTopicsByCategorySlug);
+router.get("/:slug", verifyToken, getTopicsByCategorySlug);
 
 /**
  * @swagger
