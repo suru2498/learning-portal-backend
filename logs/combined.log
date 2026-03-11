@@ -398,3 +398,116 @@
 2026-03-11T18:38:40.048Z [info]: Token verified successfully {"userId":4,"path":"/api/categories"}
 2026-03-11T18:38:40.048Z [info]: GetCategories request received {"userId":4}
 2026-03-11T18:38:40.049Z [info]: Categories fetched from cache {"userId":4,"cacheKey":"categories"}
+2026-03-11T18:59:36.007Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T18:59:36.172Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T18:59:36.388Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T18:59:36.395Z [info]: Redis connected successfully
+2026-03-11T18:59:37.522Z [info]: MySQL database connected successfully
+2026-03-11T18:59:41.337Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:59:41.339Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T18:59:41.339Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:59:41.340Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:59:41.340Z [info]: Cache miss for category topics {"slug":"dsa","userId":4}
+2026-03-11T18:59:41.982Z [info]: Topics fetched from DB {"slug":"dsa","count":29,"userId":4}
+2026-03-11T18:59:41.983Z [info]: Topics cached {"cacheKey":"topics_category:dsa","userId":4}
+2026-03-11T18:59:41.991Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T18:59:41.994Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T18:59:41.994Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T18:59:41.994Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T18:59:41.995Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:00:29.784Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/news","method":"GET"}
+2026-03-11T19:00:29.785Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:00:29.786Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/news"}
+2026-03-11T19:00:29.786Z [info]: GetTopicWithProblems request received {"slug":"news","userId":4}
+2026-03-11T19:00:30.346Z [info]: Topic with problems fetched from DB {"slug":"news","problemCount":0,"userId":4}
+2026-03-11T19:00:32.594Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa/141","method":"DELETE"}
+2026-03-11T19:00:32.596Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:00:32.596Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa/141"}
+2026-03-11T19:00:32.596Z [info]: verifyAdmin middleware invoked {"userId":4}
+2026-03-11T19:00:32.597Z [info]: Admin access granted {"userId":4}
+2026-03-11T19:00:32.597Z [info]: DeleteTopic request received {"id":"141","userId":4}
+2026-03-11T19:00:32.883Z [info]: Topic deleted successfully {"id":"141","userId":4}
+2026-03-11T19:04:31.265Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/news","method":"GET"}
+2026-03-11T19:04:31.268Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:31.268Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/news"}
+2026-03-11T19:04:31.268Z [info]: GetTopicWithProblems request received {"slug":"news","userId":4}
+2026-03-11T19:04:31.270Z [info]: Topic with problems fetched from cache {"slug":"news","userId":4}
+2026-03-11T19:04:34.958Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T19:04:34.960Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:34.961Z [info]: Token verified successfully {"userId":4,"path":"/api/categories"}
+2026-03-11T19:04:34.963Z [info]: GetCategories request received {"userId":4}
+2026-03-11T19:04:34.964Z [info]: Cache miss for categories {"userId":4,"cacheKey":"categories"}
+2026-03-11T19:04:35.283Z [info]: Categories fetched from DB {"userId":4,"count":2}
+2026-03-11T19:04:35.284Z [info]: Categories stored in cache {"userId":4,"cacheKey":"categories","ttlSeconds":600}
+2026-03-11T19:04:36.208Z [info]: verifyToken middleware invoked {"path":"/api/user/me","method":"GET"}
+2026-03-11T19:04:36.210Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:36.210Z [info]: Token verified successfully {"userId":4,"path":"/api/user/me"}
+2026-03-11T19:04:36.578Z [info]: Profile fetched from DB {"userId":4}
+2026-03-11T19:04:36.958Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:36.960Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:36.960Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:36.960Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:36.961Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:36.963Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:36.965Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:36.966Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:36.966Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:36.967Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:39.339Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/news","method":"GET"}
+2026-03-11T19:04:39.340Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:39.340Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/news"}
+2026-03-11T19:04:39.341Z [info]: GetTopicWithProblems request received {"slug":"news","userId":4}
+2026-03-11T19:04:39.341Z [info]: Topic with problems fetched from cache {"slug":"news","userId":4}
+2026-03-11T19:04:41.218Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:41.220Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:41.220Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:41.220Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:41.223Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:41.225Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:41.227Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:41.228Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:41.228Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:41.229Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:42.902Z [info]: verifyToken middleware invoked {"path":"/api/topics/topic/news","method":"GET"}
+2026-03-11T19:04:42.904Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:42.904Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/topic/news"}
+2026-03-11T19:04:42.904Z [info]: GetTopicWithProblems request received {"slug":"news","userId":4}
+2026-03-11T19:04:42.904Z [info]: Topic with problems fetched from cache {"slug":"news","userId":4}
+2026-03-11T19:04:44.536Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:44.538Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:44.538Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:44.538Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:44.539Z [info]: Cache miss for category topics {"slug":"dsa","userId":4}
+2026-03-11T19:04:45.097Z [info]: Topics fetched from DB {"slug":"dsa","count":28,"userId":4}
+2026-03-11T19:04:45.098Z [info]: Topics cached {"cacheKey":"topics_category:dsa","userId":4}
+2026-03-11T19:04:45.101Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:45.102Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773254320,"exp":1773257920}}
+2026-03-11T19:04:45.102Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:45.102Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:45.103Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:49.779Z [info]: User logged in successfully {"userId":4,"role":"ADMIN"}
+2026-03-11T19:04:49.806Z [info]: verifyToken middleware invoked {"path":"/api/categories","method":"GET"}
+2026-03-11T19:04:49.806Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773255889,"exp":1773259489}}
+2026-03-11T19:04:49.806Z [info]: Token verified successfully {"userId":4,"path":"/api/categories"}
+2026-03-11T19:04:49.806Z [info]: GetCategories request received {"userId":4}
+2026-03-11T19:04:49.807Z [info]: Categories fetched from cache {"userId":4,"cacheKey":"categories"}
+2026-03-11T19:04:51.561Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:51.563Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773255889,"exp":1773259489}}
+2026-03-11T19:04:51.563Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:51.563Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:51.564Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:04:51.566Z [info]: verifyToken middleware invoked {"path":"/api/topics/dsa","method":"GET"}
+2026-03-11T19:04:51.567Z [info]: Decoded JWT payload {"decoded":{"id":4,"role":"ADMIN","iat":1773255889,"exp":1773259489}}
+2026-03-11T19:04:51.567Z [info]: Token verified successfully {"userId":4,"path":"/api/topics/dsa"}
+2026-03-11T19:04:51.567Z [info]: GetTopicsByCategory request received {"slug":"dsa","userId":4}
+2026-03-11T19:04:51.568Z [info]: Topics fetched from cache {"slug":"dsa","userId":4}
+2026-03-11T19:08:46.872Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T19:08:47.019Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T19:08:47.259Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T19:08:47.266Z [info]: Redis connected successfully
+2026-03-11T19:08:48.559Z [info]: MySQL database connected successfully
+2026-03-11T19:11:00.172Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-11T19:11:00.319Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-11T19:11:00.524Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-11T19:11:00.527Z [info]: Redis connected successfully
+2026-03-11T19:11:01.579Z [info]: MySQL database connected successfully

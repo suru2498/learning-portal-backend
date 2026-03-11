@@ -109,6 +109,14 @@ export const addTopic = async (req: Request, res: Response) => {
       [categoryId, slug, title.trim(), description || null]
     );
 
+    /* 🔥 CLEAR CACHE */
+    await redisClient.del(`topics_category:${categorySlug}`);
+
+    logger.info("Topics cache invalidated", {
+      cacheKey: `topics_category:${categorySlug}`,
+      userId
+    });
+
     logger.info("Topic created successfully", {
       topicId: result.insertId,
       slug,
@@ -157,6 +165,17 @@ export const deleteTopic = async (req: Request, res: Response) => {
       return res.status(400).json({ message: "Topic id required" });
     }
 
+    /* Get categorySlug before delete */
+    const [rows]: any = await pool.query(
+      `SELECT c.slug as categorySlug
+       FROM topics t
+       JOIN categories c ON t.category_id = c.id
+       WHERE t.id = ?`,
+      [id]
+    );
+
+    const categorySlug = rows?.[0]?.categorySlug;
+
     const [result]: any = await pool.query(
       "DELETE FROM topics WHERE id = ?",
       [id]
@@ -165,6 +184,16 @@ export const deleteTopic = async (req: Request, res: Response) => {
     if (!result.affectedRows) {
       logger.warn("Topic not found for deletion", { id, userId });
       return res.status(404).json({ message: "Topic not found" });
+    }
+
+    /* 🔥 CLEAR CACHE */
+    if (categorySlug) {
+      await redisClient.del(`topics_category:${categorySlug}`);
+
+      logger.info("Topics cache invalidated", {
+        cacheKey: `topics_category:${categorySlug}`,
+        userId
+      });
     }
 
     logger.info("Topic deleted successfully", { id, userId });
@@ -427,6 +456,9 @@ export const updateDSATopic = async (req: Request, res: Response) => {
 
   try {
 
+    /* ===============================
+       1️⃣ Update topic
+    =============================== */
     const [result]: any = await pool.query(
       `UPDATE topics 
        SET title = ?, description = ?, pseudo_code = ?
@@ -435,6 +467,7 @@ export const updateDSATopic = async (req: Request, res: Response) => {
     );
 
     if (!result.affectedRows) {
+
       logger.warn("UpdateDSATopic topic not found", {
         id,
         userId
@@ -445,27 +478,55 @@ export const updateDSATopic = async (req: Request, res: Response) => {
       });
     }
 
+
+    /* ===============================
+       2️⃣ Get slug + categorySlug
+    =============================== */
     const [rows]: any = await pool.query(
-      "SELECT slug FROM topics WHERE id = ?",
+      `SELECT t.slug, c.slug as categorySlug
+       FROM topics t
+       JOIN categories c ON t.category_id = c.id
+       WHERE t.id = ?`,
       [id]
     );
 
     const slug = rows?.[0]?.slug;
+    const categorySlug = rows?.[0]?.categorySlug;
 
+
+    /* ===============================
+       3️⃣ Clear topic problem cache
+    =============================== */
     if (slug) {
 
       const keys = await redisClient.keys(`topic_problems:${slug}:*`);
 
       if (keys.length > 0) {
+
         await redisClient.del(keys);
 
-        logger.info("Topic problem cache invalidated", {
+        logger.info("Topic problems cache invalidated", {
           slug,
           deletedKeys: keys.length,
           userId
         });
       }
     }
+
+
+    /* ===============================
+       4️⃣ Clear category topics cache
+    =============================== */
+    if (categorySlug) {
+
+      await redisClient.del(`topics_category:${categorySlug}`);
+
+      logger.info("Category topics cache invalidated", {
+        cacheKey: `topics_category:${categorySlug}`,
+        userId
+      });
+    }
+
 
     logger.info("DSA topic updated successfully", {
       id,
@@ -595,6 +656,9 @@ export const createTopic = async (req: Request, res: Response) => {
     let categoryId: number | null = null;
     let parentId: number | null = null;
 
+    /* ===============================
+       1️⃣ Resolve parent topic
+    =============================== */
     if (parentSlug) {
 
       const [parent]: any = await pool.query(
@@ -618,6 +682,9 @@ export const createTopic = async (req: Request, res: Response) => {
       categoryId = parent[0].category_id;
     }
 
+    /* ===============================
+       2️⃣ Resolve category
+    =============================== */
     if (categorySlug) {
 
       const [category]: any = await pool.query(
@@ -640,7 +707,10 @@ export const createTopic = async (req: Request, res: Response) => {
       categoryId = category[0].id;
     }
 
-    await pool.query(
+    /* ===============================
+       3️⃣ Insert topic
+    =============================== */
+    const [result]: any = await pool.query(
       `INSERT INTO topics 
        (title, slug, category_id, parent_id, description, pseudo_code) 
        VALUES (?, ?, ?, ?, ?, ?)`,
@@ -654,7 +724,32 @@ export const createTopic = async (req: Request, res: Response) => {
       ]
     );
 
+    /* ===============================
+       4️⃣ Cache invalidation
+    =============================== */
+
+    if (categorySlug) {
+
+      await redisClient.del(`topics_category:${categorySlug}`);
+
+      logger.info("Category topics cache invalidated", {
+        cacheKey: `topics_category:${categorySlug}`,
+        userId
+      });
+    }
+
+    if (parentSlug) {
+
+      await redisClient.del(`child_topics:${parentSlug}`);
+
+      logger.info("Child topics cache invalidated", {
+        cacheKey: `child_topics:${parentSlug}`,
+        userId
+      });
+    }
+
     logger.info("Topic created successfully", {
+      topicId: result.insertId,
       slug,
       userId
     });
@@ -899,6 +994,42 @@ export const deleteSystemDesignTopic = async (req: Request, res: Response) => {
 
   try {
 
+    /* ===============================
+       1️⃣ Fetch topic metadata
+    =============================== */
+    const [rows]: any = await pool.query(
+      `SELECT t.slug, t.parent_id, c.slug as categorySlug
+       FROM topics t
+       LEFT JOIN categories c ON t.category_id = c.id
+       WHERE t.id = ?`,
+      [id]
+    );
+
+    if (!rows.length) {
+
+      logger.warn("Topic not found for deletion", {
+        topicId: id,
+        userId
+      });
+
+      return res.status(404).json({
+        message: "Topic not found"
+      });
+    }
+
+    const { slug, parent_id, categorySlug } = rows[0];
+
+    logger.info("Fetched topic metadata for cache invalidation", {
+      slug,
+      parentId: parent_id,
+      categorySlug,
+      userId
+    });
+
+
+    /* ===============================
+       2️⃣ Delete topic from DB
+    =============================== */
     const [result]: any = await pool.query(
       "DELETE FROM topics WHERE id = ?",
       [id]
@@ -907,6 +1038,78 @@ export const deleteSystemDesignTopic = async (req: Request, res: Response) => {
     logger.info("Topic deleted from DB", {
       topicId: id,
       affectedRows: result?.affectedRows,
+      userId
+    });
+
+
+    /* ===============================
+       3️⃣ Clear topic detail cache
+    =============================== */
+    await redisClient.del(`topic:${slug}`);
+
+    logger.info("Topic detail cache invalidated", {
+      cacheKey: `topic:${slug}`,
+      userId
+    });
+
+
+    /* ===============================
+       4️⃣ Clear topic problems cache
+    =============================== */
+    const problemKeys = await redisClient.keys(`topic_problems:${slug}:*`);
+
+    if (problemKeys.length > 0) {
+
+      await redisClient.del(problemKeys);
+
+      logger.info("Topic problems cache cleared", {
+        deletedKeys: problemKeys.length,
+        topicSlug: slug,
+        userId
+      });
+    }
+
+
+    /* ===============================
+       5️⃣ Clear child topics cache
+    =============================== */
+    if (parent_id) {
+
+      const [parent]: any = await pool.query(
+        "SELECT slug FROM topics WHERE id = ?",
+        [parent_id]
+      );
+
+      if (parent.length > 0) {
+
+        const parentSlug = parent[0].slug;
+
+        await redisClient.del(`child_topics:${parentSlug}`);
+
+        logger.info("Child topics cache invalidated", {
+          cacheKey: `child_topics:${parentSlug}`,
+          userId
+        });
+      }
+    }
+
+
+    /* ===============================
+       6️⃣ Clear category topics cache
+    =============================== */
+    if (categorySlug) {
+
+      await redisClient.del(`topics_category:${categorySlug}`);
+
+      logger.info("Category topics cache invalidated", {
+        cacheKey: `topics_category:${categorySlug}`,
+        userId
+      });
+    }
+
+
+    logger.info("System design topic deleted successfully", {
+      topicId: id,
       userId
     });
 
