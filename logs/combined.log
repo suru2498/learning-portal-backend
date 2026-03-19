@@ -521,3 +521,70 @@
 2026-03-19T03:06:57.339Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
 2026-03-19T03:06:58.133Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
 2026-03-19T03:06:58.914Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:13:33.397Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:13:33.546Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:13:33.772Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:13:33.775Z [info]: Redis connected successfully
+2026-03-19T03:13:34.995Z [info]: MySQL database connected successfully
+2026-03-19T03:13:43.229Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:13:44.083Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:13:44.849Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:13:45.665Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:13:46.449Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:14:05.052Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:14:05.164Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:14:05.347Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:14:05.350Z [info]: Redis connected successfully
+2026-03-19T03:14:06.406Z [info]: MySQL database connected successfully
+2026-03-19T03:15:09.455Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:15:09.559Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:15:09.755Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:15:09.759Z [info]: Redis connected successfully
+2026-03-19T03:15:10.893Z [info]: MySQL database connected successfully
+2026-03-19T03:21:38.198Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:22:31.231Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:23:08.906Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:23:09.009Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:23:09.189Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:23:09.192Z [info]: Redis connected successfully
+2026-03-19T03:23:10.377Z [info]: MySQL database connected successfully
+2026-03-19T03:23:33.016Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:23:33.116Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:23:33.291Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:23:33.294Z [info]: Redis connected successfully
+2026-03-19T03:23:34.488Z [info]: MySQL database connected successfully
+2026-03-19T03:23:43.494Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:23:43.594Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:23:43.762Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:23:43.765Z [info]: Redis connected successfully
+2026-03-19T03:23:44.832Z [info]: MySQL database connected successfully
+2026-03-19T03:25:32.659Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:25:32.772Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:25:32.977Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:25:32.980Z [info]: Redis connected successfully
+2026-03-19T03:25:34.102Z [info]: MySQL database connected successfully
+2026-03-19T03:26:10.779Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:26:10.890Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:26:11.076Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:26:11.078Z [info]: Redis connected successfully
+2026-03-19T03:26:12.159Z [info]: MySQL database connected successfully
+2026-03-19T03:27:32.102Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:27:32.217Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:27:32.433Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:27:32.436Z [info]: Redis connected successfully
+2026-03-19T03:27:33.579Z [info]: MySQL database connected successfully
+2026-03-19T03:28:43.706Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:28:43.821Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:28:44.030Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:28:44.032Z [info]: Redis connected successfully
+2026-03-19T03:28:45.268Z [info]: MySQL database connected successfully
+2026-03-19T03:28:49.198Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:28:50.187Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:28:50.963Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:28:51.754Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:28:52.515Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:28:57.671Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:28:57.773Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:28:57.968Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:28:57.971Z [info]: Redis connected successfully
+2026-03-19T03:28:59.271Z [info]: MySQL database connected successfully
