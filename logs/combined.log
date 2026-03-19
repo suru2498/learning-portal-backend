@@ -511,3 +511,13 @@
 2026-03-11T19:11:00.524Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
 2026-03-11T19:11:00.527Z [info]: Redis connected successfully
 2026-03-11T19:11:01.579Z [info]: MySQL database connected successfully
+2026-03-19T03:06:37.262Z [info]: Initializing MySQL connection pool {"host":"shortline.proxy.rlwy.net","port":"58490","database":"railway"}
+2026-03-19T03:06:37.445Z [info]: Initializing Twilio client {"accountSid":"configured","phoneNumber":"+18704326895"}
+2026-03-19T03:06:37.700Z [info]: Initializing Redis connection {"redisUrl":"redis://localhost:6379"}
+2026-03-19T03:06:37.706Z [info]: Redis connected successfully
+2026-03-19T03:06:38.748Z [info]: MySQL database connected successfully
+2026-03-19T03:06:55.049Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:06:56.281Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:06:57.339Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:06:58.133Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}
+2026-03-19T03:06:58.914Z [warn]: Login: Invalid password attempt {"email":"surajkanyal2412@gmail.com"}

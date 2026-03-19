@@ -12,6 +12,7 @@ import {
   sendEmailOtp
 } from "../controllers/userController";
 import { verifyToken } from "../middleware/userMiddleware";
+import { authLimiter } from "../middleware/rateLimiter";
 
 const router = express.Router();
 
@@ -48,7 +49,7 @@ const router = express.Router();
  *       400:
  *         description: Validation error
  */
-router.post("/register", register);
+router.post("/register", authLimiter, register);
 
 /**
  * @swagger
@@ -78,7 +79,7 @@ router.post("/register", register);
  *       401:
  *         description: Invalid credentials
  */
-router.post("/login", login);
+router.post("/login", authLimiter,login);
 
 /**
  * @swagger
@@ -102,7 +103,7 @@ router.post("/login", login);
  *       200:
  *         description: Reset email sent
  */
-router.post("/forgot-password", forgotPassword);
+router.post("/forgot-password", authLimiter,forgotPassword);
 
 /**
  * @swagger
@@ -130,7 +131,7 @@ router.post("/forgot-password", forgotPassword);
  *       200:
  *         description: Password reset successful
  */
-router.post("/reset-password", resetPassword);
+router.post("/reset-password", authLimiter,resetPassword);
 
 /**
  * @swagger
@@ -201,7 +202,7 @@ router.put("/me", verifyToken, updateMyProfile);
  *       400:
  *         description: Invalid email
  */
-router.post("/send-email-otp", sendEmailOtp);
+router.post("/send-email-otp", authLimiter,sendEmailOtp);
 
 /**
  * @swagger
@@ -231,7 +232,7 @@ router.post("/send-email-otp", sendEmailOtp);
  *       400:
  *         description: Invalid OTP
  */
-router.post("/verify-email-otp", verifyEmailOtp);
+router.post("/verify-email-otp", authLimiter,verifyEmailOtp);
 
 /**
  * @swagger
@@ -257,7 +258,7 @@ router.post("/verify-email-otp", verifyEmailOtp);
  *       400:
  *         description: Invalid phone number
  */
-router.post("/send-mobile-otp", sendMobileOtp);
+router.post("/send-mobile-otp", authLimiter, sendMobileOtp);
 
 /**
  * @swagger
@@ -287,6 +288,6 @@ router.post("/send-mobile-otp", sendMobileOtp);
  *       400:
  *         description: Invalid OTP
  */
-router.post("/verify-mobile-otp", verifyMobileOtp); 
+router.post("/verify-mobile-otp", authLimiter,verifyMobileOtp); 
 
 export default router;
